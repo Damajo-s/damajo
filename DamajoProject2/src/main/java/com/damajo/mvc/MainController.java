@@ -8,5 +8,5 @@ public class MainController {
 	@RequestMapping("main/main.do")
 	public String main_main(){
 		return "main";
-	}
+	}//
 }
