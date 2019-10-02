@@ -9,8 +9,14 @@ public class MainController {
 	public String main_main(){
 		return "main";
 	}
-	@RequestMapping("detail/detail.do")
-	public String main_detail(){
-		return "detail/detail";
+	//상품-상세정보
+	@RequestMapping("shop/detail.do")
+	public String shop_detail(){
+		return "shop/detail";
+	}
+	//상품 리스트
+	@RequestMapping("shop/shop_list.do")
+	public String shop_list(){
+		return "shop/shop_list";
 	}
 }
