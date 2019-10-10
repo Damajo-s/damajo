@@ -164,12 +164,11 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="../main/main.do">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
 						<li><a href="../shop/shop_list.do">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
+						<li><a href="#">인기제품</a></li>
+						<li><a href="#">관심상품</a></li>
+						<li><a href="#">팁게시판</a></li>
+						<li><a href="#">실시간 채팅</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
