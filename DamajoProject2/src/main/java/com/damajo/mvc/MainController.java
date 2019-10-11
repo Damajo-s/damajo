@@ -9,12 +9,12 @@ public class MainController {
 	public String main_main(){
 		return "main";
 	}
-	//»óÇ°-»ó¼¼Á¤º¸
+	//ìƒí’ˆ-ìƒì„¸ì •ë³´
 	@RequestMapping("shop/detail.do")
 	public String shop_detail(){
 		return "shop/detail";
 	}
-	//»óÇ° ¸®½ºÆ®
+	//ìƒí’ˆ ë¦¬ìŠ¤íŠ¸
 	@RequestMapping("shop/shop_list.do")
 	public String shop_list(){
 		return "shop/shop_list";
