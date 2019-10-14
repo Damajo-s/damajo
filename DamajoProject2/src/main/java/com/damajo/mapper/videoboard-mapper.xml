@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.damajo.mapper.videoboard-mapper">
+	<resultMap type="com.damajo.VideoBoardVO" id="dbmap">
+		<result property="no" column="no"/>
+		<result property="title" column="title"/>
+		<result property="writer" column="writer"/>
+		<result property="regdate" column="regdate"/>
+		<result property="hit" column="hit"/>
+		<result property="youtubekey" column="youtubekey"/>
+	</resultMap>
+	<!-- 리스트출력 -->
+	
+</mapper>

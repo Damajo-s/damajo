@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -35,14 +35,13 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> 010-4934-9406</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> extre0626@gmail.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 서울특별시 양천구 목동</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					</ul>
-					<!-- 여기는 로그인 전/후로 변경 해야될 듯 합니다. -->
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> WON</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> 내 계정</a></li><!-- 이 부분은 추후 vo.name이런걸로 -->
+						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
 					</ul>
 				</div>
 			</div>
@@ -87,7 +86,7 @@
 								<div>
 									<a href="#">
 										<i class="fa fa-heart-o"></i>
-										<span>관심상품 목록</span>
+										<span>Your Wishlist</span>
 										<div class="qty">2</div>
 									</a>
 								</div>
@@ -97,7 +96,7 @@
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
-										<span>장바구니</span>
+										<span>Your Cart</span>
 										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
@@ -165,10 +164,10 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="../main/main.do">Home</a></li>
-						<li><a href="../shop/shop_list.do">Categories</a></li>
+						<li><a href="../shop/shop_list.do">카테고리</a></li>
 						<li><a href="#">인기제품</a></li>
 						<li><a href="#">관심상품</a></li>
-						<li><a href="#">팁게시판</a></li>
+						<li><a href="../tipboard/list.do">팁게시판</a></li>
 						<li><a href="#">실시간 채팅</a></li>
 					</ul>
 					<!-- /NAV -->

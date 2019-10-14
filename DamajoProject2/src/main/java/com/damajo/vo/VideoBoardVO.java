@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class VideoVO {
+public class VideoBoardVO {
 	private int no;
 	private String title;
 	private String regdate;
