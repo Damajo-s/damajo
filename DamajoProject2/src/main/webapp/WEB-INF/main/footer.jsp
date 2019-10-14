@@ -18,11 +18,11 @@
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p>우리는 한다. 작업. 비교. PC부품 가격</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>서울 특별시 양천구 목동</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>010-4934-9406</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>extre0626@gmail.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -31,11 +31,11 @@
 							<div class="footer">
 								<h3 class="footer-title">Categories</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Categories</a></li>
+									<li><a href="#">인기상품</a></li>
+									<li><a href="#">관심상품</a></li>
+									<li><a href="#">팁게시판</a></li>
+									<li><a href="#">실시간채팅</a></li>
 								</ul>
 							</div>
 						</div>
@@ -46,24 +46,23 @@
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
+									<li><a href="#">Damajo 소개</a></li>
+									<li><a href="#">연락처</a></li>
+									<li><a href="#">홈페이지 정책</a></li>
+									<li><a href="#">주문&환불 정책</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Service</h3>
+								<h3 class="footer-title">Services</h3>
 								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
+									<li><a href="#">내 계정정보</a></li>
+									<li><a href="#">카트 보기</a></li>
 									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
+									<li><a href="#">주문정보</a></li>
+									<li><a href="#">도움</a></li>
 								</ul>
 							</div>
 						</div>
