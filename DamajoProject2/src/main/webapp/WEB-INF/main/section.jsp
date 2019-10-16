@@ -75,7 +75,7 @@
 							<h3 class="title">New Products</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li><a data-toggle="tab" href="#tab1">CPU</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab1">CPU</a></li>
 									<li><a data-toggle="tab" href="#tab2">그래픽카드</a></li>
 									<li><a data-toggle="tab" href="#tab3">RAM</a></li>
 									<li><a data-toggle="tab" href="#tab4">메인보드</a></li>
@@ -130,7 +130,7 @@
 								<!-- /tab -->
 								
 								<!-- tab -->
-								<div id="tab2" class="tab-pane active">
+								<div id="tab2" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
 										<c:forEach begin="1" end="4" varStatus="s">
@@ -170,7 +170,7 @@
 								<!-- /tab -->
 							
 								<!-- tab -->
-								<div id="tab3" class="tab-pane active">
+								<div id="tab3" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-3">
 										<!-- product -->
 										<c:forEach begin="1" end="4" varStatus="s">
@@ -210,10 +210,10 @@
 								<!-- /tab -->
 								
 								<!-- tab -->
-								<div id="tab3" class="tab-pane active" >
-									<div class="products-slick" data-nav="#slick-nav-3">
+								<div id="tab4" class="tab-pane" >
+									<div class="products-slick" data-nav="#slick-nav-4">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="6" varStatus="s">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
