@@ -132,15 +132,15 @@
 						<div id="product-tab">
 							<!-- product tab nav -->
 							<ul class="tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
-								<li><a data-toggle="tab" href="#tab2">Details</a></li>
-								<li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
+								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
+								<li><a data-toggle="tab" href="#tab2">Q&A</a></li>
+								<li><a data-toggle="tab" href="#tab3">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
 
 							<!-- product tab content -->
 							<div class="tab-content">
-								<!-- tab1  -->
+								<!-- tab1 : 상세보기  -->
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
 										<div class="col-md-12">
@@ -150,17 +150,30 @@
 								</div>
 								<!-- /tab1  -->
 
-								<!-- tab2  -->
+								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
+										<h3 class="text-left">Q&A <font color="blue">(0)</font></h3>
+										<div class="text-left">
+											&nbsp;<a href="#">전체(0)</a>&nbsp;|&nbsp;<a href="#">답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
+											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info"></span>
+										</div>
 										<div class="col-md-12">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<table class="table">
+												<tr>
+													<th>답변상태</th>
+													<th>제목</th>
+													<th>구매/비구매</th>
+													<th>작성자</th>
+													<th>작성일</th>
+												</tr>
+											</table>
 										</div>
 									</div>
 								</div>
 								<!-- /tab2  -->
 
-								<!-- tab3  -->
+								<!-- tab3 : 구매후기  -->
 								<div id="tab3" class="tab-pane fade in">
 									<div class="row">
 										<!-- Rating -->

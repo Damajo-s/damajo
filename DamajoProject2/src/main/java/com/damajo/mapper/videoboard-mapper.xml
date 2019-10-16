@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- <mapper namespace="com.damajo.mapper.videoboard-mapper">
-	<resultMap type="com.damajo.VideoBoardVO" id="dbmap">
+<mapper namespace="com.damajo.mapper.videoboard-mapper">
+	<resultMap type="com.damajo.vo.VideoBoardVO" id="dbMap">
 		<result property="no" column="no"/>
 		<result property="title" column="title"/>
 		<result property="writer" column="writer"/>
@@ -9,6 +9,19 @@
 		<result property="hit" column="hit"/>
 		<result property="youtubekey" column="youtubekey"/>
 	</resultMap>
-	리스트출력
-	
-</mapper> -->
+	<!-- 리스트출력 -->
+	<parameterMap type="hashmap" id="dbListMap">
+		<parameter property="result" mode="OUT" jdbcType="CURSOR" resultMap="dbMap"/>
+	</parameterMap>
+	<select id="videoboard_list" parameterMap="dbListMap" statementType="CALLABLE">
+		{CALL videoboard_list(?)}
+	</select>
+	<!-- 상세보기 -->
+	<parameterMap type="hashmap" id="dbDetailMap">
+		<parameter property="no" mode="IN" javaType="java.lang.Integer"/>
+		<parameter property="result" mode="OUT" jdbcType="CURSOR" resultMap="dbMap"/>
+	</parameterMap>
+	<select id="videoboard_detail" parameterMap="dbDetailMap" statementType="CALLABLE">
+		{CALL videoboard_detail(?,?)}
+	</select>
+</mapper>

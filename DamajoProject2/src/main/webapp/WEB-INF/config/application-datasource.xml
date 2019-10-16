@@ -25,11 +25,11 @@
 			p:configLocation="/WEB-INF/config/config.xml"
 	/>
 	
-	<bean id="mapper"
+	<!-- <bean id="mapper"
 			class="org.mybatis.spring.mapper.MapperFactoryBean"
 			p:sqlSessionFactory-ref="ssf"
 			p:mapperInterface="com.damajo.mapper.VideoBoardMapper"
-	/>
+	/> -->
 	<!-- 몽고클라이언트 연결 -->
 <!-- 	<mongo:mongo-client 
 		id="mc"

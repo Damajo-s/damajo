@@ -35,12 +35,12 @@ public class MainController {
 		model.addAttribute("list", list);
 		return "tipboard/list";
 	}
-	//
-	@RequestMapping("tipboard/detail.do")
+	//상세보기
+	@RequestMapping("tipboard/tip_detail.do")
 	public String tipboard_detail(int no,Model model){
 		VideoBoardVO vo=vdao.videoboard_detail(no);
 		model.addAttribute("vo", vo);
-		return "tipboard/detail";
+		return "tipboard/tip_detail";
 	}
 	
 	
