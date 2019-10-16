@@ -24,7 +24,12 @@
 			p:dataSource-ref="ds"
 			p:configLocation="/WEB-INF/config/config.xml"
 	/>
-	
+	<bean id="memberMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:mapperInterface="com.damajo.mapper.MemberMapper"
+		p:sqlSessionFactory-ref="ssf"
+	/>
+		
 	<!-- <bean id="mapper"
 			class="org.mybatis.spring.mapper.MapperFactoryBean"
 			p:sqlSessionFactory-ref="ssf"
@@ -42,4 +47,5 @@
        <constructor-arg name="databaseName" value="mydb"/>
    </bean> -->
 
+	
 </beans>

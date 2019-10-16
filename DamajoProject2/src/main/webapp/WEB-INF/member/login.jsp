@@ -6,14 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/login.js"></script>
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
-	charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <link type="text/css" rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-	<img src="http://image005.flaticon.com/1/svg/74/74229.svg"
-		alt="user icon" class="logo">
+	<img src="http://image005.flaticon.com/1/svg/74/74229.svg" alt="user icon" class="logo">
 	<div class="cd-tabs">
 		<nav>
 		<ul class="cd-tabs-navigation">
@@ -38,6 +36,7 @@
 							<tr>
 								<td>
 									<div id="naverIdLogin"></div>
+									<a id="kakao-login-btn"></a>
 									<button class="loginpage">Submit</button>
 								</td>
 							</tr>
