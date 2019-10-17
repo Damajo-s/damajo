@@ -12,8 +12,7 @@ public class MemberService {
 
 	public int loginCheck(String id, int type) {
 		int result = 0;
-		int fChk = dao.damajoSignup(id, type);
-		
+		int fChk = dao.damajoSignupCheck(id, type);
 		if (fChk == 1) {
 			// login
 			result=1;
@@ -29,4 +28,9 @@ public class MemberService {
 		}
 		return result;
 	}
+	
+	public void apiSignup(String id, int type){
+		dao.apiSignup(id, type);
+	}
+	
 }

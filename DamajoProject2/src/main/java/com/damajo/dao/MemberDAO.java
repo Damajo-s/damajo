@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.MemberMapper;
+import com.damajo.vo.MemberVO;
 @Repository
 public class MemberDAO {
 	@Autowired
@@ -13,8 +14,15 @@ public class MemberDAO {
 		return mapper.idCheck(id);
 	}
 	
-	public int damajoSignup(String id, int type) {
-		return mapper.damajoSignup(id, type);
+	public int damajoSignupCheck(String id, int type) {
+		return mapper.damajoSignupCheck(id, type);
 	}
 	
+	public void apiSignup(String id,int type){
+		mapper.apiSignup(id, type);
+	}
+	
+	public void damajoSignup(MemberVO vo){
+		mapper.damajoSignup(vo);
+	}
 }

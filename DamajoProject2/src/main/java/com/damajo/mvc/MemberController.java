@@ -22,16 +22,4 @@ public class MemberController {
 		return "member/naverlogincallback";
 	}
 	
-	@RequestMapping("member/login_ok.do")
-	public String login_ok(String id, int type) {
-		int result=ms.loginCheck(id, type);
-		if(result==1) {
-			
-		}else if(result==2) {
-			
-		}if(result==3) {
-			
-		}
-		return "member/login_ok.do";
-	}
 }
