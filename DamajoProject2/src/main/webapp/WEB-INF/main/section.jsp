@@ -70,15 +70,16 @@
 				<div class="row">
 
 					<!-- section title -->
-					<div class="col-md-12">
+					<div class="col-md-12" style="margin-top: -2cm;">
 						<div class="section-title">
-							<h3 class="title">New Products</h3>
+							<h3 class="title">신 상 품</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">CPU</a></li>
 									<li><a data-toggle="tab" href="#tab2">그래픽카드</a></li>
 									<li><a data-toggle="tab" href="#tab3">RAM</a></li>
 									<li><a data-toggle="tab" href="#tab4">메인보드</a></li>
+									<li><a data-toggle="tab" href="#tab5">SSD</a></li>
 								</ul>
 							</div>
 						</div>
@@ -249,10 +250,281 @@
 								</div>
 								<!-- /tab -->
 								
+								<!-- tab -->
+								<div id="tab5" class="tab-pane" >
+									<div class="products-slick" data-nav="#slick-nav-5">
+										<!-- product -->
+										<c:forEach begin="1" end="6" varStatus="s">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">${s.index }  SSD</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
 							</div>
 						</div>
 					</div>
 					<!-- Products tab & slick -->
+						
+					
+					<!-- section title -->
+					<div class="col-md-12" style="margin-top: 1cm;">
+						<div class="section-title">
+							<h3 class="title">왜 안돼</h3>
+							<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab6">CPU</a></li>
+									<li><a data-toggle="tab" href="#tab7">그래픽카드</a></li>
+									<li><a data-toggle="tab" href="#tab8">RAM</a></li>
+									<li><a data-toggle="tab" href="#tab9">메인보드</a></li>
+									<li><a data-toggle="tab" href="#tab10">SSD</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">	
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab6" class="tab-pane active" >
+									<div class="products-slick" data-nav="#slick-nav-6">
+										<!-- product -->
+										<c:forEach begin="1" end="4" varStatus="s">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">${s.index }  CPU</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+								<!-- tab -->
+								<div id="tab7" class="tab-pane">
+									<div class="products-slick" data-nav="#slick-nav-7">
+										<!-- product -->
+										<c:forEach begin="1" end="4" varStatus="s">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">${s.index }  그래픽카드</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+							
+								<!-- tab -->
+								<div id="tab8" class="tab-pane">
+									<div class="products-slick" data-nav="#slick-nav-8">
+										<!-- product -->
+										<c:forEach begin="1" end="4" varStatus="s">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">${s.index }  RAM</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+								<!-- tab -->
+								<div id="tab9" class="tab-pane" >
+									<div class="products-slick" data-nav="#slick-nav-9">
+										<!-- product -->
+										<c:forEach begin="1" end="6" varStatus="s">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">${s.index }  메인보드</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+								<!-- tab -->
+								<div id="tab10" class="tab-pane" >
+									<div class="products-slick" data-nav="#slick-nav-10">
+										<!-- product -->
+										<c:forEach begin="1" end="6" varStatus="s">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">${s.index }  SSD</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+					
+					
+					
+					
 				</div>
 				<!-- /row -->
 			</div>
@@ -376,6 +648,7 @@
 						</div>
 					</div>
 					<!-- /Products tab & slick -->
+
 				</div>
 				<!-- /row -->
 			</div>
@@ -391,7 +664,7 @@
 				<div class="row">
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Top selling1111</h4>
 							<div class="section-nav">
 								<div id="slick-nav-3" class="products-slick-nav"></div>
 							</div>
