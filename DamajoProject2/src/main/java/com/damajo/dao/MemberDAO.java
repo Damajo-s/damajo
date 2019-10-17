@@ -9,11 +9,12 @@ public class MemberDAO {
 	@Autowired
 	private MemberMapper mapper;
 	
-	public int idCheck(String id){
+	public int idCheck(String id) {
 		return mapper.idCheck(id);
 	}
 	
-	public int mysignup(String id, int type){
-		return mapper.mysignup(id, type);
+	public int damajoSignup(String id, int type) {
+		return mapper.damajoSignup(id, type);
 	}
+	
 }

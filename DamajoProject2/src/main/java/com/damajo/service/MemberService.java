@@ -12,18 +12,18 @@ public class MemberService {
 
 	public int loginCheck(String id, int type) {
 		int result = 0;
-		int count = dao.mysignup(id, type);
+		int fChk = dao.damajoSignup(id, type);
 		
-		if (count == 1) {
-			// 로그인
+		if (fChk == 1) {
+			// login
 			result=1;
-		} else if (count == 0) {
-			int count2 = dao.idCheck(id);
-			if (count2 == 1) {
-				// 꺼져
+		} else if (fChk == 0) {
+			int sChk = dao.idCheck(id);
+			if (sChk == 1) {
+				// Existing ID
 				result=2;
-			} else if (count2 == 0) {
-				// 환영~~
+			} else if (sChk == 0) {
+				// Sing up
 				result=3;
 			}
 		}

@@ -23,16 +23,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping("member/login_ok.do")
-	public String login_ok(String id, int type){
+	public String login_ok(String id, int type) {
 		int result=ms.loginCheck(id, type);
-		if(result==1){
-			//로그인
-		}else if(result==2){
-			// ㅂㅂ
-		}else if(result==3){
-			// 환영~
+		if(result==1) {
+			
+		}else if(result==2) {
+			
+		}if(result==3) {
+			
 		}
-		
 		return "member/login_ok.do";
 	}
 }
