@@ -17,6 +17,4 @@ public interface MemberMapper {
 	
 	@Insert("INSERT INTO member VALUES(#{id}, #{pwd}, #{hint}, #{type})")
 	public void damajoSignup(MemberVO vo);
-	
-	
 }
