@@ -1,5 +1,8 @@
 package com.damajo.dao;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +28,18 @@ public class MemberDAO {
 	public void damajoSignup(MemberVO vo){
 		mapper.damajoSignup(vo);
 	}
+
+	public int damajoIdCheck(String id) {
+		return mapper.damajoIdCheck(id);
+	}
+	
+	public String pwdSearch(String id, String hint) {
+		return mapper.pwdSearch(id, hint);
+	}
+	
+	public String leaveAccount(String id){
+		return mapper.leaveAccount(id);
+	}
+	
+	
 }

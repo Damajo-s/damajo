@@ -1,5 +1,7 @@
 package com.damajo.mvc;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,10 +14,11 @@ public class MemberRestController {
 	private MemberService ms;
 	
 	@RequestMapping("member/login_ok.do")
-	public String login_ok(String id, int type) {
+	public String login_ok(String id, int type, HttpSession session) {
 		int result=ms.loginCheck(id, type);
 		if(result==1) { // 로그인
-			
+			session.setAttribute("id",id);
+			session.setAttribute("type", type);
 		}else if(result==2) { // 이미 존재 => 연동해제
 			
 		}if(result==3) { // 회원가입
@@ -23,4 +26,5 @@ public class MemberRestController {
 		}
 		return String.valueOf(result);
 	}
+	
 }

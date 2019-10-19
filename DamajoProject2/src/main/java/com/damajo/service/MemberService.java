@@ -1,9 +1,13 @@
 package com.damajo.service;
 
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.damajo.dao.MemberDAO;
+import com.damajo.vo.MemberVO;
 
 @Service
 public class MemberService {
@@ -32,5 +36,14 @@ public class MemberService {
 	public void apiSignup(String id, int type){
 		dao.apiSignup(id, type);
 	}
+	
+	public void damajoSignup(MemberVO vo) {
+		dao.damajoSignup(vo);
+	}
+	
+	public void logout(HttpSession session) {
+		session.invalidate();
+	}
+	
 	
 }
