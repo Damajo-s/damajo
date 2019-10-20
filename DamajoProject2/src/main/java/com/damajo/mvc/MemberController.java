@@ -25,13 +25,18 @@ public class MemberController {
 		return "member/naverlogincallback";
 	}
 
+	@RequestMapping("member/damajologin")
+	public String damajoLogin(MemberVO vo, HttpSession session) {
+		return "member/damajoLogin";
+	}
+
 	@RequestMapping("member/damajosignup")
 	public String damajoSignup(MemberVO vo) {
 		return "member/damajoSignup";
 	}
 
 	@RequestMapping("member/logout.do")
-	public void logout(Model model,HttpSession session) {
+	public void logout(Model model, HttpSession session) {
 		ms.logout(session);
 	}
 

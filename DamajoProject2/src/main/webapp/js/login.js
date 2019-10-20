@@ -9,17 +9,22 @@ function windowLoaded() {
 		clientId : "GqW25713bZO4btcJ5qoU",
 		callbackUrl : "http://localhost:8080/mvc/member/naverlogincallback.do",
 		isPopup : false, /* 팝업을 통한 연동처리 여부 */
+		callbackHandle: false,
 		loginButton : {
 			color : "white",
 			type : 2,
 			height : 40,
 			width : 100
 		}
-	/* 로그인 버튼의 타입을 지정 */
 	});
+	
 
 	/* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();
+
+
+	
+	
 	// 카카오 로그인
 	Kakao.init('c444dd0ac65fe591c10736f6c0dc3f97'); // 사용할 앱의 JavaScript키 설정
 	Kakao.Auth.createLoginButton({
@@ -30,15 +35,14 @@ function windowLoaded() {
 				success : function(res) {
 					var userEmail = res.kaccount_email; // 유저의 이메일
 					console.log(userEmail);
-					axios.get('../member/login_ok.do', {
+					axios.get('../member/api_login_ok.do', {
 						params : {
 							id : userEmail,
 							type : 3
 						}
 					}).then(function(response) {
-						alert("하이하이");
+						window.location.replace("http://localhost:8080/mvc/main/main.do");
 					});
-					window.location.replace("http://localhost:8080/mvc/main/main.do");
 				},
 				fail : function(error) {
 					alert(JSON.stringify(error));
@@ -49,7 +53,6 @@ function windowLoaded() {
 			alert(JSON.stringify(err));
 		}
 	});
-
 	// codepen 자체 js
 	var tabs = document.querySelectorAll('.cd-tabs')[0], login = document
 			.querySelectorAll('a[data-content=\'login\']')[0], signup = document
@@ -60,6 +63,29 @@ function windowLoaded() {
 	login.addEventListener('click', clicked, false);
 	signup.addEventListener('click', clicked, false);
 
+	var loginButton = document.getElementById('login-button');
+	loginButton.addEventListener("click", function() {
+		var id = document.getElementById('login-username').value;
+		var pwd = document.getElementById('login-password').value;
+		if (id == '' || pwd == '') {
+			alert("아이디와 패스워드를 입력해주세요")
+			return;
+		}
+		axios.get('../member/api_login_ok.do', {
+			params : {
+				id : id,
+				pwd : pwd,
+				type : 1
+			}
+		}).then(function(response) {
+			if(response.data ==1){
+				window.location.replace("http://localhost:8080/mvc/main/main.do");
+			}else if(response.data==4){
+				alert("잘못된 아이디 혹은 패스워드 입니다.")
+			}
+		});
+
+	});
 	function clicked(event) {
 		event.preventDefault();
 

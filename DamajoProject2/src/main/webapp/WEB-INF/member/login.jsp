@@ -21,15 +21,15 @@
 		</nav>
 		<ul class="cd-tabs-content">
 			<li data-content="login" class="selected">
-				<form name="login-form">
 					<div class="form-fild">
 						<label for="username">username</label> <input type="text"
-							name="username">
+							name="username" id="login-username">
 					</div>
 					<div class="form-fild">
 						<label for="password">password</label> <input type="password"
-							name="password">
+							name="password" id="login-password">
 					</div>
+						<input type="hidden" name="type" value="1" id="logintype">
 					<span class="error"></span>
 					<div>
 						<table>
@@ -37,13 +37,12 @@
 								<td>
 									<div id="naverIdLogin"></div>
 									<a id="kakao-login-btn"></a>
-									<button class="loginpage">Submit</button>
+									<button id="login-button" >Submit</button>
 								</td>
 							</tr>
 						</table>
 
 					</div>
-				</form>
 			</li>
 			<li data-content="signup">
 				<form name="signup-form">

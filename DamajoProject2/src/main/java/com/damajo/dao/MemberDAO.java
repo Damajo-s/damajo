@@ -13,16 +13,18 @@ public class MemberDAO {
 	@Autowired
 	private MemberMapper mapper;
 	
-	public int idCheck(String id) {
-		return mapper.idCheck(id);
+	public int idCheck(MemberVO vo) {
+		return mapper.idCheck(vo);
 	}
 	
-	public int damajoSignupCheck(String id, int type) {
-		return mapper.damajoSignupCheck(id, type);
+	public int damajoSignupCheck(MemberVO vo) {
+		return mapper.damajoSignupCheck(vo);
 	}
-	
-	public void apiSignup(String id,int type){
-		mapper.apiSignup(id, type);
+	public int passwordCheck(MemberVO vo){
+		return mapper.passwordCheck(vo);
+	}
+	public void apiSignup(MemberVO vo){
+		mapper.apiSignup(vo);
 	}
 	
 	public void damajoSignup(MemberVO vo){
