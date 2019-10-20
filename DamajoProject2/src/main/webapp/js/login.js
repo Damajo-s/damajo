@@ -1,5 +1,6 @@
 'use strict';
-
+document
+		.write('<script src="https://unpkg.com/axios/dist/axios.min.js"></script>');
 window.addEventListener('load', windowLoaded, false);
 
 function windowLoaded() {
@@ -29,7 +30,15 @@ function windowLoaded() {
 				success : function(res) {
 					var userEmail = res.kaccount_email; // 유저의 이메일
 					console.log(userEmail);
-
+					axios.get('../member/login_ok.do', {
+						params : {
+							id : userEmail,
+							type : 3
+						}
+					}).then(function(response) {
+						alert("하이하이");
+					});
+					window.location.replace("http://localhost:8080/mvc/main/main.do");
 				},
 				fail : function(error) {
 					alert(JSON.stringify(error));
@@ -40,7 +49,7 @@ function windowLoaded() {
 			alert(JSON.stringify(err));
 		}
 	});
-	
+
 	// codepen 자체 js
 	var tabs = document.querySelectorAll('.cd-tabs')[0], login = document
 			.querySelectorAll('a[data-content=\'login\']')[0], signup = document
