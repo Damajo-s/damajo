@@ -10,3 +10,4 @@ public class MemberVO {
 	private String hint;
 	private int type;
 }
+	

@@ -12,11 +12,11 @@ import com.damajo.vo.MemberVO;
 public class MemberService {
 	@Autowired
 	private MemberDAO dao;
-	final static int LOGIN =1;
-	final static int EXIST_ID =2;
+	final static int LOGIN = 1;
+	final static int EXIST_ID = 2;
 	final static int SIGN_UP = 3;
 	final static int PASSWORD_INCORRECT = 4;
-	
+
 	public int loginCheck(MemberVO vo) {
 		int result = 0;
 		if (vo.getType() == 1) {
@@ -40,12 +40,11 @@ public class MemberService {
 		return result;
 	}
 
-	public void apiSignup(MemberVO vo) {
-		dao.apiSignup(vo);
-	}
-
-	public void damajoSignup(MemberVO vo) {
-		dao.damajoSignup(vo);
+	public void signup(MemberVO vo) {
+		if (vo.getType() == 1)
+			dao.damajoSignup(vo);
+		else
+			dao.apiSignup(vo);
 	}
 
 	public void logout(HttpSession session) {

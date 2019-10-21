@@ -21,9 +21,6 @@ function windowLoaded() {
 
 	/* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();
-
-
-	
 	
 	// 카카오 로그인
 	Kakao.init('c444dd0ac65fe591c10736f6c0dc3f97'); // 사용할 앱의 JavaScript키 설정
@@ -86,9 +83,35 @@ function windowLoaded() {
 		});
 
 	});
+	
+	var loginButton = document.getElementById('signup-button');
+	loginButton.addEventListener("click", function() {
+		var id = document.getElementById('signup-username').value;
+		var pwd = document.getElementById('signup-password').value;
+		var hint = document.getElementById('signup-hint').value;
+		if (id == '' || pwd == '') {
+			alert("아이디와 패스워드를 입력해주세요");
+			return;
+		}
+		axios.get('../member/api_login_ok.do', {
+			params : {
+				id : id,
+				pwd : pwd,
+				hint : hint,
+				type : 1
+			}
+		}).then(function(response) {
+			if(response.data ==1){
+				window.location.replace("http://localhost:8080/mvc/main/main.do");
+			}else if(response.data==4){
+				alert("잘못된 아이디 혹은 패스워드 입니다.")
+			}
+		});
+
+	});
+	
 	function clicked(event) {
 		event.preventDefault();
-
 		var selectedItem = event.currentTarget;
 		if (selectedItem.className === 'selected') {
 			// ...
@@ -96,7 +119,6 @@ function windowLoaded() {
 			var selectedTab = selectedItem.getAttribute('data-content'), selectedContent = document
 					.querySelectorAll('li[data-content=\'' + selectedTab
 							+ '\']')[0];
-
 			if (selectedItem == login) {
 				signup.className = '';
 				login.className = 'selected';
@@ -104,7 +126,6 @@ function windowLoaded() {
 				login.className = '';
 				signup.className = 'selected';
 			}
-
 			currentContent.className = '';
 			currentContent = selectedContent;
 			selectedContent.className = 'selected';

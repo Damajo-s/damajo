@@ -26,7 +26,7 @@ public class MemberRestController {
 			System.out.println("이미 존재하는 메일일경우");
 		}
 		if (result == 3) { // 회원가입
-			ms.apiSignup(vo);
+			ms.signup(vo);
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("type", vo.getType());
 			System.out.println("가입");
