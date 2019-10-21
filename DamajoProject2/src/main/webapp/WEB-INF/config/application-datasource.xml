@@ -29,6 +29,11 @@
 		p:mapperInterface="com.damajo.mapper.MemberMapper"
 		p:sqlSessionFactory-ref="ssf"
 	/>
+	<bean id="categoryMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:mapperInterface="com.damajo.mapper.CategoryMapper"
+		p:sqlSessionFactory-ref="ssf"
+	/>
 		
 	<!-- <bean id="mapper"
 			class="org.mybatis.spring.mapper.MapperFactoryBean"
