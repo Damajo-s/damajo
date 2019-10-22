@@ -97,9 +97,8 @@
 										<c:forEach begin="1" end="6"  var="cpuN" items="${cnlist }">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${cpuN.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
@@ -134,12 +133,11 @@
 								<div id="tab2" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<c:forEach begin="1" end="6" items="${snlist }" var="ssdN">
+										<c:forEach begin="1" end="6" items="${snlist }" var="ssdN" varStatus="s">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${ssdN.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
@@ -174,12 +172,11 @@
 								<div id="tab3" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-3">
 										<!-- product -->
-										<c:forEach begin="1" end="6" items="${rnlist }" var="ramN">
+										<c:forEach begin="6" end="11" items="${rnlist }" var="ramN">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${ramN.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
@@ -324,10 +321,9 @@
 										<c:forEach begin="1" end="6" items="${crlist }" var="cpuR">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${cpuR.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
@@ -364,10 +360,9 @@
 										<c:forEach begin="1" end="6" items="${srlist }" var="ssdR" >
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${ssdR.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
@@ -404,10 +399,9 @@
 										<c:forEach begin="1" end="6" items="${rrlist }" var="ramR">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${ramR.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
