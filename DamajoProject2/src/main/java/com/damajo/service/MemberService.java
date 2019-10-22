@@ -16,35 +16,33 @@ public class MemberService {
 	final static int EXIST_ID = 2;
 	final static int SIGN_UP = 3;
 	final static int PASSWORD_INCORRECT = 4;
+	final static int NO_ID = 5;
 
-	public int loginCheck(MemberVO vo) {
+	public int apiLogin(MemberVO vo) {
 		int result = 0;
-		if (vo.getType() == 1) {
-			result = (dao.passwordCheck(vo) == 1) ? LOGIN : PASSWORD_INCORRECT;
-		} else {
-			int signupCheckResult = dao.damajoSignupCheck(vo);
-			if (signupCheckResult == 1) {
-				// login
-				result = LOGIN;
-			} else if (signupCheckResult == 0) {
-				int idExistCheckResult = dao.idCheck(vo);
-				if (idExistCheckResult == 1) {
-					// Existing ID
-					result = EXIST_ID;
-				} else if (idExistCheckResult == 0) {
-					// Sing up
-					result = SIGN_UP;
-				}
-			}
-		}
+		result = dao.damajoSignupCheck(vo) == 1 ? LOGIN : (dao.damajoIdCheck(vo) == 1 ? EXIST_ID : SIGN_UP);
+		System.out.println(result);
 		return result;
 	}
 
-	public void signup(MemberVO vo) {
-		if (vo.getType() == 1)
-			dao.damajoSignup(vo);
-		else
+	public int damajo_login(MemberVO vo) {
+		int result = 0;
+		result = dao.damajoSignupCheck(vo) == 1 ? (dao.passwordCheck(vo) == 1 ? LOGIN : PASSWORD_INCORRECT) : NO_ID;
+		return result;
+	}
+
+	public boolean signup(MemberVO vo) {
+		boolean isSuccess = false;
+		if (vo.getType() == 1) {
+			if (dao.idCheck(vo) != 1) {
+				dao.damajoSignup(vo);
+				isSuccess = true;
+			}
+		} else {
 			dao.apiSignup(vo);
+			isSuccess = true;
+		}
+		return isSuccess;
 	}
 
 	public void logout(HttpSession session) {

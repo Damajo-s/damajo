@@ -68,24 +68,26 @@ function windowLoaded() {
 			alert("아이디와 패스워드를 입력해주세요")
 			return;
 		}
-		axios.get('../member/api_login_ok.do', {
+		axios({
+			method : 'POST',
+			url : '../member/damajo_login_ok.do',
 			params : {
 				id : id,
 				pwd : pwd,
 				type : 1
 			}
-		}).then(function(response) {
-			if(response.data ==1){
+		
+			}).then(function(response) {
+			if(response.data ==1){	
 				window.location.replace("http://localhost:8080/mvc/main/main.do");
 			}else if(response.data==4){
 				alert("잘못된 아이디 혹은 패스워드 입니다.")
 			}
 		});
-
 	});
 	
-	var loginButton = document.getElementById('signup-button');
-	loginButton.addEventListener("click", function() {
+	var signupButton = document.getElementById('signup-button');
+	signupButton.addEventListener("click", function() {
 		var id = document.getElementById('signup-username').value;
 		var pwd = document.getElementById('signup-password').value;
 		var hint = document.getElementById('signup-hint').value;
@@ -93,23 +95,27 @@ function windowLoaded() {
 			alert("아이디와 패스워드를 입력해주세요");
 			return;
 		}
-		axios.get('../member/api_login_ok.do', {
+
+		axios({
+			method : 'POST',
+			url : '../member/damajo_signup_ok.do',
 			params : {
 				id : id,
 				pwd : pwd,
 				hint : hint,
 				type : 1
 			}
-		}).then(function(response) {
+		
+			}).then(function(response) {
 			if(response.data ==1){
 				window.location.replace("http://localhost:8080/mvc/main/main.do");
 			}else if(response.data==4){
 				alert("잘못된 아이디 혹은 패스워드 입니다.")
+			}else if(response.data ==5){
+				alert("이미 존재하는 아이디입니다.");
 			}
 		});
-
 	});
-	
 	function clicked(event) {
 		event.preventDefault();
 		var selectedItem = event.currentTarget;

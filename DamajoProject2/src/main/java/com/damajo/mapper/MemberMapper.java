@@ -18,11 +18,11 @@ public interface MemberMapper {
 	@Insert("INSERT INTO member VALUES ((SELECT NVL(MAX(no)+1,1) FROM member),#{id},'0000','0000',#{type})")
 	public void apiSignup(MemberVO vo);
 	// 다마조 자체 회원가입
-	@Insert("INSERT INTO member VALUES(#{id}, #{pwd}, #{hint}, #{type})")
+	@Insert("INSERT INTO member VALUES((SELECT NVL(MAX(no)+1,1) FROM member),#{id}, #{pwd}, #{hint}, #{type})")
 	public void damajoSignup(MemberVO vo);
 	
 	@Select("SELECT COUNT(*) FROM member WHERE id=#{id}")
-	public int damajoIdCheck(String id);
+	public int damajoIdCheck(MemberVO vo);
 	
 	@Select("SELECT id,pwd FROM member WHERE id=#{id} AND hint=#{hint}")
 	public String pwdSearch(String id, String hint);

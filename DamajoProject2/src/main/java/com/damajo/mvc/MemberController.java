@@ -36,8 +36,9 @@ public class MemberController {
 	}
 
 	@RequestMapping("member/logout.do")
-	public void logout(Model model, HttpSession session) {
+	public String logout(Model model, HttpSession session) {
 		ms.logout(session);
+		return "redirect:../main/main.do";
 	}
 
 }

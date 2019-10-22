@@ -15,23 +15,40 @@ public class MemberRestController {
 	private MemberService ms;
 
 	@RequestMapping("member/api_login_ok.do")
-	public String login_ok(MemberVO vo, HttpSession session) {
-		int result = ms.loginCheck(vo);
+	public String api_login_ok(MemberVO vo, HttpSession session) {
+		int result = ms.apiLogin(vo);
 		System.out.println(vo.getId());
-		System.out.println(vo.getPwd());
 		if (result == 1) { // 로그인
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("type", vo.getType());
 		} else if (result == 2) { // 이미 존재 => 연동해제
-			System.out.println("이미 존재하는 메일일경우");
 		}
 		if (result == 3) { // 회원가입
-			ms.signup(vo);
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("type", vo.getType());
 			System.out.println("가입");
-		} 
+		}
 		return String.valueOf(result);
 	}
 
+	@RequestMapping("member/damajo_login_ok.do")
+	public String damajo_login_ok(MemberVO vo, HttpSession session) {
+		ms.damajo_login(vo);
+		return "ㅎ";
+	}
+
+	@RequestMapping("member/damajo_signup_ok.do")
+	public String damajo_signup(MemberVO vo, HttpSession session) {
+		int result = 0;
+		System.out.println(vo.getHint());
+		System.out.println(vo.getType());
+		System.out.println(vo.getId());
+		System.out.println(vo.getPwd());
+		if (ms.signup(vo)) {
+			session.setAttribute("id", vo.getId());
+			session.setAttribute("type", vo.getType());
+			result = 1;
+		}
+		return String.valueOf(result);
+	}
 }
