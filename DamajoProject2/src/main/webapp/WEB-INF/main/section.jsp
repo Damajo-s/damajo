@@ -134,7 +134,7 @@
 								<div id="tab2" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="6" items="${snlist }" var="ssdN">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -144,9 +144,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  SSD</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${ssdN.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${ssdN.ssd_name }</a></h3>
+												<h4 class="product-price">${ssdN.price }<del class="product-old-price">${ssdN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -361,7 +361,7 @@
 								<div id="tab7" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-7">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="6" items="${srlist }" var="ssdR" >
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -371,9 +371,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index } SSD</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${ssdR.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${ssdR.ssd_name }</a></h3>
+												<h4 class="product-price">${ssdR.price } <del class="product-old-price">${ssdR.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>

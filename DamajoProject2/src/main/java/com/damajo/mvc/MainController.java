@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.damajo.dao.MainDAO;
 import com.damajo.dao.VideoBoardDAO;
 import com.damajo.vo.CPUVO;
+import com.damajo.vo.SSDVO;
 import com.damajo.vo.VideoBoardVO;
 @Controller
 public class MainController {
@@ -25,8 +26,12 @@ public class MainController {
 		Map map = new HashMap();
 		List<CPUVO> crlist = cdao.CPURecomList(map);
 		List<CPUVO> cnlist = cdao.CPUNewList(map);
+		List<SSDVO> snlist = cdao.SSDNewList(map);
+		List<SSDVO> srlist = cdao.SSDRecomList(map);
 		model.addAttribute("crlist", crlist);
 		model.addAttribute("cnlist", cnlist);
+		model.addAttribute("snlist", snlist);
+		model.addAttribute("srlist", srlist);
 		
 		return "main";
 	}
