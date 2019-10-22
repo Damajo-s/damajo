@@ -76,10 +76,10 @@
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">CPU</a></li>
-									<li><a data-toggle="tab" href="#tab2">그래픽카드</a></li>
+									<li><a data-toggle="tab" href="#tab2">SSD</a></li>
 									<li><a data-toggle="tab" href="#tab3">RAM</a></li>
 									<li><a data-toggle="tab" href="#tab4">메인보드</a></li>
-									<li><a data-toggle="tab" href="#tab5">SSD</a></li>
+									<li><a data-toggle="tab" href="#tab5">그래픽카드</a></li>
 								</ul>
 							</div>
 						</div>
@@ -94,7 +94,7 @@
 								<div id="tab1" class="tab-pane active" >
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="6"  var="cpuN" items="${cnlist }">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -104,9 +104,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  CPU</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${cpuN.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${cpuN.cpu_name }</a></h3>
+												<h4 class="product-price">${cpuN.price } <del class="product-old-price">${cpuN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -144,7 +144,7 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  그래픽카드</p>
+												<p class="product-category">${s.index }  SSD</p>
 												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
@@ -264,7 +264,7 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  SSD</p>
+												<p class="product-category">${s.index }  그래픽카드</p>
 												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
@@ -303,10 +303,10 @@
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab6">CPU</a></li>
-									<li><a data-toggle="tab" href="#tab7">그래픽카드</a></li>
+									<li><a data-toggle="tab" href="#tab7">SSD</a></li>
 									<li><a data-toggle="tab" href="#tab8">RAM</a></li>
 									<li><a data-toggle="tab" href="#tab9">메인보드</a></li>
-									<li><a data-toggle="tab" href="#tab10">SSD</a></li>
+									<li><a data-toggle="tab" href="#tab10">그래픽카드</a></li>
 								</ul>
 							</div>
 						</div>
@@ -321,7 +321,7 @@
 								<div id="tab6" class="tab-pane active" >
 									<div class="products-slick" data-nav="#slick-nav-6">
 										<!-- product -->
-										<c:forEach begin="1" end="4" items="${clist }" var="cpu">
+										<c:forEach begin="1" end="6" items="${crlist }" var="cpuR">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -331,9 +331,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${cpu.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${cpu.cpu_name }</a></h3>
-												<h4 class="product-price">${cpu.price } <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${cpuR.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${cpuR.cpu_name }</a></h3>
+												<h4 class="product-price">${cpuR.price } <del class="product-old-price">${cpuR.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -371,7 +371,7 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  그래픽카드</p>
+												<p class="product-category">${s.index } SSD</p>
 												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
@@ -491,7 +491,7 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  SSD</p>
+												<p class="product-category">${s.index }  그래픽카드</p>
 												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">

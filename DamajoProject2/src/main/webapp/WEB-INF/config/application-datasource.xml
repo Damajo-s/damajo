@@ -34,9 +34,9 @@
 		p:mapperInterface="com.damajo.mapper.CategoryMapper"
 		p:sqlSessionFactory-ref="ssf"
 	/>
-	<bean id="cpuMapper"
+	<bean id="mainMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.damajo.mapper.CPUMapper"
+		p:mapperInterface="com.damajo.mapper.MainMapper"
 		p:sqlSessionFactory-ref="ssf"
 	/>
 		

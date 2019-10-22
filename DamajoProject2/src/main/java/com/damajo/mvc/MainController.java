@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.damajo.dao.CPUDAO;
+import com.damajo.dao.MainDAO;
 import com.damajo.dao.VideoBoardDAO;
 import com.damajo.vo.CPUVO;
 import com.damajo.vo.VideoBoardVO;
@@ -18,14 +18,15 @@ public class MainController {
 	@Autowired
 	private VideoBoardDAO vdao;
 	@Autowired
-	private CPUDAO cdao;
+	private MainDAO cdao;
 	@RequestMapping("main/main.do")
 	public String main_main(Model model){
 
 		Map map = new HashMap();
-		List<CPUVO> clist = cdao.CPUList(map);
-		System.out.println(clist.size());
-		model.addAttribute("clist", clist);
+		List<CPUVO> crlist = cdao.CPURecomList(map);
+		List<CPUVO> cnlist = cdao.CPUNewList(map);
+		model.addAttribute("crlist", crlist);
+		model.addAttribute("cnlist", cnlist);
 		
 		return "main";
 	}
