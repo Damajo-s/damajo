@@ -321,7 +321,7 @@
 								<div id="tab6" class="tab-pane active" >
 									<div class="products-slick" data-nav="#slick-nav-6">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="4" items="${clist }" var="cpu">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -331,9 +331,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  CPU</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${cpu.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${cpu.cpu_name }</a></h3>
+												<h4 class="product-price">${cpu.price } <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>

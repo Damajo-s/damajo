@@ -1,21 +1,32 @@
 ﻿package com.damajo.mvc;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.damajo.dao.CPUDAO;
 import com.damajo.dao.VideoBoardDAO;
+import com.damajo.vo.CPUVO;
 import com.damajo.vo.VideoBoardVO;
 @Controller
 public class MainController {
 	@Autowired
 	private VideoBoardDAO vdao;
-	
+	@Autowired
+	private CPUDAO cdao;
 	@RequestMapping("main/main.do")
-	public String main_main(){
+	public String main_main(Model model){
+
+		Map map = new HashMap();
+		List<CPUVO> clist = cdao.CPUList(map);
+		System.out.println(clist.size());
+		model.addAttribute("clist", clist);
+		
 		return "main";
 	}
 	//상품-상세정보
