@@ -299,7 +299,7 @@
 					<!-- section title -->
 					<div class="col-md-12" style="margin-top: 1cm;">
 						<div class="section-title">
-							<h3 class="title">왜 안돼</h3>
+							<h3 class="title">MD 추천</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab6">CPU</a></li>
