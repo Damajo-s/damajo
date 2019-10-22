@@ -72,7 +72,7 @@
 					<!-- section title -->
 					<div class="col-md-12" style="margin-top: -2cm;">
 						<div class="section-title">
-							<h3 class="title">신 상 품</h3>
+							<h3 class="title">New Arrivals</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">CPU</a></li>
@@ -296,7 +296,7 @@
 					<!-- section title -->
 					<div class="col-md-12" style="margin-top: 1cm;">
 						<div class="section-title">
-							<h3 class="title">MD 추천</h3>
+							<h3 class="title">MD<sup>'s</sup>  Recommend</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab6">CPU</a></li>
