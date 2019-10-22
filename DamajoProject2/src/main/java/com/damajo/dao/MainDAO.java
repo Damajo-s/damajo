@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.MainMapper;
 import com.damajo.vo.CPUVO;
+import com.damajo.vo.RAMVO;
 import com.damajo.vo.SSDVO;
 
 @Repository
@@ -32,7 +33,13 @@ public class MainDAO {
 		return mapper.SSDRecomList(map);
 	}
 	
+	public List<RAMVO> RAMNewList(Map map){
+		return mapper.RAMNewList(map);
+	}
 	
+	public List<RAMVO> RAMRecomList(Map map){
+		return mapper.RAMRecomList(map);
+	}
 	
 	
 	

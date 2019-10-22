@@ -174,7 +174,7 @@
 								<div id="tab3" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-3">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="6" items="${rnlist }" var="ramN">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -184,9 +184,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  RAM</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${ramN.company }  ${ramN.memory_capacity }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${ramN.ram_name }</a></h3>
+												<h4 class="product-price">${ramN.price} <del class="product-old-price">${ramN.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -401,7 +401,7 @@
 								<div id="tab8" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-8">
 										<!-- product -->
-										<c:forEach begin="1" end="4" varStatus="s">
+										<c:forEach begin="1" end="6" items="${rrlist }" var="ramR">
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
@@ -411,9 +411,9 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  RAM</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${ramR.company } ${ramR.memory_capacity }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${ramR.ram_name}</a></h3>
+												<h4 class="product-price">${ramR.price}<del class="product-old-price">${ramR.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
