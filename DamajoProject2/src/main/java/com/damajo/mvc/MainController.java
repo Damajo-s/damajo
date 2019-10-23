@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.damajo.dao.CPU_DetailDAO;
 import com.damajo.dao.MainDAO;
 import com.damajo.dao.QABoardDAO;
 import com.damajo.dao.VideoBoardDAO;
@@ -25,6 +26,8 @@ public class MainController {
 	private QABoardDAO qdao;
 	@Autowired
 	private MainDAO cdao;
+	@Autowired
+	private CPU_DetailDAO cpudao;
 	@RequestMapping("main/main.do")
 	public String main_main(Model model){
 
@@ -76,7 +79,13 @@ public class MainController {
 		model.addAttribute("vo", vo);
 		return "tipboard/tip_detail";
 	}
-	
+	//CPU상세보기
+	@RequestMapping("shop/cpu_detail.do")
+	public String cpu_detail(int no,Model model){
+		CPUVO vo = cpudao.CPU_Detail(no);	
+		model.addAttribute("vo",vo);
+		return "shop/cpu_detail";
+	}	
 	
 	
 	
