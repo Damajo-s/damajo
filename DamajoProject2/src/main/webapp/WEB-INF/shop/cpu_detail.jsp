@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +17,7 @@
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="${vo.poster }" alt="">
+								<img src="./img/product01.png" alt="">
 							</div>
 
 							<div class="product-preview">
@@ -38,8 +37,8 @@
 
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
- 						<div id="product-imgs">
-<!-- 							<div class="product-preview">
+						<div id="product-imgs">
+							<div class="product-preview">
 								<img src="./img/product01.png" alt="">
 							</div>
 
@@ -53,7 +52,7 @@
 
 							<div class="product-preview">
 								<img src="./img/product08.png" alt="">
-							</div> -->
+							</div>
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -61,7 +60,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">product name goes here</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -73,7 +72,7 @@
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${vo.price } <del class="product-old-price">${vo.price }</del></h3>
+								<h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -148,28 +147,34 @@
 											<table class="table">												
  										       <tr>
 										          <th class="text-center" width=20%>제조회사</th>
-										          <td class="text-left" width=30%>${vo.company}</td>
+										          <td class="text-left" width=30%></td>
  										          <th class="text-center" width=20%>등록년월</th>
- 										          <td class="text-left" width=30%>${vo.regdate }</td>
+ 										          <td class="text-left" width=30%></td>
    										   	   </tr>
   										       <tr>
  										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
+      										     <td class="text-left" width=30%></td>
     										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
+									   		     <td class="text-left" width=30%></td>
+ 										       </tr>
+  										       <tr>
+ 										         <th class="text-center" width=20%>출시일</th>
+      										     <td class="text-left" width=30%></td>
+    										     <th class="text-center" width=20%>제조 공정</th>
+									   		     <td class="text-left" width=30%></td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
+										          <td class="text-left" width=30%></td>
  										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
+ 										          <td class="text-left" width=30%></td>
    										   	   </tr>
   										       <tr>
  										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
+      										     <td class="text-left" colspan="3"></td>
  										       </tr>
  										       </table>
 										</div>

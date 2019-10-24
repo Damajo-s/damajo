@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.damajo.dao.CPU_DetailDAO;
 import com.damajo.dao.MainDAO;
 import com.damajo.dao.QABoardDAO;
 import com.damajo.dao.VideoBoardDAO;
@@ -26,8 +27,6 @@ public class MainController {
 	private QABoardDAO qdao;
 	@Autowired
 	private MainDAO cdao;
-	@Autowired
-	private CPU_DetailDAO cpudao;
 	@RequestMapping("main/main.do")
 	public String main_main(Model model){
 
@@ -48,18 +47,42 @@ public class MainController {
 		
 		return "main";
 	}
-	//상품-상세정보-QA게시판 
-	@RequestMapping("shop/detail.do")
-	public String shop_detail(String page,Model model){
-		if(page==null){
-			page="1";
+	//Q&A 리스트  
+		@RequestMapping("shop/detail.do")
+		public String shop_detail(String page,Model model){
+			if(page==null){
+				page="1";
+			}
+			int curpage=Integer.parseInt(page);
+			int totalpage=qdao.qaboardTotal();
+			model.addAttribute("curpage", curpage);
+			model.addAttribute("totalpage", totalpage);
+			
+			List<QABoardVO> list=qdao.qaboardList(curpage);
+			System.out.println(list);
+			model.addAttribute("list", list);
+			return "shop/detail";
 		}
-		int curpage=Integer.parseInt(page);
-		List<QABoardVO> list=qdao.qaboardList(curpage);
-		System.out.println(list);
-		model.addAttribute("list", list);
-		return "shop/detail";
-	}
+		//상품 Q&A 작성하기 창 띄우기
+		@RequestMapping("shop/qainsert.do")
+		public String shop_qainsert(){
+			return "qainsert";
+		}
+		// QA새글 
+		@RequestMapping("shop/qainsert_ok.do")
+		public String shop_insert(QABoardVO vo,Model model,HttpSession session){
+			// 아이디 비밀번호 session에서 처리?
+			String id=(String)session.getAttribute("id");
+			String pwd=(String)session.getAttribute("pwd");
+			vo.setId(id);
+			vo.setPwd(pwd);
+			qdao.qaboardInsert(vo);
+			return "redirect:shop_list.do";
+		}
+		// 수정하기
+		
+		// 삭제하기
+	
 	//상품 카테고리 
 	@RequestMapping("shop/shop_list.do")
 	public String shop_list(){
@@ -79,13 +102,7 @@ public class MainController {
 		model.addAttribute("vo", vo);
 		return "tipboard/tip_detail";
 	}
-	//CPU상세보기
-	@RequestMapping("shop/cpu_detail.do")
-	public String cpu_detail(int no,Model model){
-		CPUVO vo = cpudao.CPU_Detail(no);	
-		model.addAttribute("vo",vo);
-		return "shop/cpu_detail";
-	}	
+	
 	
 	
 	

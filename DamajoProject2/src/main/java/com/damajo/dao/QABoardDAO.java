@@ -18,7 +18,7 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 	// 추가
 	public void qaboardInsert(QABoardVO vo){
 		Map map=new HashMap();
-		map.put("type", vo.getType());
+		map.put("pno", vo.getPno());
 		map.put("subject", vo.getSubject());
 		map.put("content", vo.getContent());
 		map.put("id", vo.getId());
@@ -41,6 +41,13 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		getSqlSession().update("qaboardList",map);
 		list=(List<QABoardVO>)map.get("result");
 		return list;
+	}
+	//총페이지
+	public int qaboardTotal(){
+		Map map=new HashMap();
+		getSqlSession().update("qaboardTotal",map);
+		int total=(Integer)map.get("qtotal");
+		return total;
 	}
 	
 	

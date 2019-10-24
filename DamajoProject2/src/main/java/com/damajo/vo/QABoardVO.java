@@ -16,12 +16,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class QABoardVO {
-	private int type;
 	private int no;
+	private int pno;
 	private String id;
+	private String pwd;
 	private String subject;
 	private String content;
-	private String pwd;
 	private Date regdate;
 	private String adminres;
 }

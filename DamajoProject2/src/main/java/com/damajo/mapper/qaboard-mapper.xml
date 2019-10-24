@@ -2,21 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.damajo.mapper.qaboard-mapper">
 	<resultMap type="com.damajo.vo.QABoardVO" id="dbMap">
-		<result property="type" column="type"/>
 		<result property="no" column="no"/>
+		<result property="pno" column="pno"/>
 		<result property="subject" column="subject"/>
 		<result property="content" column="content"/>
+		<result property="id" column="id"/>
 		<result property="pwd" column="pwd"/>
 		<result property="regdate" column="regdate"/>
 		<result property="adminres" column="adminres"/>
 	</resultMap>
 	<!-- 추가 -->
 	<parameterMap type="hashmap" id="dbInsertMap">
-		<parameter property="type" mode="IN" javaType="java.lang.Integer"/>
-		<parameter property="subject" mode="IN" javaType="java.lang.String"/>
-		<parameter property="content" mode="IN" javaType="java.lang.String"/>
+		<parameter property="pno" mode="IN" javaType="java.lang.Integer"/>
 		<parameter property="id" mode="IN" javaType="java.lang.String"/>
 		<parameter property="pwd" mode="IN" javaType="java.lang.String"/>
+		<parameter property="subject" mode="IN" javaType="java.lang.String"/>
+		<parameter property="content" mode="IN" javaType="java.lang.String"/>
 		<parameter property="adminres" mode="IN" javaType="java.lang.String"/>
 	</parameterMap>
 	<select id="qaboardInsert" parameterMap="dbInsertMap" statementType="CALLABLE">
@@ -32,6 +33,20 @@
 		{CALL qaboardList(?,?,?)}
 	</select>
 	<!-- 총페이지 -->
+	<parameterMap type="hashmap" id="dbTotalMap">
+		<parameter property="qtotal" mode="OUT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+	</parameterMap>
+	<select id="qaboardTotal" parameterMap="dbTotalMap" statementType="CALLABLE">
+		{CALL qaboardTotal (?)}
+	</select>
 	<!-- 수정 -->
+	
+	
 	<!-- 삭제 -->
+	
+	
+	
+	
+	
+	
 </mapper>

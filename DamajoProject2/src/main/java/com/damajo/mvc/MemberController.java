@@ -41,11 +41,4 @@ public class MemberController {
 		return "redirect:../main/main.do";
 	}
 
-	@RequestMapping("member/usermanage.do")
-	public String user_manage(Model model) {
-
-		// model.addAttribute("userList",userList);
-		return "member/usermanage.do";
-	}
-
 }

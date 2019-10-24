@@ -23,12 +23,12 @@
        p:viewClass="org.springframework.web.servlet.view.tiles3.TilesView"
        p:order="0"
      />
-<!--      <bean id="viewResolver"
+	<bean id="viewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-        p:prefix="/"
+        p:prefix="/WEB-INF/shop/"
         p:suffix=".jsp"
         p:order="1"
-      /> -->
+ 	/>
 
 </beans>
 

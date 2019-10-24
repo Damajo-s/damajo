@@ -8,10 +8,14 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(function(){
-	
-});
+$(document).ready(function(){
+	  $('#insertbtn').on("click", function(){
+	    window.open("../shop/qainsert.do","상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
+	    //$("#myform").submit();	
+	  });
+	});
 </script>
+
 </head>
 <body>
 		<!-- SECTION -->
@@ -163,7 +167,7 @@ $(function(){
 										<h3 class="text-left">Q&A <font color="blue">(0)</font></h3>
 										<div class="text-left">
 											&nbsp;<a href="#">전체(0)</a>&nbsp;|&nbsp;<a href="#">답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
-											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info"></span>
+											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
 										</div>
 										<div class="col-md-12">
 											<table class="table" width="100%" cellspacing="0">
@@ -183,11 +187,25 @@ $(function(){
 											<c:forEach var="vo" items="${list }">
 												<tbody>
 													<tr>
-														<td>${vo.type }</td>
+														<td></td>
 														<td>${vo.subject }</td>
 														<td></td>
 														<td>${vo.writer }</td>
 														<td>${vo.regdate }</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td>${vo.content }</td>
+														<td></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td></td>
+														<td>${vo.adminres }</td>
+														<td></td>
+														<td></td>
 													</tr>
 												</tbody>
 												</c:forEach>
