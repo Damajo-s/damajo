@@ -104,7 +104,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${cpuN.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${cpuN.cpu_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/detail.do?product=${cpuN.cpu_no }">${cpuN.cpu_name }</a></h3>
 												<h4 class="product-price">${cpuN.price } <del class="product-old-price">${cpuN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -182,7 +182,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${ramN.company }  ${ramN.memory_capacity }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${ramN.ram_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/detail.do?product=${ramN.ram_no }">${ramN.ram_name }</a></h3>
 												<h4 class="product-price">${ramN.price} <del class="product-old-price">${ramN.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>

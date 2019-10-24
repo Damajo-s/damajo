@@ -4,41 +4,37 @@
 	<resultMap type="com.damajo.vo.QABoardVO" id="dbMap">
 		<result property="no" column="no"/>
 		<result property="pno" column="pno"/>
+		<result property="id" column="id"/>
 		<result property="subject" column="subject"/>
 		<result property="content" column="content"/>
-		<result property="id" column="id"/>
-		<result property="pwd" column="pwd"/>
 		<result property="regdate" column="regdate"/>
 		<result property="adminres" column="adminres"/>
 	</resultMap>
 	<!-- 추가 -->
 	<parameterMap type="hashmap" id="dbInsertMap">
 		<parameter property="pno" mode="IN" javaType="java.lang.Integer"/>
-		<parameter property="id" mode="IN" javaType="java.lang.String"/>
-		<parameter property="pwd" mode="IN" javaType="java.lang.String"/>
-		<parameter property="subject" mode="IN" javaType="java.lang.String"/>
-		<parameter property="content" mode="IN" javaType="java.lang.String"/>
-		<parameter property="adminres" mode="IN" javaType="java.lang.String"/>
+		<parameter property="id" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="subject" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="content" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="adminres" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<select id="qaboardInsert" parameterMap="dbInsertMap" statementType="CALLABLE">
-		{CALL qaboardInsert(?,?,?,?,?,?)}
+		{CALL qaboardInsert(?,?,?,?,?)}
 	</select>
 	<!-- 리스트출력 -->
 	<parameterMap type="hashmap" id="dbListMap">
-		<parameter property="qstart" mode="IN" javaType="java.lang.Integer"/>
-		<parameter property="qend" mode="IN" javaType="java.lang.Integer"/>
 		<parameter property="result" mode="OUT" jdbcType="CURSOR" resultMap="dbMap"/>
 	</parameterMap>
 	<select id="qaboardList" parameterMap="dbListMap" statementType="CALLABLE">
-		{CALL qaboardList(?,?,?)}
+		{CALL qaboardList(?)}
 	</select>
 	<!-- 총페이지 -->
-	<parameterMap type="hashmap" id="dbTotalMap">
-		<parameter property="qtotal" mode="OUT" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+	<!-- <parameterMap type="hashmap" id="dbTotalMap">
+		<parameter property="qtotal" mode="OUT" jdbcType="INTEGER"/>
 	</parameterMap>
 	<select id="qaboardTotal" parameterMap="dbTotalMap" statementType="CALLABLE">
 		{CALL qaboardTotal (?)}
-	</select>
+	</select> -->
 	<!-- 수정 -->
 	
 	

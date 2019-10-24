@@ -23,8 +23,7 @@
 </head>
 <body>
 	<form name="qainsert" target="qainsert" method="post" action="../shop/qainsert_ok.do" >
-		<input type=hidden name="id" value="a">
-		<input type=hidden name= value="b">
+		<input type=hidden value="${product }" name=product>
 		<div class="container">
 			<h3>&nbsp;&nbsp;상품 Q&A 작성하기</h3>
 			<hr width="470">
@@ -52,7 +51,7 @@
 			</div>
 			<div class="text-center">
 				<input type=button value="취소" class="btn btn-sm btn-danger"onclick="window.close();">
-				<input type=submit value="등록" class="btn btn-sm btn-danger" id=insertBtn>
+				<input type=submit value="등록" class="btn btn-sm btn-danger" id=insertBtn >
 			</div>
 		</div>
 	</form>

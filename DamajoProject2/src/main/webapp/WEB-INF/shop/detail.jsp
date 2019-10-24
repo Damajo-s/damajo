@@ -10,10 +10,29 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	  $('#insertbtn').on("click", function(){
-	    window.open("../shop/qainsert.do","상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
+		  var pno=$('#pro').val();
+	    window.open("../shop/qainsert.do?product="+pno,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
 	    //$("#myform").submit();	
 	  });
 	});
+//Q&A 
+var i=0;
+var j=0;
+$(function(){
+	$('.subject').click(function(){
+		 $('.content').hide();
+		 $('.adminres').hide();
+		if(i==0){
+			$('.content').show();
+			$('.adminres').show();
+			i=1;
+		}else{
+			$('.content').hide();
+			$('.adminres').hide();
+			i=0;
+		} 
+	});
+});
 </script>
 
 </head>
@@ -166,16 +185,17 @@ $(document).ready(function(){
 									<div class="row">
 										<h3 class="text-left">Q&A <font color="blue">(0)</font></h3>
 										<div class="text-left">
-											&nbsp;<a href="#">전체(0)</a>&nbsp;|&nbsp;<a href="#">답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
+											&nbsp;<a class="allCount">전체(0)</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
+											<input type="hidden" id="pro" value="${product }">
 										</div>
 										<div class="col-md-12">
 											<table class="table" width="100%" cellspacing="0">
 												<thead>
 												<tr>
 													<th class="text-center" width="10%">답변상태</th>
-													<th class="text-center" width="45%">제목</th>
-													<th class="text-center" width="15%"></th>
+													<th class="text-center" width="20%">제목</th>
+													<th class="text-center" width="5%"></th>
 													<th class="text-center" width="20%">작성자</th>
 													<th class="text-center" width="10%">작성일</th>
 												</tr>
@@ -187,25 +207,25 @@ $(document).ready(function(){
 											<c:forEach var="vo" items="${list }">
 												<tbody>
 													<tr>
-														<td></td>
-														<td>${vo.subject }</td>
-														<td></td>
-														<td>${vo.writer }</td>
-														<td>${vo.regdate }</td>
+														<td class="text-center" width="5%"></td>
+														<td class="text-center subject" width="20%"><a>${vo.subject }</a></td>
+														<td class="text-center" width="5%"></td>
+														<td class="text-center" width="10%">${vo.id }</td>
+														<td class="text-center" width="10%">${vo.regdate }</td>
 													</tr>
-													<tr>
-														<td></td>
-														<td></td>
-														<td>${vo.content }</td>
-														<td></td>
-														<td></td>
+													<tr class="content${vo.no }" style="display:none">
+														<td class="text-center" width="10%"></td>
+														<td class="text-center" width="20%">${vo.content }</td>
+														<td class="text-center" width="5%"></td>
+														<td class="text-center" width="20%"></td>
+														<td class="text-center" width="10%"></td>
 													</tr>
-													<tr>
-														<td></td>
-														<td></td>
-														<td>${vo.adminres }</td>
-														<td></td>
-														<td></td>
+													<tr class="adminres" style="display:none">
+														<td class="text-center" width="10%"></td>
+														<td class="text-center" width="20%"><font color=red>Re.&nbsp;</font>${vo.adminres }</td>
+														<td class="text-center" width="5%"></td>
+														<td class="text-center" width="20%"></td>
+														<td class="text-center" width="10%"></td>
 													</tr>
 												</tbody>
 												</c:forEach>
