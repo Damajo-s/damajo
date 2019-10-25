@@ -68,7 +68,30 @@
 					</div>
 				</div>
 				<!-- /SEARCH BAR -->
-
+				<c:if test="${sessionScope.id == null }">
+				<div class="col-md-3 clearfix">
+					<div class="header-ctn">
+						<!-- Wishlist -->
+						<div>
+							<a href="#"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
+								<div class="qty">2</div> <!-- 배지 넣을 자리 즉, 카운트를 받아와야함-->
+							</a>
+						</div>
+						<!-- /Wishlist -->
+						<div class="dropdown">
+							<a href="../cart/cart_list.do"><i class="fa fa-shopping-cart"></i><span>장바구니</span></a>
+						</div>
+						<!-- Menu Toogle -->
+						<div class="menu-toggle">
+							<a href="#"> <i class="fa fa-bars"></i> <span>Menu</span>
+								<div class="qty">3</div>
+							</a>
+						</div>
+						<!-- /Menu Toogle -->
+					</div>
+				</div>
+				</c:if>
+				
 				<c:if test="${sessionScope.id != null }">	
 				<!-- 로그인해야 장바구니 및 관심상품 활성화됨 -->
 				<!-- ACCOUNT -->

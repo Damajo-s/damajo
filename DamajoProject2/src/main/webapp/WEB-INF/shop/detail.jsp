@@ -238,7 +238,7 @@ $(function(){
 													<li class="${curPage==i? "active":"" }">
 													<a href="shop/detail.do?product=${product },page=${i}">${i }</a></li>
 												</c:forEach>
-												<
+												
 											</table>
 										</div>
 									</div>

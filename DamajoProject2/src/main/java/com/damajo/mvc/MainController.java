@@ -133,5 +133,12 @@ public class MainController {
 		model.addAttribute("vo", vo);
 		return "tipboard/tip_detail";
 	}
+	
+	// 장바구니 (이동)
+	@RequestMapping("cart/cart_list.do")
+	public String cart_list(Model model) {
+		
+		return "cart/cart_list";
+	}
 
 }
