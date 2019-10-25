@@ -12,7 +12,7 @@
 						https://www.sist.co.kr</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i> 서울특별시 마포구 서교동 447-5</a></li>
 			</ul>
-			<c:if test="${SessionScope.id != null }">
+			<c:if test="${sessionScope.id != null }">
 				<ul class="header-links pull-right">	
 						<li style="color: white;">${sessionScope.id }님 환영합니다</li>
 					<!-- <li><a href="#"><i class="fa fa-dollar"></i>  원</a></li> -->
@@ -22,7 +22,7 @@
 							회원정보</a></li>
 				</ul>
 			</c:if>
-			<c:if test="${SessionScope.id == null }">
+			<c:if test="${sessionScope.id == null }">
 				<ul class="header-links pull-right">	
 						<li style="color: white;"><i class="fa fa-user-o"></i>
 							<a href="../member/login.do">로그인</a></li>

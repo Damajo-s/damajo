@@ -48,10 +48,12 @@
 					}).then(function(response) {
 						if (response.data == 1) {
 							console.log("로그인");
+						window.location.replace("http://localhost:8080/mvc/main/main.do");
 						} else if (response.data == 2) {
 						alert("이미 존재하는 아이디입니다.");
+						window.location.replace("http://localhost:8080/mvc/member/login.do");
 						} else if (response.data == 3) {
-							console.log("회원가입 완료");
+							window.location.replace("http://localhost:8080/mvc/main/main.do");
 						}
 					});
 				} else {

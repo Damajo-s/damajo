@@ -33,8 +33,12 @@ public class MemberRestController {
 
 	@RequestMapping("member/damajo_login_ok.do")
 	public String damajo_login_ok(MemberVO vo, HttpSession session) {
-		ms.damajo_login(vo);
-		return "ㅎ";
+		int result = ms.damajo_login(vo);
+		if (result == 1) { // 로그인
+			session.setAttribute("id", vo.getId());
+			session.setAttribute("type", vo.getType());
+		}
+		return String.valueOf(result);
 	}
 
 	@RequestMapping("member/damajo_signup_ok.do")

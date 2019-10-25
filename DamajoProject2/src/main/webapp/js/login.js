@@ -76,12 +76,13 @@ function windowLoaded() {
 				pwd : pwd,
 				type : 1
 			}
-		
 			}).then(function(response) {
-			if(response.data ==1){	
+				if(response.data ==1){	
 				window.location.replace("http://localhost:8080/mvc/main/main.do");
 			}else if(response.data==4){
-				alert("잘못된 아이디 혹은 패스워드 입니다.")
+				alert("잘못된 아이디 혹은 패스워드 입니다.");
+			}else if(response.data==5){
+				alert("아이디가 없습니다");
 			}
 		});
 	});
@@ -147,6 +148,6 @@ function windowLoaded() {
 	function inputFocused(event) {
 		var label = document.querySelectorAll('label[for=\'' + this.name
 				+ '\']')[0];
-		label.className = 'focused';
+		label.className = 'focusd';
 	}
 }
