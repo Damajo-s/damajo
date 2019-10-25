@@ -1,5 +1,6 @@
 package com.damajo.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -26,22 +27,26 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		getSqlSession().update("qaboardInsert",map);
 	}
 	// 리스트출력
-	public List<QABoardVO> qaboardList(){
+	public List<QABoardVO> qaboardList(int page,int product){
 		// 페이지 지정
-		/*List<QABoardVO> list=new ArrayList<QABoardVO>();
-		int rowSize=10;
+		int rowSize=5;
 		int qstart=(page*rowSize)-(rowSize-1); //1
 		int qend=(page*rowSize); //10
-		
+		int qpno=product;
+
 		Map map=new HashMap();
 		map.put("qstart", qstart);
 		map.put("qend", qend);
+		map.put("qpno", qpno);
 		
 		getSqlSession().update("qaboardList",map);
-		list=(List<QABoardVO>)map.get("result");*/
-		Map map = new HashMap();
-		getSqlSession().update("qaboardList",map);
 		List<QABoardVO> list= (List<QABoardVO>)map.get("result");
+		/*for(QABoardVO vo:list) {
+			SimpleDateFormat _date=new SimpleDateFormat("yyyy-MM-dd");
+			Date date=vo.getRegdate();
+			_date.format(date);
+			System.out.println(date);
+		}*/
 		return list;
 	}
 	//총페이지

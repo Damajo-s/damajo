@@ -22,5 +22,6 @@ public class QABoardVO {
 	private String subject;
 	private String content;
 	private Date regdate;
+	private String today;
 	private String adminres;
 }

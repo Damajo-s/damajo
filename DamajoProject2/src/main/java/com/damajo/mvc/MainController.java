@@ -1,5 +1,6 @@
 ﻿package com.damajo.mvc;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,12 @@ public class MainController {
 
 		return "main";
 	}
+	// 상품 Q&A 작성하기 창 띄우기
+	@RequestMapping("shop/qainsert.do")
+	public String shop_qainsert(int product,Model model){
+		model.addAttribute("product", product);
+		return "qainsert";
+	}
 	// QA새글
 	@RequestMapping("shop/qainsert_ok.do")
 	public String shop_insert(int product,String subject,String content, Model model, HttpSession session) {
@@ -69,31 +76,31 @@ public class MainController {
 
 	// Q&A 리스트
 	@RequestMapping("shop/detail.do")
-	public String shop_detail(int product, Model model) {
-	/*if (page == null) {
+	public String shop_detail(String page, int product, Model model) {
+		if (page == null) { 
 			page = "1";
-		}*/
-		//int curpage = Integer.parseInt(page);
-		//int totalpage = qdao.qaboardTotal();
-		//model.addAttribute("curpage", curpage);
-		//model.addAttribute("totalpage", totalpage);
-
-		//List<QABoardVO> list = qdao.qaboardList(curpage);
-		//System.out.println(list);
-		//model.addAttribute("list", list);
-		List<QABoardVO> list= qdao.qaboardList();
+		}
+		//페이지
+		int curPage = Integer.parseInt(page);
+		int totalPage = qdao.qaboardTotal();
+		int BLOCK=5;
+		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+		int allPage = totalPage;
+		if(endPage > allPage){
+			endPage=allPage;
+		}
+		List<QABoardVO> list= qdao.qaboardList(curPage,product);
+		model.addAttribute("curpage", curPage);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("BLOCK", BLOCK);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("allPage", allPage);
 		model.addAttribute("list", list);
 		model.addAttribute("product", product);
 		return "shop/detail";
 	}
-
-	// 상품 Q&A 작성하기 창 띄우기
-	@RequestMapping("shop/qainsert.do")
-	public String shop_qainsert(int product,Model model){
-		model.addAttribute("product", product);
-		return "qainsert";
-	}
-
 
 	// 수정하기
 

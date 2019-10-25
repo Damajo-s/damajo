@@ -19,19 +19,20 @@ $(document).ready(function(){
 var i=0;
 var j=0;
 $(function(){
-	$('.subject').click(function(){
-		 $('.content').hide();
-		 $('.adminres').hide();
-		if(i==0){
-			$('.content').show();
-			$('.adminres').show();
-			i=1;
-		}else{
-			$('.content').hide();
-			$('.adminres').hide();
-			i=0;
-		} 
-	});
+	for(var i=1; i<=s.index; i++){
+		
+		$('#subject'+i).click(function(){
+			if(j==0){
+				$('#content'+i).show();
+				$('#adminres'+i).show();
+				j=1;
+			}else{
+				$('#content'+i).hide();
+				$('#adminres'+i).hide();
+				j=0;
+			} 
+		});
+	}
 });
 </script>
 
@@ -204,23 +205,23 @@ $(function(){
 										</div>
 										<div class="col-md-12">
 											<table class="table">
-											<c:forEach var="vo" items="${list }">
+											<c:forEach var="vo" items="${list }" varStatus="s">
 												<tbody>
 													<tr>
 														<td class="text-center" width="5%"></td>
-														<td class="text-center subject" width="20%"><a>${vo.subject }</a></td>
+														<td class="text-center" id="subject${vo.no }" width="20%"><a>${vo.subject }</a></td>
 														<td class="text-center" width="5%"></td>
 														<td class="text-center" width="10%">${vo.id }</td>
-														<td class="text-center" width="10%">${vo.regdate }</td>
+														<td class="text-center" width="10%">${vo.today }</td>
 													</tr>
-													<tr class="content${vo.no }" style="display:none">
+													<tr id="content${vo.no }" style="display:none">
 														<td class="text-center" width="10%"></td>
 														<td class="text-center" width="20%">${vo.content }</td>
 														<td class="text-center" width="5%"></td>
 														<td class="text-center" width="20%"></td>
 														<td class="text-center" width="10%"></td>
 													</tr>
-													<tr class="adminres" style="display:none">
+													<tr id="adminres${vo.no }" style="display:none">
 														<td class="text-center" width="10%"></td>
 														<td class="text-center" width="20%"><font color=red>Re.&nbsp;</font>${vo.adminres }</td>
 														<td class="text-center" width="5%"></td>
@@ -229,6 +230,15 @@ $(function(){
 													</tr>
 												</tbody>
 												</c:forEach>
+											</table>
+										</div>
+										<div>
+											<table class="table">
+												<c:forEach var="i" begin="${startPage }" end="${endPage }">
+													<li class="${curPage==i? "active":"" }">
+													<a href="shop/detail.do?product=${product },page=${i}">${i }</a></li>
+												</c:forEach>
+												<
 											</table>
 										</div>
 									</div>
