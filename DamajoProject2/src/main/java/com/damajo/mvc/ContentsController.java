@@ -26,9 +26,11 @@ public class ContentsController {
 		int rowSize=18;
 		int start=(curpage*rowSize)-(rowSize-1);
 		int end=curpage*rowSize;
-		int startPage=(curpage/BLOCK)*BLOCK+1;
-		int endPage=(curpage/BLOCK)*BLOCK+BLOCK;
-				
+		int startPage=((curpage-1)/BLOCK)*BLOCK+1;
+		int endPage=((curpage-1)/BLOCK)*BLOCK+BLOCK;
+		if (endPage > cpuTotalPage) {
+			endPage = cpuTotalPage;
+		}
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
@@ -39,6 +41,7 @@ public class ContentsController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("cpuTotalPage", cpuTotalPage);
+		model.addAttribute("BLOCK", BLOCK);
 		return "cpu_list";
 	}
 	
