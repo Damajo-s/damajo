@@ -19,8 +19,7 @@ $(document).ready(function(){
 var i=0;
 var j=0;
 $(function(){
-	for(var i=1; i<=s.index; i++){
-		
+/* 	for(var i=1; i<=s.index; i++){
 		$('#subject'+i).click(function(){
 			if(j==0){
 				$('#content'+i).show();
@@ -32,7 +31,26 @@ $(function(){
 				j=0;
 			} 
 		});
+	} */
+	//페이지 클릭
+	function qapage(){
+		return
 	}
+	$('.page').click(function(){
+		var page=$(this).val();
+		var product=$('#pro').val();
+		alert(page);
+		alert(product);
+		
+		 $.ajax({
+			type:'post',
+			url:'../shop/detail_page.do',
+			data:{page:page,product:product},
+			success:function(response){
+				$('#print').html(response);
+			}
+		}); 
+	});
 });
 </script>
 
@@ -203,7 +221,7 @@ $(function(){
 												</thead>
 											</table>
 										</div>
-										<div class="col-md-12">
+										<div class="col-md-12"  id=print>
 											<table class="table">
 											<c:forEach var="vo" items="${list }" varStatus="s">
 												<tbody>
@@ -233,13 +251,15 @@ $(function(){
 											</table>
 										</div>
 										<div>
+											<ul class="reviews-pagination" >
 											<table class="table">
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
 													<li class="${curPage==i? "active":"" }">
-													<a href="shop/detail.do?product=${product },page=${i}">${i }</a></li>
+														<input type=button class="page" value="${i }">
+													</li>
 												</c:forEach>
-												<
 											</table>
+											</ul>
 										</div>
 									</div>
 								</div>

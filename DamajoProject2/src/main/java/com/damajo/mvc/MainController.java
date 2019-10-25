@@ -95,7 +95,7 @@ public class MainController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,product);
-		model.addAttribute("curpage", curPage);
+		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("BLOCK", BLOCK);
 		model.addAttribute("startPage", startPage);
@@ -105,8 +105,7 @@ public class MainController {
 		model.addAttribute("product", product);
 		return "shop/detail";
 	}
-
-	// 수정하기
+	// 수정하기 없음 
 
 	// 삭제하기
 
