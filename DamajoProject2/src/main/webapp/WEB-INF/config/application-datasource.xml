@@ -24,48 +24,10 @@
 			p:dataSource-ref="ds"
 			p:configLocation="/WEB-INF/config/config.xml"
 	/>
-	<bean id="memberMapper"
-		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.damajo.mapper.MemberMapper"
-		p:sqlSessionFactory-ref="ssf"
-	/>
-	<bean id="categoryMapper"
-		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.damajo.mapper.CategoryMapper"
-		p:sqlSessionFactory-ref="ssf"
-	/>
-	<bean id="mainMapper"
-		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.damajo.mapper.MainMapper"
-		p:sqlSessionFactory-ref="ssf"
-	/>
-	<bean id="contentsMapper"
-		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.damajo.mapper.ContentsMapper"
-		p:sqlSessionFactory-ref="ssf"
-	/>
-		
-	<bean id="CPU_detailMapper"
-		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.damajo.mapper.CPU_DetailMapper"
-		p:sqlSessionFactory-ref="ssf"
-	/>
-	<!-- <bean id="mapper"
-			class="org.mybatis.spring.mapper.MapperFactoryBean"
-			p:sqlSessionFactory-ref="ssf"
-			p:mapperInterface="com.damajo.mapper.VideoBoardMapper"
-	/> -->
-	<!-- 몽고클라이언트 연결 -->
-<!-- 	<mongo:mongo-client 
-		id="mc"
-		host="127.0.0.1"
-		port="27017"
-	/>
-	<bean id="mongoTemplate"
-            class="org.springframework.data.mongodb.core.MongoTemplate">
-       <constructor-arg ref="mc"/>
-       <constructor-arg name="databaseName" value="mydb"/>
-   </bean> -->
-
+	<!-- Mapper bean 별도 추가 없이 com.damajo.mapper 패키지 하위 경로에 생성하면 자동으로 추가하기 위한 설정 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+       <property name="basePackage" value="com.damajo.mapper" />
+       <property name="sqlSessionFactoryBeanName" value="ssf" />
+   </bean>
 	
 </beans>
