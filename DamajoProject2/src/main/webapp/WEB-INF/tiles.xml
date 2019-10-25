@@ -7,6 +7,7 @@
 		<put-attribute name="section" value="/WEB-INF/main/section.jsp"/>
 		<put-attribute name="newsletter" value="/WEB-INF/main/newsletter.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/main/footer.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/main/header.jsp"/>
 	</definition>
 	<definition name="*/*" extends="main">
 		<put-attribute name="section" value="/WEB-INF/{1}/{2}.jsp"/>

@@ -13,50 +13,135 @@
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
-				<div class="row">
-					<!-- shop -->
-					<div class="col-md-4 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/shop01.png" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Laptop<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
+			<div class="row">
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/product01.png" alt="" width="360px" height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								CPU<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
-					<!-- /shop -->
+				</div>
+				<!-- /shop -->
 
-					<!-- shop -->
-					<div class="col-md-4 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/shop03.png" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Accessories<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/shop02.png" alt="" width="360px" height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								RAM<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
-					<!-- /shop -->
+				</div>
+				<!-- /shop -->
 
-					<!-- shop -->
-					<div class="col-md-4 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/shop02.png" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Cameras<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/shop03.png" alt="" width="360px" height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								MainBoard<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- /shop -->
+			</div>
+			<!-- /row -->
+			
+			<!-- row -->
+			<div class="row">
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/product03.png" alt="" width="360px"
+								height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								VGA<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- /shop -->
+
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/product04.png" alt="" width="360px"
+								height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								SSD<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i
+								class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- /shop -->
+
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/product05.png" alt="" width="360px"
+								height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								Power<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i
+								class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- /shop -->
+			</div>
+			<!-- /row -->
+			<!-- row -->
+			<div class="row">
+				<!-- shop -->
+				<div class="col-md-4 col-xs-6">
+					<div class="shop">
+						<div class="shop-img">
+							<img src="../img/product08.png" alt="" width="360px"
+								height="240px">
+						</div>
+						<div class="shop-body">
+							<h3>
+								HDD<br>Collection
+							</h3>
+							<a href="#" class="cta-btn">구매하기 <i
+								class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- /shop -->
 				</div>
 				<!-- /row -->
+			</div>
+			<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>
@@ -70,7 +155,7 @@
 				<div class="row">
 
 					<!-- section title -->
-					<div class="col-md-12" style="margin-top: -2cm;">
+					<div class="col-md-12" style="margin-top: 1cm;">
 						<div class="section-title">
 							<h3 class="title">New Arrivals</h3>
 							<div class="section-nav">

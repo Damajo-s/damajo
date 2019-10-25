@@ -18,11 +18,11 @@
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
-								<p>우리는 한다. 작업. 비교. PC부품 가격</p>
+								<p>PC부품 가격 비교 및 추천</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>서울 특별시 양천구 목동</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>010-4934-9406</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>extre0626@gmail.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>서울특별시 마포구 서교동 447-5</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>02-336-8546</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>https://www.sist.co.kr</a></li>
 								</ul>
 							</div>
 						</div>
