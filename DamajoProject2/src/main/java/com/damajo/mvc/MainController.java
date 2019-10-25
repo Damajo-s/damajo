@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.damajo.dao.MainDAO;
 import com.damajo.dao.QABoardDAO;
 import com.damajo.dao.VideoBoardDAO;
+import com.damajo.service.CategoryService;
 import com.damajo.vo.CPUVO;
+import com.damajo.vo.CategoryVO;
 import com.damajo.vo.QABoardVO;
 import com.damajo.vo.RAMVO;
 import com.damajo.vo.SSDVO;
@@ -29,7 +31,9 @@ public class MainController {
 	private QABoardDAO qdao;
 	@Autowired
 	private MainDAO cdao;
-
+	@Autowired
+	private CategoryService cateService;
+	
 	@RequestMapping("main/main.do")
 	public String main_main(Model model) {
 
@@ -108,7 +112,9 @@ public class MainController {
 
 	// 상품 카테고리
 	@RequestMapping("shop/shop_list.do")
-	public String shop_list() {
+	public String shop_list(Model model) {
+		List<CategoryVO> cateList=cateService.category();
+		model.addAttribute("cateList",cateList);
 		return "shop/shop_list";
 	}
 

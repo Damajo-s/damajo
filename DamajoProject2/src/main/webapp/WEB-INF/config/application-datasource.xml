@@ -39,6 +39,11 @@
 		p:mapperInterface="com.damajo.mapper.MainMapper"
 		p:sqlSessionFactory-ref="ssf"
 	/>
+	<bean id="contentsMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:mapperInterface="com.damajo.mapper.ContentsMapper"
+		p:sqlSessionFactory-ref="ssf"
+	/>
 		
 	<bean id="CPU_detailMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean"
