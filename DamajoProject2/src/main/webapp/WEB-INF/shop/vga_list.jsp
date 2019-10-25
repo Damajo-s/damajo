@@ -37,7 +37,7 @@ $(function(){
 		// alert(page);
 		$.ajax({
 			type:'POST',
-			url:'../shop/main_list.do',
+			url:'../shop/vga_list.do',
 			data:{page:page},
 			success:function(res){
 				// alert(res);
@@ -50,7 +50,7 @@ $(function(){
 		// alert(nextPage);
 		$.ajax({
 			type:'POST',
-			url:'../shop/main_list.do',
+			url:'../shop/vga_list.do',
 			data:{page:nextPage},
 			success:function(res){
 				// alert(res);
@@ -63,7 +63,7 @@ $(function(){
 		// alert(prePage);
 		$.ajax({
 			type:'POST',
-			url:'../shop/main_list.do',
+			url:'../shop/vga_list.do',
 			data:{page:prePage},
 			success:function(res){
 				// alert(res);
@@ -90,14 +90,14 @@ $(function(){
 	<!-- store products -->
 	<div class="row" id="print">
 		<!-- product -->
-		<c:forEach var="vo" items="${mainList }">
+		<c:forEach var="vo" items="${vgaList }">
 		<div class="col-md-4 col-xs-6">
 			<div class="product">
 				<div class="product-img">
 					<img src="${vo.poster }" alt="">
 				</div>
 				<div class="product-body">
-					<h3 class="product-name"><a href="#">${vo.main_name }</a></h3>
+					<h3 class="product-name"><a href="#">${vo.vga_name }</a></h3>
 					<h4 class="product-price">${vo.price }원</h4>
 					<!-- <del class="product-old-price">${vo.price }원</del> -->
 					<div class="product-rating">
@@ -136,7 +136,7 @@ $(function(){
 				<input type="button" class="page" value="${i }" onclick="goTop()">
 			</li>
 		</c:forEach>
-		<c:if test="${endPage<mainTotalPage }">
+		<c:if test="${endPage<vgaTotalPage }">
 			<li>
 				<input type="button" class="nextPage" value="▷" data_page=${endPage+1 } onclick="goTop()">
 			</li>

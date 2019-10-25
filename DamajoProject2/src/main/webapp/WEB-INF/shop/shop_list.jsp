@@ -40,7 +40,25 @@ $(function(){
 	$('#category-4').click(function(){
 		$.ajax({
 			type:'post',
-			url:'../shop/cpu_list.do',
+			url:'../shop/vga_list.do',
+			success:function(res){
+				$('#print').html(res);
+			}
+		})
+	})
+	$('#category-5').click(function(){
+		$.ajax({
+			type:'post',
+			url:'../shop/ssd_list.do',
+			success:function(res){
+				$('#print').html(res);
+			}
+		})
+	})
+	$('#category-6').click(function(){
+		$.ajax({
+			type:'post',
+			url:'../shop/hdd_list.do',
 			success:function(res){
 				$('#print').html(res);
 			}

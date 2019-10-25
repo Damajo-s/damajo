@@ -6,6 +6,73 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.page, .nextPage, .prePage{
+	color: #2B2D42;
+	font-weight: 500;
+	-webkit-transition: 0.2s color;
+	transition: 0.2s color;
+	
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: transparent;
+	border: none;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+function goTop(){
+	$('html').scrollTop(0);
+	// scrollTop 메서드에 0 을 넣어서 실행하면 끝 !!
+	// 간혹 이 소스가 동작하지 않는다면
+	// $('html, body') 로 해보세요~
+}
+$(function(){
+	$('.page').click(function(){
+		var page=$(this).val();
+		// alert(page);
+		$.ajax({
+			type:'POST',
+			url:'../shop/ram_list.do',
+			data:{page:page},
+			success:function(res){
+				// alert(res);
+				$('#print').html(res);
+			}
+		})
+	})
+	$('.nextPage').click(function(){
+		var nextPage=$(this).attr("data_page");
+		// alert(nextPage);
+		$.ajax({
+			type:'POST',
+			url:'../shop/ram_list.do',
+			data:{page:nextPage},
+			success:function(res){
+				// alert(res);
+				$('#print').html(res);
+			}
+		})
+	})
+	$('.prePage').click(function(){
+		var prePage=$(this).attr("data_page");
+		// alert(prePage);
+		$.ajax({
+			type:'POST',
+			url:'../shop/ram_list.do',
+			data:{page:prePage},
+			success:function(res){
+				// alert(res);
+				$('#print').html(res);
+			}
+		})
+	})
+})
+</script>
 </head>
 <body>
 	<!-- STORE -->
@@ -21,7 +88,7 @@
 	<!-- /store top filter -->
 
 	<!-- store products -->
-	<div class="row">
+	<div class="row" id="print">
 		<!-- product -->
 		<c:forEach var="vo" items="${ramList }">
 		<div class="col-md-4 col-xs-6">
@@ -58,13 +125,22 @@
 
 	<!-- store bottom filter -->
 	<div class="store-filter clearfix">
-		<span class="store-qty">Showing 20-100 products</span>
 		<ul class="store-pagination">
-			<li class="active">1</li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+		<c:if test="${curpage>BLOCK }">
+			<li>
+				<input type="button" class="prePage" value="◁" data_page=${startPage-1 } onclick="goTop()">
+			</li>
+		</c:if>
+		<c:forEach var="i" begin="${startPage }" end="${endPage }" varStatus="s">
+			<li id="list${i }" class=${curpage==i? "active":"" }>
+				<input type="button" class="page" value="${i }" onclick="goTop()">
+			</li>
+		</c:forEach>
+		<c:if test="${endPage<ramTotalPage }">
+			<li>
+				<input type="button" class="nextPage" value="▷" data_page=${endPage+1 } onclick="goTop()">
+			</li>
+		</c:if>
 		</ul>
 	</div>
 	<!-- /store bottom filter -->
