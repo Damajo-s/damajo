@@ -80,7 +80,7 @@ public class MainController {
 
 	// Q&A 리스트
 	@RequestMapping("shop/detail.do")
-	public String shop_detail(String page, int product, Model model) {
+	public String shop_detail(String page, int product,Model model){
 		if (page == null) { 
 			page = "1";
 		}
@@ -95,7 +95,9 @@ public class MainController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,product);
-		model.addAttribute("curpage", curPage);
+		System.out.println("처음:"+curPage);
+		System.out.println("처음:"+product);
+		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("BLOCK", BLOCK);
 		model.addAttribute("startPage", startPage);
@@ -105,7 +107,35 @@ public class MainController {
 		model.addAttribute("product", product);
 		return "shop/detail";
 	}
-
+	// Q&A 리스트
+		@RequestMapping("shop/detail_page.do")
+		public String shop_detail_page(String page, int product,Model model){
+			if (page == null) { 
+				page = "1";
+			}
+			//페이지
+			int curPage = Integer.parseInt(page);
+			int totalPage = qdao.qaboardTotal();
+			int BLOCK=5;
+			int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+			int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+			int allPage = totalPage;
+			if(endPage > allPage){
+				endPage=allPage;
+			}
+			List<QABoardVO> list= qdao.qaboardList(curPage,product);
+			System.out.println("두번:"+curPage);
+			System.out.println("두번:"+product);
+			model.addAttribute("curPage", curPage);
+			model.addAttribute("totalPage", totalPage);
+			model.addAttribute("BLOCK", BLOCK);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
+			model.addAttribute("allPage", allPage);
+			model.addAttribute("list", list);
+			model.addAttribute("product", product);
+			return "detail_page";
+		}
 	// 수정하기
 
 	// 삭제하기

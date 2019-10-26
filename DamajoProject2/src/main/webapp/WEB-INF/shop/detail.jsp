@@ -32,28 +32,47 @@ $(function(){
 			} 
 		});
 	} */
-	//페이지 클릭
-	function qapage(){
-		return
-	}
-	$('.page').click(function(){
-		var page=$(this).val();
-		var product=$('#pro').val();
-		alert(page);
-		alert(product);
-		
-		 $.ajax({
-			type:'post',
-			url:'../shop/detail_page.do',
-			data:{page:page,product:product},
-			success:function(response){
-				$('#print').html(response);
-			}
-		}); 
-	});
+ 			$.ajax({
+				type:'post',
+				url:'../shop/detail_page.do',
+				success:function(res){
+					$('#print').html(res);
+				}
+			}); 
+			$('.page').click(function(){
+				var page=$(this).val();
+				var product=$('#pro').val();
+				$.ajax({
+					type:'post',
+					url:'../shop/detail_page.do',
+					data:{page:page,product:product},
+					success:function(res){
+						//alert(res);
+						alert(page);
+						alert(product);
+						$('#print').html(res);
+					}
+				}); //ajax
+			}); //page
 });
 </script>
-
+<style type="text/css">
+.page, .nextPage, .prePage{
+	color: #2B2D42;
+	font-weight: 500;
+	-webkit-transition: 0.2s color;
+	transition: 0.2s color;
+	
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: transparent;
+	border: none;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+</style>
 </head>
 <body>
 		<!-- SECTION -->
@@ -202,7 +221,7 @@ $(function(){
 								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
-										<h3 class="text-left">Q&A <font color="blue">(0)</font></h3>
+										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue">(0)</font></h3>
 										<div class="text-left">
 											&nbsp;<a class="allCount">전체(0)</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
@@ -221,47 +240,27 @@ $(function(){
 												</thead>
 											</table>
 										</div>
-										<div class="col-md-12"  id=print>
-											<table class="table">
-											<c:forEach var="vo" items="${list }" varStatus="s">
-												<tbody>
-													<tr>
-														<td class="text-center" width="5%"></td>
-														<td class="text-center" id="subject${vo.no }" width="20%"><a>${vo.subject }</a></td>
-														<td class="text-center" width="5%"></td>
-														<td class="text-center" width="10%">${vo.id }</td>
-														<td class="text-center" width="10%">${vo.today }</td>
-													</tr>
-													<tr id="content${vo.no }" style="display:none">
-														<td class="text-center" width="10%"></td>
-														<td class="text-center" width="20%">${vo.content }</td>
-														<td class="text-center" width="5%"></td>
-														<td class="text-center" width="20%"></td>
-														<td class="text-center" width="10%"></td>
-													</tr>
-													<tr id="adminres${vo.no }" style="display:none">
-														<td class="text-center" width="10%"></td>
-														<td class="text-center" width="20%"><font color=red>Re.&nbsp;</font>${vo.adminres }</td>
-														<td class="text-center" width="5%"></td>
-														<td class="text-center" width="20%"></td>
-														<td class="text-center" width="10%"></td>
-													</tr>
-												</tbody>
-												</c:forEach>
+										<div class="col-md-12"  >
+											<table class="table" id="print">
+												
 											</table>
 										</div>
 										<div>
 											<ul class="reviews-pagination" >
 											<table class="table">
+												<c:if test="${curPage>BLOCK }">
+													<li><input type=button value="◁"></li>
+													<li><input type=button value="&lt;" ></li>
+												</c:if>
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
 													<li class="${curPage==i? "active":"" }">
 														<input type=button class="page" value="${i }">
 													</li>
 												</c:forEach>
-<<<<<<< HEAD
-												
-=======
->>>>>>> branch 'master' of https://github.com/Damajo-s/damajo.git
+													<c:if test="${endPage<allPage }">
+														<li><input type=button value="&gt;"></li>
+														<li><input type=button value="▷"></li>
+													</c:if>
 											</table>
 											</ul>
 										</div>
