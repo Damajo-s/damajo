@@ -22,7 +22,7 @@ public class PowerVO {
 	private String pfc_circuit;
 	private String depth;
 	// 전압 규격
-	private String atx12v;
+	private String voltage_specification;
 	// 전류 용량
 	private String way_to_output_12v;
 	private String output12v;

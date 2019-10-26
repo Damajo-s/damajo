@@ -64,6 +64,15 @@ $(function(){
 			}
 		})
 	})
+	$('#category-7').click(function(){
+		$.ajax({
+			type:'post',
+			url:'../shop/power_list.do',
+			success:function(res){
+				$('#print').html(res);
+			}
+		})
+	})
 })
 </script>
 </head>

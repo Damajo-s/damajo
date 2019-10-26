@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Select;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
+import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
@@ -65,4 +66,13 @@ public interface ContentsMapper {
 	public List<HddVO> hddContentsList(Map map);
 	@Select("Select Ceil(Count(*)/18) From hdd_contents")
 	public int hddTotalPage();
+	
+	@Select("Select poster, power_name, price, num "
+			+ "From (Select poster, power_name, price, rownum as num "
+			+ "From (Select poster, power_name, price "
+			+ "From power_contents Order By power_no asc)) "
+			+ "Where num Between #{start} And #{end}")
+	public List<PowerVO> powerContentsList(Map map);
+	@Select("Select Ceil(Count(*)/18) From power_contents")
+	public int powerTotalPage();
 }

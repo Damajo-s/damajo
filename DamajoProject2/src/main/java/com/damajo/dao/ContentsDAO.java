@@ -7,6 +7,7 @@ import com.damajo.mapper.ContentsMapper;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
+import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
@@ -56,5 +57,12 @@ public class ContentsDAO {
 	}
 	public int hddTotalPage() {
 		return mapper.hddTotalPage();
+	}
+	
+	public List<PowerVO> powerContentsList(Map map) {
+		return mapper.powerContentsList(map);
+	}
+	public int powerTotalPage() {
+		return mapper.powerTotalPage();
 	}
 }

@@ -7,6 +7,7 @@ import com.damajo.dao.ContentsDAO;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
+import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
@@ -104,5 +105,20 @@ public class ContentsService {
 	}
 	public int hddTotalPage() {
 		return dao.hddTotalPage();
+	}
+	
+	public List<PowerVO> powerContentsList(Map map) {
+		List<PowerVO> powerList=dao.powerContentsList(map);
+		for(PowerVO vo:powerList) {
+			String power_name=vo.getPower_name();
+			if(power_name.length()>43) {
+				power_name=power_name.substring(0,42)+"...";
+				vo.setPower_name(power_name);
+			}
+		}
+		return powerList;
+	}
+	public int powerTotalPage() {
+		return dao.powerTotalPage();
 	}
 }
