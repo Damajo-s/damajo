@@ -14,7 +14,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
+				<c:forEach var="vo" items="${hdddetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
@@ -62,7 +62,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${vo.hdd_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -152,26 +152,49 @@
 										          <td class="text-left" width=30%>${vo.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
  										          <td class="text-left" width=30%>${vo.regdate }</td>
-   										   	   </tr>										       
-  										       <tr>
- 										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
-    										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
- 										       </tr>
- 										       <tr>
- 										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
- 										       </tr>
- 										       <tr>
-										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
- 										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
    										   	   </tr>
+   										   	   <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">기본 사양</th>
+ 										       </tr>										       
   										       <tr>
- 										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
+ 										         <th class="text-center" width=20%>제품 분류</th>
+      										     <td class="text-left" width=30%>${vo.product_type }</td>
+    										     <th class="text-center" width=20%>디스크 사이즈</th>
+									   		     <td class="text-left" width=30%>${vo.disk_size }</td>
  										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>디스크 용량</th>
+										          <td class="text-left" width=30%>${vo.disk_capacity }</td>
+ 										          <th class="text-center" width=20%>인터페이스</th>
+ 										          <td class="text-left" width=30%>${vo.hdd_interface }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>스핀</th>
+										          <td class="text-left" width=30%>${vo.spin }</td>
+ 										          <th class="text-center" width=20%>버퍼</th>
+ 										          <td class="text-left" width=30%>${vo.buffer }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>전송 속도</th>
+										          <td class="text-left" width=30%>${vo.transfer_speed }</td>
+ 										          <th class="text-center" width=20%>기록방식</th>
+ 										          <td class="text-left" width=30%>${vo.recording }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>디스크 수</th>
+										          <td class="text-left" width=30%>${vo.disk_cnt }</td>
+ 										          <th class="text-center" width=20%>두께</th>
+ 										          <td class="text-left" width=30%>${vo.hdd_thickness }</td>
+   										   	   </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">내구성</th>
+ 										       </tr> 										       
+ 										       <tr>
+										          <th class="text-center" width=20%>작업 부하량</th>
+										          <td class="text-left" width=30%>${vo.workload_rate }</td>
+ 										          <th class="text-center" width=20%>사용 보증</th>
+ 										          <td class="text-left" width=30%>${vo.warranty }</td>
+   										   	   </tr>								        										       
  										       </table> 										       
 										</div>
 									</div>

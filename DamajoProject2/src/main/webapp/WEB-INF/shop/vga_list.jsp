@@ -97,7 +97,7 @@ $(function(){
 					<img src="${vo.poster }" alt="">
 				</div>
 				<div class="product-body">
-					<h3 class="product-name"><a href="#">${vo.vga_name }</a></h3>
+					<h3 class="product-name"><a href="vga_detail.do?no=${vo.vga_no }">${vo.vga_name }</a></h3>
 					<h4 class="product-price">${vo.price }원</h4>
 					<!-- <del class="product-old-price">${vo.price }원</del> -->
 					<div class="product-rating">

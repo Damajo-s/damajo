@@ -14,7 +14,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
+				<c:forEach var="vo" items="${maindetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
@@ -62,7 +62,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${vo.main_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -149,29 +149,152 @@
 											<table class="table">												
  										       <tr>
 										          <th class="text-center" width=20%>제조회사</th>
-										          <td class="text-left" width=30%>${vo.company }</td>
+										          <td class="text-left" width=30%>${vo.company}</td>
  										          <th class="text-center" width=20%>등록년월</th>
  										          <td class="text-left" width=30%>${vo.regdate }</td>
-   										   	   </tr>										       
+   										   	   </tr>
+   										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">기본 사양</th>
+ 										       </tr>
   										       <tr>
- 										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
-    										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
+ 										         <th class="text-center" width=20%>제품 분류</th>
+      										     <td class="text-left" width=30%>${vo.product_type }</td>
+    										     <th class="text-center" width=20%>CPU 소켓</th>
+									   		     <td class="text-left" width=30%>${vo.cpu_socket }</td>
  										       </tr>
  										       <tr>
- 										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
- 										       </tr>
- 										       <tr>
-										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
- 										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
+										         <th class="text-center" width=20%>Main 칩셋</th>
+										         <td class="text-left" width=30%>${vo.main_chipset }</td>
+ 										         <th class="text-center" width=20%>세부 칩셋</th>
+      									 	     <td class="text-left"  width=30%>${vo.detail_chipset }</td>
    										   	   </tr>
   										       <tr>
- 										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
+										         <th class="text-center" width=20%>CPU 칩셋</th>
+										         <td class="text-left" width=30%>${vo.cpu_cnt }</td>  										       
+ 										         <th class="text-center" width=20%>폼팩터</th>
+      										     <td class="text-left"  width=30%>${vo.formFactor }</td>
  										       </tr>
+  										       <tr>
+ 										         <th class="text-center" width=20%>전원부</th>
+      										     <td class="text-left" colspan="3">${vo.power_supply }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">메모리 사양</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>메모리 종류</th>
+										         <td class="text-left" width=30%>${vo.memory_kind }</td>  										       
+ 										         <th class="text-center" width=20%>메모리 속도</th>
+      										     <td class="text-left"  width=30%>${vo.memory_speed }</td>
+ 										       </tr> 										          										   	   
+ 										       <tr>
+										         <th class="text-center" width=20%>메모리 슬롯</th>
+										         <td class="text-left" width=30%>${vo.memory_slot }</td>  										       
+ 										         <th class="text-center" width=20%>메모리 채널</th>
+      										     <td class="text-left"  width=30%>${vo.memory_channel }</td>
+ 										       </tr>
+ 										       <tr>
+ 										         <th class="text-center" width=20%>메모리 용량</th>
+      										     <td class="text-left" colspan="3">${vo.memory_capacity }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">그래픽</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>멀티 VGA</th>
+										         <td class="text-left" width=30%>${vo.multi_vga }</td>  										       
+ 										         <th class="text-center" width=20%>VGA 연결</th>
+      										     <td class="text-left"  width=30%>${vo.vga_connection }</td>
+ 										       </tr> 										        										          										   	   
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">그래픽 출력</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>D-SUB</th>
+										         <td class="text-left" width=30%>${vo.d_sub }</td>  										       
+ 										         <th class="text-center" width=20%>DVI</th>
+      										     <td class="text-left"  width=30%>${vo.dvi }</td>
+ 										       </tr> 										        										          										   	   
+ 										       <tr>
+										         <th class="text-center" width=20%>HDMI</th>
+										         <td class="text-left" width=30%>${vo.hdmi }</td>  										       
+ 										         <th class="text-center" width=20%>DP</th>
+      										     <td class="text-left"  width=30%>${vo.dp }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">확장슬롯</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>PCIE_X16</th>
+										         <td class="text-left" width=30%>${vo.pcie_x16 }</td>  										       
+ 										         <th class="text-center" width=20%>PCIE_X8</th>
+      										     <td class="text-left"  width=30%>${vo.pcie_x8 }</td>
+ 										       </tr> 										        										        										          										   	   
+ 										       <tr>
+										         <th class="text-center" width=20%>PCIE_X4</th>
+										         <td class="text-left" width=30%>${vo.pcie_x4 }</td>  										       
+ 										         <th class="text-center" width=20%>PCIE_X1</th>
+      										     <td class="text-left"  width=30%>${vo.pcie_x1 }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">저장장치</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>M2</th>
+										         <td class="text-left" width=30%>${vo.m2 }</td>  										       
+ 										         <th class="text-center" width=20%>SATA3</th>
+      										     <td class="text-left"  width=30%>${vo.sata3 }</td>
+ 										       </tr> 										        										        										        										          										   	   
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">사운드</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>내장오디오</th>
+										         <td class="text-left" width=30%>${vo.built_in_sound }</td>  										       
+ 										         <th class="text-center" width=20%>ANALOG</th>
+      										     <td class="text-left"  width=30%>${vo.analog }</td>
+ 										       </tr>
+ 										       <tr>
+ 										         <th class="text-center" width=20%>SPDIF 출력</th>
+      										     <td class="text-left" colspan="3">${vo.spdif }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">USB 타입</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>USB 3.1 Gen2</th>
+										         <td class="text-left" width=30%>${vo.usb_31_gen2 }</td>  										       
+ 										         <th class="text-center" width=20%>USB 3.1 Gen1</th>
+      										     <td class="text-left"  width=30%>${vo.usb_31_gen1 }</td>
+ 										       </tr> 										        										        										        										        										          										   	   
+ 										       <tr>
+										         <th class="text-center" width=20%>Type-C Gen2</th>
+										         <td class="text-left" width=30%>${vo.type_c_gen2 }</td>  										       
+ 										         <th class="text-center" width=20%>Type-A Gen2</th>
+      										     <td class="text-left"  width=30%>${vo.type_a_gen2 }</td>
+ 										       </tr>
+ 										       <tr>
+ 										         <th class="text-center" width=20%>Type-C Gen1</th>
+      										     <td class="text-left" colspan="3">${vo.type_c_gen1 }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">네트워크</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>네트워크 칩셋</th>
+										         <td class="text-left" width=30%>${vo.network_chipset }</td>  										       
+ 										         <th class="text-center" width=20%>RJ-45 포트</th>
+      										     <td class="text-left"  width=30%>${vo.rj_45port }</td>
+ 										       </tr> 										        										        										        										        										        										        										          										   	   
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">LAN 구성</th>
+ 										       </tr>
+ 										       <tr>
+										         <th class="text-center" width=20%>기가비트 LAN</th>
+										         <td class="text-left" width=30%>${vo.gigabit_lan }</td>  										       
+ 										         <th class="text-center" width=20%>무선 LAN</th>
+      										     <td class="text-left"  width=30%>${vo.wireless_lan }</td>
+ 										       </tr> 					
  										       </table> 										       
 										</div>
 									</div>

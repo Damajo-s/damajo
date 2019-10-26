@@ -1,10 +1,14 @@
 package com.damajo.mvc;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.damajo.service.ContentsService;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
@@ -18,7 +22,7 @@ import com.damajo.vo.VgaVO;
 public class ContentsController {
 	@Autowired
 	private ContentsService service;
-	
+
 	@RequestMapping("shop/cpu_list.do")
 	public String cpuList(String page, Model model) {
 		if(page==null) {
@@ -38,7 +42,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<CpuVO> cpuList=service.cpuContentsList(map);
 		model.addAttribute("cpuList", cpuList);
 		model.addAttribute("curpage", curpage);
@@ -48,7 +52,7 @@ public class ContentsController {
 		model.addAttribute("BLOCK", BLOCK);
 		return "cpu_list";
 	}
-	
+
 	@RequestMapping("shop/ram_list.do")
 	public String ramList(String page, Model model) {
 		if(page==null) {
@@ -68,7 +72,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<RamVO> ramList=service.ramContentsList(map);
 		model.addAttribute("ramList", ramList);
 		model.addAttribute("curpage", curpage);
@@ -78,7 +82,7 @@ public class ContentsController {
 		model.addAttribute("BLOCK", BLOCK);
 		return "ram_list";
 	}
-	
+
 	@RequestMapping("shop/main_list.do")
 	public String mainList(String page, Model model) {
 		if(page==null) {
@@ -98,7 +102,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<MainVO> mainList=service.mainContentsList(map);
 		model.addAttribute("mainList", mainList);
 		model.addAttribute("curpage", curpage);
@@ -108,7 +112,7 @@ public class ContentsController {
 		model.addAttribute("BLOCK", BLOCK);
 		return "main_list";
 	}
-	
+
 	@RequestMapping("shop/vga_list.do")
 	public String vgaList(String page, Model model) {
 		if(page==null) {
@@ -128,7 +132,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<VgaVO> vgaList=service.vgaContentsList(map);
 		model.addAttribute("vgaList", vgaList);
 		model.addAttribute("curpage", curpage);
@@ -138,7 +142,7 @@ public class ContentsController {
 		model.addAttribute("BLOCK", BLOCK);
 		return "vga_list";
 	}
-	
+
 	@RequestMapping("shop/ssd_list.do")
 	public String ssdList(String page, Model model) {
 		if(page==null) {
@@ -158,7 +162,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<SsdVO> ssdList=service.ssdContentsList(map);
 		model.addAttribute("ssdList", ssdList);
 		model.addAttribute("curpage", curpage);
@@ -168,7 +172,7 @@ public class ContentsController {
 		model.addAttribute("BLOCK", BLOCK);
 		return "ssd_list";
 	}
-	
+
 	@RequestMapping("shop/hdd_list.do")
 	public String hddList(String page, Model model) {
 		if(page==null) {
@@ -188,7 +192,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<HddVO> hddList=service.hddContentsList(map);
 		model.addAttribute("hddList", hddList);
 		model.addAttribute("curpage", curpage);
@@ -198,7 +202,7 @@ public class ContentsController {
 		model.addAttribute("BLOCK", BLOCK);
 		return "hdd_list";
 	}
-	
+
 	@RequestMapping("shop/power_list.do")
 	public String powerList(String page, Model model) {
 		if(page==null) {
@@ -218,7 +222,7 @@ public class ContentsController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		
+
 		List<PowerVO> powerList=service.powerContentsList(map);
 		model.addAttribute("powerList", powerList);
 		model.addAttribute("curpage", curpage);
@@ -227,5 +231,65 @@ public class ContentsController {
 		model.addAttribute("powerTotalPage", powerTotalPage);
 		model.addAttribute("BLOCK", BLOCK);
 		return "power_list";
+	}
+
+	@RequestMapping("shop/cpu_detail.do")
+	public String cpu_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<CpuVO> cpudetail=service.cpuContentsDetail(map);
+		model.addAttribute("cpudetail", cpudetail);
+		return "shop/cpu_detail";
+	}
+	@RequestMapping("shop/ram_detail.do")
+	public String ram_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<RamVO> ramdetail=service.ramContentsDetail(map);
+		model.addAttribute("ramdetail", ramdetail);
+		return "shop/ram_detail";
+	}
+	@RequestMapping("shop/main_detail.do")
+	public String main_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<MainVO> maindetail=service.mainContentsDetail(map);
+		model.addAttribute("maindetail", maindetail);
+		return "shop/main_detail";
+	}
+
+	@RequestMapping("shop/vga_detail.do")
+	public String vga_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<VgaVO> vgadetail=service.vgaContentsDetail(map);
+		model.addAttribute("vgadetail", vgadetail);
+		return "shop/vga_detail";
+	}
+
+	@RequestMapping("shop/ssd_detail.do")
+	public String ssd_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<SsdVO> ssddetail=service.ssdContentsDetail(map);
+		model.addAttribute("ssddetail", ssddetail);
+		return "shop/ssd_detail";
+	}
+
+	@RequestMapping("shop/hdd_detail.do")
+	public String hdd_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<HddVO> hdddetail=service.hddContentsDetail(map);
+		model.addAttribute("hdddetail", hdddetail);
+		return "shop/hdd_detail";
+	}
+	@RequestMapping("shop/power_detail.do")
+	public String power_detail(int no, Model model) {
+		Map map=new HashMap();
+		map.put("no", no);
+		List<PowerVO> powerdetail=service.powerContentsDetail(map);
+		model.addAttribute("powerdetail", powerdetail);
+		return "shop/power_detail";
 	}
 }

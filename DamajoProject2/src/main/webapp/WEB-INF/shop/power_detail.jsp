@@ -14,7 +14,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
+				<c:forEach var="vo" items="${powerdetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
@@ -62,7 +62,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${vo.power_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -152,26 +152,104 @@
 										          <td class="text-left" width=30%>${vo.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
  										          <td class="text-left" width=30%>${vo.regdate }</td>
-   										   	   </tr>										       
-  										       <tr>
- 										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
-    										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
- 										       </tr>
- 										       <tr>
- 										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
- 										       </tr>
- 										       <tr>
-										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
- 										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
    										   	   </tr>
   										       <tr>
- 										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
+ 										         <th class="text-center" width=20%>제품 분류</th>
+      										     <td class="text-left" width=30%>${vo.product_type }</td>
+    										     <th class="text-center" width=20%>정격 출력</th>
+									   		     <td class="text-left" width=30%>${vo.rated_power }</td>
  										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>메인 전원커넥터</th>
+										          <td class="text-left" width=30%>${vo.main_connector }</td>
+ 										          <th class="text-center" width=20%>쿨링팬 크기</th>
+ 										          <td class="text-left" width=30%>${vo.fan_size }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>쿨링팬 갯수</th>
+										          <td class="text-left" width=30%>${vo.fan_cnt }</td>
+ 										          <th class="text-center" width=20%>베어링</th>
+ 										          <td class="text-left" width=30%>${vo.bearing }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>PFC 회로</th>
+										          <td class="text-left" width=30%>${vo.pfc_circuit }</td>
+ 										          <th class="text-center" width=20%>깊이</th>
+ 										          <td class="text-left" width=30%>${vo.depth }</td>
+   										   	   </tr>
+   										   	   <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">전압 규격</th>
+ 										       </tr>										       
+ 										       <tr>
+										          <th class="text-center" width=20%>ATX12V 규격</th>
+										          <td class="text-left" colspan="3">${vo.voltage_specification }</td>
+   										   	   </tr>
+   										   	   <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">전류 용량</th>
+ 										       </tr>	   										   	   
+ 										       <tr>
+										          <th class="text-center" width=20%>12V 출력방식</th>
+										          <td class="text-left" width=30%>${vo.way_to_output_12v }</td>
+ 										          <th class="text-center" width=20%>12V 출력</th>
+ 										          <td class="text-left" width=30%>${vo.output12v }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>5V 출력</th>
+										          <td class="text-left" width=30%>${vo.output5v }</td>
+ 										          <th class="text-center" width=20%>3.3V 출력</th>
+ 										          <td class="text-left" width=30%>${vo.output3_3v }</td>
+   										   	   </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">커넥터</th>
+ 										       </tr> 										       
+ 										       <tr>
+										          <th class="text-center" width=20%>4핀 IDE 커넥터</th>
+										          <td class="text-left" width=30%>${vo.connector_4pinIDE }</td>
+ 										          <th class="text-center" width=20%>SATA 커넥터</th>
+ 										          <td class="text-left" width=30%>${vo.connector_sata }</td>
+   										   	   </tr>								        										       
+ 										       <tr>
+										          <th class="text-center" width=20%>6핀 PCI-E 커넥터</th>
+										          <td class="text-left" width=30%>${vo.connector_6pinPCIe }</td>
+ 										          <th class="text-center" width=20%>8(6+2)핀 PCI-E 커넥터</th>
+ 										          <td class="text-left" width=30%>${vo.connector_8pinPCIe }</td>
+   										   	   </tr>								        										       
+ 										       <tr>
+										          <th class="text-center" width=20%>보조 8핀(4+4) 커넥터</th>
+										          <td class="text-left" width=30%>${vo.connector_4by4pinSub }</td>
+ 										          <th class="text-center" width=20%>보조 8핀 커넥터</th>
+ 										          <td class="text-left" width=30%>${vo.connector_8pinSub }</td>
+   										   	   </tr>								        										       
+ 										       <tr>
+										          <th class="text-center" width=20%>보조 4핀 커넥터</th>
+										          <td class="text-left" width=30%>${vo.connector_4pinSub }</td>
+ 										          <th class="text-center" width=20%>FDD 커넥터</th>
+ 										          <td class="text-left" width=30%>${vo.connector_fdd }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>LED 커넥터</th>
+										          <td class="text-left" colspan="3">${vo.connector_led }</td>
+   										   	   </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">부가 기능</th>
+ 										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>케이블 연결식</th>
+										          <td class="text-left" width=30%>${vo.cable_attached }</td>
+ 										          <th class="text-center" width=20%>대기전력</th>
+ 										          <td class="text-left" width=30%>${vo.stanby_power }</td>
+   										   	   </tr>   										   	      										   	   								        										       
+ 										       <tr>
+										          <th class="text-center" width=20%>플랫 케이블</th>
+										          <td class="text-left" colspan="3">${vo.flat_cable }</td>
+   										   	   </tr>  
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">제품 보증</th>
+ 										       </tr>   										   	    										   	      										   	   								        										       
+ 										       <tr>
+										          <th class="text-center" width=20%>A/S 보증기간</th>
+										          <td class="text-left" colspan="3">${vo.warranty }</td>
+   										   	   </tr>   										   	      										   	   								        										       
  										       </table> 										       
 										</div>
 									</div>

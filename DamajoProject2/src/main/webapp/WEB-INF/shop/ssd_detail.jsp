@@ -14,7 +14,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
+				<c:forEach var="vo" items="${ssddetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
@@ -62,7 +62,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${vo.ssd_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -152,26 +152,54 @@
 										          <td class="text-left" width=30%>${vo.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
  										          <td class="text-left" width=30%>${vo.regdate }</td>
-   										   	   </tr>										       
-  										       <tr>
- 										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
-    										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
- 										       </tr>
- 										       <tr>
- 										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
- 										       </tr>
- 										       <tr>
-										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
- 										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
    										   	   </tr>
+   										   	   <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">기본 사양</th>
+ 										       </tr>										       
   										       <tr>
- 										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
+ 										         <th class="text-center" width=20%>제품 분류</th>
+      										     <td class="text-left" width=30%>${vo.product_type }</td>
+    										     <th class="text-center" width=20%>디스크 타입</th>
+									   		     <td class="text-left" width=30%>${vo.disk_type }</td>
  										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>인터페이스</th>
+										          <td class="text-left" width=30%>${vo.ssd_interface }</td>
+ 										          <th class="text-center" width=20%>프로토콜</th>
+ 										          <td class="text-left" width=30%>${vo.protocol }</td>
+   										   	   </tr>
+   										   	   <tr>
+ 										         <th class="text-center" width=20%>디스크 용량</th>
+      										     <td class="text-left" colspan="3">${vo.disk_capacity }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">하드웨어 정보</th>
+ 										       </tr> 										       
+ 										       <tr>
+										          <th class="text-center" width=20%>메모리 타입</th>
+										          <td class="text-left" width=30%>${vo.memory_type }</td>
+ 										          <th class="text-center" width=20%>낸드 구조</th>
+ 										          <td class="text-left" width=30%>${vo.nand_structure }</td>
+   										   	   </tr>
+   										   	   <tr>
+										          <th class="text-center" width=20%>메모리 유무</th>
+										          <td class="text-left" width=30%>${vo.ram_mount }</td>
+ 										          <th class="text-center" width=20%>메모리 타입</th>
+ 										          <td class="text-left" width=30%>${vo.ram_type }</td>
+   										   	   </tr>
+   										   	   <tr>
+ 										         <th class="text-center" width=20%>컨트롤러</th>
+      										     <td class="text-left" colspan="3">${vo.controller }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">내구성</th>
+ 										       </tr>
+   										   	   <tr>
+										          <th class="text-center" width=20%>TBW</th>
+										          <td class="text-left" width=30%>${vo.tbw }</td>
+ 										          <th class="text-center" width=20%>사용보증 시간</th>
+ 										          <td class="text-left" width=30%>${vo.warranty_time }</td>
+   										   	   </tr> 								        										       
  										       </table> 										       
 										</div>
 									</div>

@@ -14,7 +14,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
+				<c:forEach var="vo" items="${vgadetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
@@ -62,7 +62,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${vo.vga_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -152,26 +152,82 @@
 										          <td class="text-left" width=30%>${vo.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
  										          <td class="text-left" width=30%>${vo.regdate }</td>
-   										   	   </tr>										       
+   										   	   </tr>
+   										   	   <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">칩셋 사양</th>
+ 										       </tr>										       
   										       <tr>
- 										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
-    										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
+ 										         <th class="text-center" width=20%>칩셋 제조사</th>
+      										     <td class="text-left" width=30%>${vo.manufacturer }</td>
+    										     <th class="text-center" width=20%>GPU 제조 공정</th>
+									   		     <td class="text-left" width=30%>${vo.manufacture_process }</td>
  										       </tr>
  										       <tr>
- 										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
+										          <th class="text-center" width=20%>칩셋</th>
+										          <td class="text-left" width=30%>${vo.chipset }</td>
+ 										          <th class="text-center" width=20%>제품 시리즈</th>
+ 										          <td class="text-left" width=30%>${vo.series }</td>
+   										   	   </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>코어 클럭</th>
+										          <td class="text-left" width=30%>${vo.core_clock }</td>
+ 										          <th class="text-center" width=20%>프로세서</th>
+ 										          <td class="text-left" width=30%>${vo.processor }</td>
+   										   	   </tr>
+   										   	   <tr>
+ 										         <th class="text-center" width=20%>칩셋 인터페이스</th>
+      										     <td class="text-left" colspan="3">${vo.chip_interface }</td>
  										       </tr>
  										       <tr>
-										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
- 										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">메모리 사양</th>
+ 										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>메모리 종류</th>
+										          <td class="text-left" width=30%>${vo.memory_kind }</td>
+ 										          <th class="text-center" width=20%>메모리 용량</th>
+ 										          <td class="text-left" width=30%>${vo.memory_capacity }</td>
+   										   	   </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">그래픽 출력</th>
+ 										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>DVI 포트</th>
+										          <td class="text-left" width=30%>${vo.dvi_port }</td>
+ 										          <th class="text-center" width=20%>HDMI 포트</th>
+ 										          <td class="text-left" width=30%>${vo.hdmi_port }</td>
+   										   	   </tr> 										          										   	   
+ 										       <tr>
+										          <th class="text-center" width=20%>DP 포트</th>
+										          <td class="text-left" width=30%>${vo.dp_port }</td>
+ 										          <th class="text-center" width=20%>모니터 지원</th>
+ 										          <td class="text-left" width=30%>${vo.sup_monitor }</td>
+   										   	   </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">전력 관련</th>
+ 										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>최대 전력</th>
+										          <td class="text-left" width=30%>${vo.max_use_power }</td>
+ 										          <th class="text-center" width=20%>권장 파워</th>
+ 										          <td class="text-left" width=30%>${vo.need_power }</td>
+   										   	   </tr> 										          										   	    										          										   	   
+  										       <tr>
+ 										         <th class="text-center" width=20%>파워 포트</th>
+      										     <td class="text-left" colspan="3">${vo.power_port }</td>
+ 										       </tr>
+ 										       <tr>
+ 										       	<th class="row" colspan="4" style="font-size: medium;">제품 외형</th>
+ 										       </tr>
+ 										       <tr>
+										          <th class="text-center" width=20%>팬 갯수</th>
+										          <td class="text-left" width=30%>${vo.fan }</td>
+ 										          <th class="text-center" width=20%>길이</th>
+ 										          <td class="text-left" width=30%>${vo.width }</td>
    										   	   </tr>
   										       <tr>
- 										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
- 										       </tr>
+ 										         <th class="text-center" width=20%>높이</th>
+      										     <td class="text-left" colspan="3">${vo.height }</td>
+ 										       </tr>   										   	     										        										       
  										       </table> 										       
 										</div>
 									</div>

@@ -14,7 +14,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
+				<c:forEach var="vo" items="${ramdetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
@@ -62,7 +62,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${vo.ram_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -154,24 +154,15 @@
  										          <td class="text-left" width=30%>${vo.regdate }</td>
    										   	   </tr>										       
   										       <tr>
- 										         <th class="text-center" width=20%>CPU 종류</th>
+ 										         <th class="text-center" width=20%>제품 종류</th>
       										     <td class="text-left" width=30%>${vo.kind }</td>
-    										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
+										         <th class="text-center" width=20%>메모리 크기</th>
+										         <td class="text-left" width=30%>${vo.memory_capacity }</td>
  										       </tr>
  										       <tr>
- 										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
- 										       </tr>
- 										       <tr>
-										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
- 										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
+ 										          <th class="text-center" width=20%>클럭</th>
+ 										          <td class="text-left" colspan="3">${vo.clock }</td>
    										   	   </tr>
-  										       <tr>
- 										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
- 										       </tr>
  										       </table> 										       
 										</div>
 									</div>
