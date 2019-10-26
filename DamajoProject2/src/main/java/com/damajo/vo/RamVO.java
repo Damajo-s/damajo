@@ -16,7 +16,7 @@ CLOCK		VARCHAR2(30 BYTE)
  */
 @Setter
 @Getter
-public class RAMVO {
+public class RamVO {
 	private int ram_no;
 	private String ram_name;
 	private String poster;

@@ -17,7 +17,7 @@ DEFCLOCK	VARCHAR2(20 BYTE)
  */
 @Setter
 @Getter
-public class CPUVO {
+public class CpuVO {
 	private int cpu_no;
 	private String cpu_name;
 	private String poster;

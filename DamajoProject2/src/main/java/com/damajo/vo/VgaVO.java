@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 @Setter
 @Getter
-public class VGAVO {
+public class VgaVO {
 	private int vga_no;
 	private String vga_name;
 	private String poster;

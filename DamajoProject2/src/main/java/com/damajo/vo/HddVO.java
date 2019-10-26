@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class HDDVO {
+public class HddVO {
 	private int hdd_no;
 	private String hdd_name;
 	private String poster;

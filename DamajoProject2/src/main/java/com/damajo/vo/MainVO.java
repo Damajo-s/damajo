@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class MAINVO {
+public class MainVO {
 	private int main_no;
 	private String main_name;
 	private String poster;
