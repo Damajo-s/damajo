@@ -6,12 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.damajo.service.ContentsService;
-import com.damajo.vo.CPUVO;
-import com.damajo.vo.HDDVO;
-import com.damajo.vo.MAINVO;
-import com.damajo.vo.RAMVO;
-import com.damajo.vo.SSDVO;
-import com.damajo.vo.VGAVO;
+import com.damajo.vo.CpuVO;
+import com.damajo.vo.HddVO;
+import com.damajo.vo.MainVO;
+import com.damajo.vo.RamVO;
+import com.damajo.vo.SsdVO;
+import com.damajo.vo.VgaVO;
 
 @Controller
 public class ContentsController {
@@ -38,7 +38,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<CPUVO> cpuList=service.cpuContentsList(map);
+		List<CpuVO> cpuList=service.cpuContentsList(map);
 		model.addAttribute("cpuList", cpuList);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);
@@ -68,7 +68,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<RAMVO> ramList=service.ramContentsList(map);
+		List<RamVO> ramList=service.ramContentsList(map);
 		model.addAttribute("ramList", ramList);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);
@@ -98,7 +98,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<MAINVO> mainList=service.mainContentsList(map);
+		List<MainVO> mainList=service.mainContentsList(map);
 		model.addAttribute("mainList", mainList);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);
@@ -128,7 +128,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<VGAVO> vgaList=service.vgaContentsList(map);
+		List<VgaVO> vgaList=service.vgaContentsList(map);
 		model.addAttribute("vgaList", vgaList);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);
@@ -158,7 +158,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<SSDVO> ssdList=service.ssdContentsList(map);
+		List<SsdVO> ssdList=service.ssdContentsList(map);
 		model.addAttribute("ssdList", ssdList);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);
@@ -188,7 +188,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<HDDVO> hddList=service.hddContentsList(map);
+		List<HddVO> hddList=service.hddContentsList(map);
 		model.addAttribute("hddList", hddList);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);

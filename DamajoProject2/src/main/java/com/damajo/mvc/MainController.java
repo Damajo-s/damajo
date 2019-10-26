@@ -16,11 +16,11 @@ import com.damajo.dao.MainDAO;
 import com.damajo.dao.QABoardDAO;
 import com.damajo.dao.VideoBoardDAO;
 import com.damajo.service.CategoryService;
-import com.damajo.vo.CPUVO;
+import com.damajo.vo.CpuVO;
 import com.damajo.vo.CategoryVO;
 import com.damajo.vo.QABoardVO;
-import com.damajo.vo.RAMVO;
-import com.damajo.vo.SSDVO;
+import com.damajo.vo.RamVO;
+import com.damajo.vo.SsdVO;
 import com.damajo.vo.VideoBoardVO;
 
 @Controller
@@ -38,12 +38,12 @@ public class MainController {
 	public String main_main(Model model) {
 
 		Map map = new HashMap();
-		List<CPUVO> crlist = cdao.CPURecomList(map);
-		List<CPUVO> cnlist = cdao.CPUNewList(map);
-		List<SSDVO> snlist = cdao.SSDNewList(map);
-		List<SSDVO> srlist = cdao.SSDRecomList(map);
-		List<RAMVO> rnlist = cdao.RAMNewList(map);
-		List<RAMVO> rrlist = cdao.RAMRecomList(map);
+		List<CpuVO> crlist = cdao.CPURecomList(map);
+		List<CpuVO> cnlist = cdao.CPUNewList(map);
+		List<SsdVO> snlist = cdao.SSDNewList(map);
+		List<SsdVO> srlist = cdao.SSDRecomList(map);
+		List<RamVO> rnlist = cdao.RAMNewList(map);
+		List<RamVO> rrlist = cdao.RAMRecomList(map);
 
 		model.addAttribute("crlist", crlist);
 		model.addAttribute("cnlist", cnlist);

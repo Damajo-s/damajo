@@ -4,21 +4,21 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.damajo.dao.ContentsDAO;
-import com.damajo.vo.CPUVO;
-import com.damajo.vo.HDDVO;
-import com.damajo.vo.MAINVO;
-import com.damajo.vo.RAMVO;
-import com.damajo.vo.SSDVO;
-import com.damajo.vo.VGAVO;
+import com.damajo.vo.CpuVO;
+import com.damajo.vo.HddVO;
+import com.damajo.vo.MainVO;
+import com.damajo.vo.RamVO;
+import com.damajo.vo.SsdVO;
+import com.damajo.vo.VgaVO;
 
 @Service
 public class ContentsService {
 	@Autowired
 	private ContentsDAO dao;
 	
-	public List<CPUVO> cpuContentsList(Map map) {
-		List<CPUVO> cpuList=dao.cpuContentsList(map);
-		for(CPUVO vo:cpuList) {
+	public List<CpuVO> cpuContentsList(Map map) {
+		List<CpuVO> cpuList=dao.cpuContentsList(map);
+		for(CpuVO vo:cpuList) {
 			String cpu_name=vo.getCpu_name();
 			if(cpu_name.length()>43) {
 				cpu_name=cpu_name.substring(0,42)+"...";
@@ -31,9 +31,9 @@ public class ContentsService {
 		return dao.cpuTotalPage();
 	}
 	
-	public List<RAMVO> ramContentsList(Map map) {
-		List<RAMVO> ramList=dao.ramContentsList(map);
-		for(RAMVO vo:ramList) {
+	public List<RamVO> ramContentsList(Map map) {
+		List<RamVO> ramList=dao.ramContentsList(map);
+		for(RamVO vo:ramList) {
 			String ram_name=vo.getRam_name();
 			if(ram_name.length()>43) {
 				ram_name=ram_name.substring(0,42)+"...";
@@ -46,9 +46,9 @@ public class ContentsService {
 		return dao.ramTotalPage();
 	}
 	
-	public List<MAINVO> mainContentsList(Map map) {
-		List<MAINVO> mainList=dao.mainContentsList(map);
-		for(MAINVO vo:mainList) {
+	public List<MainVO> mainContentsList(Map map) {
+		List<MainVO> mainList=dao.mainContentsList(map);
+		for(MainVO vo:mainList) {
 			String main_name=vo.getMain_name();
 			if(main_name.length()>43) {
 				main_name=main_name.substring(0,42)+"...";
@@ -61,9 +61,9 @@ public class ContentsService {
 		return dao.mainTotalPage();
 	}
 	
-	public List<VGAVO> vgaContentsList(Map map) {
-		List<VGAVO> vgaList=dao.vgaContentsList(map);
-		for(VGAVO vo:vgaList) {
+	public List<VgaVO> vgaContentsList(Map map) {
+		List<VgaVO> vgaList=dao.vgaContentsList(map);
+		for(VgaVO vo:vgaList) {
 			String vga_name=vo.getVga_name();
 			if(vga_name.length()>43) {
 				vga_name=vga_name.substring(0,42)+"...";
@@ -76,9 +76,9 @@ public class ContentsService {
 		return dao.vgaTotalPage();
 	}
 	
-	public List<SSDVO> ssdContentsList(Map map) {
-		List<SSDVO> ssdList=dao.ssdContentsList(map);
-		for(SSDVO vo:ssdList) {
+	public List<SsdVO> ssdContentsList(Map map) {
+		List<SsdVO> ssdList=dao.ssdContentsList(map);
+		for(SsdVO vo:ssdList) {
 			String ssd_name=vo.getSsd_name();
 			if(ssd_name.length()>43) {
 				ssd_name=ssd_name.substring(0,42)+"...";
@@ -91,9 +91,9 @@ public class ContentsService {
 		return dao.ssdTotalPage();
 	}
 	
-	public List<HDDVO> hddContentsList(Map map) {
-		List<HDDVO> hddList=dao.hddContentsList(map);
-		for(HDDVO vo:hddList) {
+	public List<HddVO> hddContentsList(Map map) {
+		List<HddVO> hddList=dao.hddContentsList(map);
+		for(HddVO vo:hddList) {
 			String hdd_name=vo.getHdd_name();
 			if(hdd_name.length()>43) {
 				hdd_name=hdd_name.substring(0,42)+"...";

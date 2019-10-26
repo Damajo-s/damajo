@@ -7,37 +7,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.MainMapper;
-import com.damajo.vo.CPUVO;
-import com.damajo.vo.RAMVO;
-import com.damajo.vo.SSDVO;
+import com.damajo.vo.CpuVO;
+import com.damajo.vo.RamVO;
+import com.damajo.vo.SsdVO;
 
 @Repository
 public class MainDAO {
 	@Autowired
 	private MainMapper mapper;
 	
-	public List<CPUVO> CPURecomList(Map map){
+	public List<CpuVO> CPURecomList(Map map){
 		
 		return mapper.CPURecomList(map);
 	}
 	
-	public List<CPUVO> CPUNewList(Map map){
+	public List<CpuVO> CPUNewList(Map map){
 		return mapper.CPUNewList(map);
 	}
 	
-	public List<SSDVO> SSDNewList(Map map){
+	public List<SsdVO> SSDNewList(Map map){
 		return mapper.SSDNewList(map);
 	}
 	
-	public List<SSDVO> SSDRecomList(Map map){
+	public List<SsdVO> SSDRecomList(Map map){
 		return mapper.SSDRecomList(map);
 	}
 	
-	public List<RAMVO> RAMNewList(Map map){
+	public List<RamVO> RAMNewList(Map map){
 		return mapper.RAMNewList(map);
 	}
 	
-	public List<RAMVO> RAMRecomList(Map map){
+	public List<RamVO> RAMRecomList(Map map){
 		return mapper.RAMRecomList(map);
 	}
 	
