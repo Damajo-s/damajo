@@ -32,26 +32,19 @@ $(function(){
 			} 
 		});
 	} */
- 			$.ajax({
-				type:'post',
-				url:'../shop/detail_page.do',
-				 data : {page:1,product:product },
-				success:function(res){
-					$('#print').html(res);
-				}
-			}); 
-			$('.page').click(function(){
-				var page=$(this).val();
-				var product=$('#pro').val();
+			
+			$('.page').click(function(){ 
+				var page=$(this).val(); 
+				var product=$('#pro').val();  
 				$.ajax({
 					type:'post',
-					url:'../shop/detail_page.do',
+					url:'../shop/detail_page.do',  
 					data:{page:page,product:product},
-					success:function(res){
+					success:function(res){ 
 						//alert(res);
 						alert(page);
 						alert(product);
-						$('#print').html(res);
+						$('#print').html(res); 
 					}
 				}); //ajax
 			}); //page

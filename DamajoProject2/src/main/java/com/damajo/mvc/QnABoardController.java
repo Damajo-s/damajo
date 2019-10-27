@@ -16,7 +16,6 @@ import com.damajo.vo.QABoardVO;
 public class QnABoardController {
 	@Autowired
 	private QABoardDAO qdao;
-	
 	// QA새글
 	@RequestMapping("shop/qainsert_ok.do")
 	public String shop_insert(int product,String subject,String content, Model model, HttpSession session) {
