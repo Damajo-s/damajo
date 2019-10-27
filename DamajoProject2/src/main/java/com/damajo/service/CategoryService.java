@@ -17,36 +17,8 @@ public class CategoryService {
 	}
 	
 	public int[] severalTotalCount() {
-		int[] severalTotalCount={cpuTotalCount(), ramTotalCount(), mainTotalCount(), vgaTotalCount(),
-								ssdTotalCount(), hddTotalCount(), powerTotalCount()};
+		int[] severalTotalCount={dao.cpuTotalCount(), dao.ramTotalCount(), dao.mainTotalCount(), dao.vgaTotalCount(),
+								dao.ssdTotalCount(), dao.hddTotalCount(), dao.powerTotalCount()};
 		return severalTotalCount;
-	}
-	
-	public int cpuTotalCount() {
-		return dao.cpuTotalCount();
-	}
-	
-	public int ramTotalCount() {
-		return dao.ramTotalCount();
-	}
-	
-	public int mainTotalCount() {
-		return dao.mainTotalCount();
-	}
-	
-	public int vgaTotalCount() {
-		return dao.vgaTotalCount();
-	}
-	
-	public int ssdTotalCount() {
-		return dao.ssdTotalCount();
-	}
-	
-	public int hddTotalCount() {
-		return dao.hddTotalCount();
-	}
-	
-	public int powerTotalCount() {
-		return dao.powerTotalCount();
 	}
 }
