@@ -7,69 +7,102 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+div.col-xs-6 {
+	width: 290px;
+	height: 450px;
+}
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#category-1').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/cpu_list.do',
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
 	$('#category-2').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/ram_list.do',
+			data:{category:category},
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
 	$('#category-3').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/main_list.do',
+			data:{category:category},
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
 	$('#category-4').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/vga_list.do',
+			data:{category:category},
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
 	$('#category-5').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/ssd_list.do',
+			data:{category:category},
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
 	$('#category-6').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/hdd_list.do',
+			data:{category:category},
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
 	$('#category-7').click(function(){
+		var category=$(this).attr('id');
 		$.ajax({
 			type:'post',
 			url:'../shop/power_list.do',
+			data:{category:category},
 			success:function(res){
 				$('#print').html(res);
+				$('#brand').show();
+				$('#recommPrint').hide();
 			}
 		})
 	})
@@ -105,56 +138,17 @@ $(function(){
 					<!-- aside Widget -->
 					<div class="aside">
 						<h3 class="aside-title">Brand</h3>
-						<div class="checkbox-filter">
+						<c:forEach var="com" items="${list }">
+						<div class="checkbox-filter" id="brand" style="display:none">
 							<div class="input-checkbox">
 								<input type="checkbox" id="brand-1">
 								<label for="brand-1">
 									<span></span>
-									SAMSUNG
-									<small>(578)</small>
-								</label>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-2">
-								<label for="brand-2">
-									<span></span>
-									LG
-									<small>(125)</small>
-								</label>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-3">
-								<label for="brand-3">
-									<span></span>
-									SONY
-									<small>(755)</small>
-								</label>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-4">
-								<label for="brand-4">
-									<span></span>
-									SAMSUNG
-									<small>(578)</small>
-								</label>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-5">
-								<label for="brand-5">
-									<span></span>
-									LG
-									<small>(125)</small>
-								</label>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-6">
-								<label for="brand-6">
-									<span></span>
-									SONY
-									<small>(755)</small>
+									${com.company }
 								</label>
 							</div>
 						</div>
+						</c:forEach>
 					</div>
 					<!-- /aside Widget -->
 					
@@ -201,6 +195,59 @@ $(function(){
 				<!-- STORE -->
 				<!-- 출력 -->
 				<div id="store" class="col-md-9">
+					<div class="row"  id="recommPrint" style="display:block">
+						<h2> 고객님께 추천드리는 제품 </h2>
+						<!-- product -->
+						<c:forEach var="recomm" items="${recommList }">
+						<div class="col-md-4 col-xs-6">
+							<div class="product">
+								<div class="product-img">
+									<img src="${recomm.poster }" alt="${recomm.pname }">
+								</div>
+								<div class="product-body">
+								<c:if test="${recomm.category==1 }">
+									<h3 class="product-name"><a href="cpu_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+								<c:if test="${recomm.category==2 }">
+									<h3 class="product-name"><a href="ram_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+								<c:if test="${recomm.category==3 }">
+									<h3 class="product-name"><a href="main_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+								<c:if test="${recomm.category==4 }">
+									<h3 class="product-name"><a href="vga_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+								<c:if test="${recomm.category==5 }">
+									<h3 class="product-name"><a href="ssd_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+								<c:if test="${recomm.category==6 }">
+									<h3 class="product-name"><a href="hdd_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+								<c:if test="${recomm.category==7 }">
+									<h3 class="product-name"><a href="power_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+								</c:if>
+									<h4 class="product-price">${recomm.price }</h4>
+									<!-- <div class="product-rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div> -->
+									<div class="product-btns">
+										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+									</div>
+								</div>
+								<div class="add-to-cart">
+									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+								</div>
+							</div>
+						</div>
+						</c:forEach>
+						<!-- /product -->
+					</div>
 					<div id="print">
 					
 					</div>

@@ -16,11 +16,13 @@ import com.damajo.dao.MainDAO;
 import com.damajo.dao.QABoardDAO;
 import com.damajo.dao.VideoBoardDAO;
 import com.damajo.service.CategoryService;
+import com.damajo.service.ContentsService;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.MainVO;
 import com.damajo.vo.CategoryVO;
 import com.damajo.vo.QABoardVO;
 import com.damajo.vo.RamVO;
+import com.damajo.vo.RecommendVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
 import com.damajo.vo.VideoBoardVO;
@@ -34,7 +36,8 @@ public class MainController {
 	private MainDAO cdao;
 	@Autowired
 	private CategoryService cateService;
-	
+	@Autowired
+	private ContentsService contentsService;
 	@RequestMapping("main/main.do")
 	public String main_main(Model model) {
 
@@ -75,9 +78,10 @@ public class MainController {
 	public String shop_list(Model model) {
 		List<CategoryVO> cateList=cateService.category();
 		int[] severalTotalCount=cateService.severalTotalCount();
-		
+		List<RecommendVO> recommList=contentsService.recommendList();
 		model.addAttribute("cateList",cateList);
 		model.addAttribute("severalTotalCount",severalTotalCount);
+		model.addAttribute("recommList",recommList);
 		return "shop/shop_list";
 	}
 

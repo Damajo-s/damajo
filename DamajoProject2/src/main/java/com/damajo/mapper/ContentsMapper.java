@@ -10,10 +10,14 @@ import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
 import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
+import com.damajo.vo.RecommendVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
 
 public interface ContentsMapper {
+	@Select("Select * From product Where mdrecommend=1")
+	public List<RecommendVO> recommendList();
+	
 	@Select("Select cpu_no, poster, cpu_name, price, category, num "
 			+ "From (Select cpu_no, poster, cpu_name, price, category, rownum as num "
 			+ "From (Select cpu_no, poster, cpu_name, price, category "

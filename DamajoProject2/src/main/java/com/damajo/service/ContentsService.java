@@ -13,6 +13,7 @@ import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
 import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
+import com.damajo.vo.RecommendVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
 
@@ -22,7 +23,18 @@ public class ContentsService {
 	private ContentsDAO dao;
 	@Autowired
 	private DetailDAO detaildao;
-
+	
+	public List<RecommendVO> recommendList() {
+		List<RecommendVO> recommList=dao.recommendList();
+		for(RecommendVO vo:recommList) {
+			String pname=vo.getPname();
+			if(pname.length()>43) {
+				pname=pname.substring(0,42)+"...";
+				vo.setPname(pname);
+			}
+		}
+		return recommList;
+	}
 	public List<CpuVO> cpuContentsList(Map map) {
 		List<CpuVO> cpuList=dao.cpuContentsList(map);
 		for(CpuVO vo:cpuList) {
