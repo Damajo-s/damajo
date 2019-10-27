@@ -19,20 +19,7 @@ $(document).ready(function(){
 var i=0;
 var j=0;
 $(function(){
-/* 	for(var i=1; i<=s.index; i++){
-		$('#subject'+i).click(function(){
-			if(j==0){
-				$('#content'+i).show();
-				$('#adminres'+i).show();
-				j=1;
-			}else{
-				$('#content'+i).hide();
-				$('#adminres'+i).hide();
-				j=0;
-			} 
-		});
-	} */
-			
+	//QnA 페이지 이동 
 			$('.page').click(function(){ 
 				var page=$(this).val(); 
 				var product=$('#pro').val();  
@@ -42,12 +29,13 @@ $(function(){
 					data:{page:page,product:product},
 					success:function(res){ 
 						//alert(res);
-						alert(page);
-						alert(product);
+						//alert(page);
+						//alert(product);
 						$('#print').html(res); 
 					}
 				}); //ajax
 			}); //page
+
 });
 </script>
 <style type="text/css">
@@ -234,10 +222,8 @@ $(function(){
 												</thead>
 											</table>
 										</div>
-										<div class="col-md-12"  >
-											<table class="table" id="print">
+										<div class="col-md-12" id="print" >
 												
-											</table>
 										</div>
 										<div>
 											<ul class="reviews-pagination" >
