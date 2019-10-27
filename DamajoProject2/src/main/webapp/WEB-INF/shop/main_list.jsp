@@ -22,6 +22,10 @@
 	-webkit-transition: 0.2s all;
 	transition: 0.2s all;
 }
+div.col-xs-6 {
+	width: 290px;
+	height: 450px;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
