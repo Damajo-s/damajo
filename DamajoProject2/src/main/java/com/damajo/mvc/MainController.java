@@ -64,7 +64,9 @@ public class MainController {
 	@RequestMapping("shop/shop_list.do")
 	public String shop_list(Model model) {
 		List<CategoryVO> cateList=cateService.category();
+		int[] severalTotalCount=cateService.severalTotalCount();
 		model.addAttribute("cateList",cateList);
+		model.addAttribute("severalTotalCount",severalTotalCount);
 		return "shop/shop_list";
 	}
 

@@ -88,13 +88,13 @@ $(function(){
 					<!-- aside Widget -->
 					<div class="aside">
 						<h3 class="aside-title">Categories</h3>
-						<c:forEach var="cate" items="${cateList }">
+						<c:forEach var="cate" items="${cateList }" varStatus="s">
 							<div class="checkbox-filter">
 								<div class="input-checkbox">
 									<label class="labelOn" id="category-${cate.category_no }">
 										<span></span>
 											${cate.category_name }
-										<small>(120)</small>
+										<small>(${severalTotalCount[s.index] })</small>
 									</label>
 								</div>
 							</div>

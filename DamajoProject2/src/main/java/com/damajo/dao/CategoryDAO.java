@@ -16,4 +16,32 @@ public class CategoryDAO {
 	public List<CategoryVO> category() {
 		return mapper.category();
 	}
+	
+	public int cpuTotalCount() {
+		return mapper.cpuTotalCount();
+	}
+	
+	public int ramTotalCount() {
+		return mapper.ramTotalCount();
+	}
+	
+	public int mainTotalCount() {
+		return mapper.mainTotalCount();
+	}
+	
+	public int vgaTotalCount() {
+		return mapper.vgaTotalCount();
+	}
+	
+	public int ssdTotalCount() {
+		return mapper.ssdTotalCount();
+	}
+	
+	public int hddTotalCount() {
+		return mapper.hddTotalCount();
+	}
+	
+	public int powerTotalCount() {
+		return mapper.powerTotalCount();
+	}
 }
