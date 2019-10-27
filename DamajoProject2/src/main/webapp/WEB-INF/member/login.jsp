@@ -25,43 +25,45 @@
 		<ul class="cd-tabs-content">
 			<li data-content="login" class="selected">
 				<div class="form-fild">
-					<label for="username">username</label> <input type="text"
-						name="username" id="login-username">
+					<input type="text" name="username" id="login-username"
+						placeholder="아이디를 입력해주세요">
 				</div>
 				<div class="form-fild">
-					<label for="password">password</label> <input type="password"
-						name="password" id="login-password">
+					<input type="password" name="password" id="login-password"
+						placeholder="비밀번호를 입력해주세요">
 				</div> <input type="hidden" name="type" value="1" id="logintype">
 				<span class="error"></span>
 				<div>
-					<table>
-						<tr>
-							<td>
-								<div id="naverIdLogin"></div> <a id="kakao-login-btn"></a> <input
-								type="button" id="login-button" value="Login">
-							</td>
-						</tr>
-					</table>
-
+					<p>
+					<div id="naverIdLogin" style="display: inline-block;"></div>
+					<a id="kakao-login-btn"></a> <input type="button" id="login-button"
+						class="button-1" value="Login">
+					<p>
+				<div class="button-1"><a href = "../member/findpassword.do">&nbsp;비밀번호 찾기</a></div>
 				</div>
 			</li>
 			<li data-content="signup">
 				<div class="form-fild">
-					<label for="susername">username</label> <input type="text"
-						name="susername" id="signup-username">
+					<input type="text" name="susername" id="signup-username"
+						placeholder="아이디를 입력해주세요">
 				</div>
 				<div class="form-fild">
-					<label for="spassword">password</label> <input type="password"
-						name="spassword" id="signup-password">
+					<input type="password" name="spassword" id="signup-password"
+						placeholder="비밀번호를 입력해주세요">
 				</div>
 				<div class="form-fild">
-					<label for="spassword2">password again</label> <input
-						type="password" name="spassword2" id="signup-passwordcheck">
+					<input type="password" name="spassword2" id="signup-passwordcheck"
+						placeholder="비밀번호를 다시 입력해주세요">
 				</div>
 				<div class="form-fild">
-					<label for="password-hint">password hint</label> <input type="text"
-						name="password-hint" id="signup-hint">
-				</div> <input type="button" id="signup-button" value="submit">
+					<input type="text" name="password-hint" id="signup-hint"
+						placeholder="비밀번호 힌트를 입력해주세요">
+				</div>
+				<div class="form-fild">
+					<input type="text" name="password-hintanswer"
+						id="signup-hintanswer" placeholder="비밀번호 힌트에 대한 답을 입력해주세요">
+				</div> <input type="button" id="signup-button" class="button-1"
+				value="submit">
 			</li>
 		</ul>
 	</div>

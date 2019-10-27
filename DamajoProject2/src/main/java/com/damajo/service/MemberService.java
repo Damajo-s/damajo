@@ -49,4 +49,36 @@ public class MemberService {
 		session.invalidate();
 	}
 
+	public int findPassword(MemberVO vo) {
+		return dao.damajoSignupCheck(vo);
+	}
+
+	public MemberVO memberDetailInfo(MemberVO vo) {
+		return dao.memberDetailInfo(vo);
+	}
+
+	public String memberHintCheck(MemberVO vo) {
+		String dbHintAnswer = dao.memberDetailInfo(vo).getHint_answer();
+		String hintAnswer = vo.getHint_answer();
+		System.out.println(dbHintAnswer);
+		System.out.println(hintAnswer);
+		if (dbHintAnswer.equals(hintAnswer)) {
+			return "true";
+		} else
+			return "false";
+	}
+
+	public void changePassword(MemberVO vo) {
+		dao.changePassword(vo);
+	}
+
+	public String deleteAccount(MemberVO vo) {
+		MemberVO dbvo = dao.memberDetailInfo(vo);
+		if (vo.getPwd().equals(dbvo.getPwd())) {
+			dao.leaveAccount(vo);
+			return "true";
+		} else {
+			return "false";
+		}
+	}
 }

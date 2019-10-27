@@ -44,15 +44,32 @@ public class MemberRestController {
 	@RequestMapping("member/damajo_signup_ok.do")
 	public String damajo_signup(MemberVO vo, HttpSession session) {
 		int result = 0;
-		System.out.println(vo.getHint());
-		System.out.println(vo.getType());
-		System.out.println(vo.getId());
-		System.out.println(vo.getPwd());
 		if (ms.signup(vo)) {
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("type", vo.getType());
 			result = 1;
 		}
 		return String.valueOf(result);
+	}
+
+	@RequestMapping("member/findpassword_ok.do")
+	public String find_password_ok(MemberVO vo) {
+		return String.valueOf(ms.findPassword(vo));
+	}
+
+	@RequestMapping("member/checkhint_ok.do")
+	public String checkhint_ok(MemberVO vo) {
+		return ms.memberHintCheck(vo);
+	}
+
+	@RequestMapping("member/changepassword_ok.do")
+	public String changepassword(MemberVO vo) {
+		ms.changePassword(vo);
+		return "success";
+	}
+
+	@RequestMapping("member/deleteaccount_ok.do")
+	public String deleteaccount_ok(MemberVO vo) {
+		return ms.deleteAccount(vo);
 	}
 }

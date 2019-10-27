@@ -8,6 +8,7 @@ public class MemberVO {
 	private String id;
 	private String pwd;
 	private String hint;
+	private String hint_answer;
 	private int type;
 }
 	

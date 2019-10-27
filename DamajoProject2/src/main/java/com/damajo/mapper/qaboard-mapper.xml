@@ -31,12 +31,22 @@
 	<select id="qaboardList" parameterMap="dbListMap" statementType="CALLABLE">
 		{CALL qaboardList(?,?,?,?)}
 	</select>
+	<select id="myqaboardList" parameterMap="dbListMap" statementType="CALLABLE">
+		{CALL myqaboardList(?,?,?,?)}
+	</select>
 	<!-- 총페이지 -->
 	<parameterMap type="hashmap" id="dbTotalMap">
 		<parameter property="qtotal" mode="OUT" jdbcType="INTEGER"/>
 	</parameterMap>
 	<select id="qaboardTotal" parameterMap="dbTotalMap" statementType="CALLABLE">
 		{CALL qaboardTotal (?)}
+	</select>
+		<parameterMap type="hashmap" id="mydbTotalMap">
+		<parameter property="qid" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="qtotal" mode="OUT" jdbcType="INTEGER"/>
+	</parameterMap>
+		<select id="myqaboardTotal" parameterMap="mydbTotalMap" statementType="CALLABLE">
+		{CALL myqaboardTotal (?,?)}
 	</select>
 	<!-- 수정 기능 없어요 -->
 	<!-- 삭제 -->

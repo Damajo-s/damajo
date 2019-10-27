@@ -11,9 +11,7 @@
 </head>
 
 <body>
-	callback 처리중입니다. 이 페이지에서는 callback을 처리하고 바로 main으로 redirect하기때문에 이 메시지가
-	보이면 안됩니다.
-
+	로그인 중입니다...
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<!-- (1) LoginWithNaverId Javscript SDK -->
 	<script type="text/javascript"
@@ -39,7 +37,6 @@
 				if (status) {
 					/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
 					var userEmail = naverLogin.user.getEmail();
-					console.log(userEmail);
 					axios.get('../member/api_login_ok.do', {
 						params : {
 							id : userEmail,
@@ -47,7 +44,6 @@
 						}
 					}).then(function(response) {
 						if (response.data == 1) {
-							console.log("로그인");
 						window.location.replace("http://localhost:8080/mvc/main/main.do");
 						} else if (response.data == 2) {
 						alert("이미 존재하는 아이디입니다.");
