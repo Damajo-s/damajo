@@ -296,19 +296,18 @@
 								<div id="tab4" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-4">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${mnlist }" var="mN">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${mN.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  메인보드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${mN.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${mN.main_name }</a></h3>
+												<h4 class="product-price">${mN.price } <del class="product-old-price">${mN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -336,19 +335,18 @@
 								<div id="tab5" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-5">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${vnlist }" var="vn">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${vn.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  그래픽카드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${vn.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${vn.vga_name }</a></h3>
+												<h4 class="product-price">${vn.price } <del class="product-old-price">${vn.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -520,19 +518,18 @@
 								<div id="tab9" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-9">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${mrlist }" var="mR">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${mR.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  메인보드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${mR.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${mR.main_name }</a></h3>
+												<h4 class="product-price">${mR.price }<del class="product-old-price">${mR.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -560,19 +557,18 @@
 								<div id="tab10" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-10">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${vrlist }" var="vr">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${vr.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  그래픽카드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${vr.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${vr.vga_name}</a></h3>
+												<h4 class="product-price">${vr.price}<del class="product-old-price">${vr.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
