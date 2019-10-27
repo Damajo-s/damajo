@@ -59,4 +59,5 @@ public class MainVO {
 	// LAN 구성
 	private String gigabit_lan; // 54/48
 	private String wireless_lan; // 58/52
+	private int category;
 }

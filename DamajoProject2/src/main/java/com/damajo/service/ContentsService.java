@@ -142,6 +142,7 @@ public class ContentsService {
 			String core=vo.getCore();
 			String thread=vo.getThread();
 			String defclock=vo.getDefclock();
+			int category = vo.getCategory();
 
 			vo.setCpu_no(cpu_no);
 			vo.setCpu_name(cpu_name);
@@ -154,6 +155,7 @@ public class ContentsService {
 			vo.setCore(core);
 			vo.setThread(thread);
 			vo.setDefclock(defclock);
+			vo.setCategory(category);
 		}
 		return cpudetail;
 	}
@@ -170,6 +172,7 @@ public class ContentsService {
 			String kind=vo.getKind();
 			String memory_capacity=vo.getMemory_capacity();
 			String clock=vo.getClock();
+			int category = vo.getCategory();
 
 			vo.setRam_no(ram_no);
 			vo.setRam_name(ram_name);
@@ -180,6 +183,7 @@ public class ContentsService {
 			vo.setKind(kind);
 			vo.setMemory_capacity(memory_capacity);
 			vo.setClock(clock);
+			vo.setCategory(category);
 		}
 		return ramdetail;
 	}
@@ -229,6 +233,7 @@ public class ContentsService {
 			String rj_45port=vo.getRj_45port();
 			String gigabit_lan=vo.getGigabit_lan();
 			String wireless_lan=vo.getWireless_lan();
+			int category = vo.getCategory();
 
 			vo.setMain_no(main_no);
 			vo.setMain_name(main_name);
@@ -272,6 +277,7 @@ public class ContentsService {
 			vo.setRj_45port(rj_45port);
 			vo.setGigabit_lan(gigabit_lan);
 			vo.setWireless_lan(wireless_lan);
+			vo.setCategory(category);
 		}
 		return maindetail;
 	}
@@ -304,6 +310,7 @@ public class ContentsService {
 			String fan=vo.getFan();
 			String width=vo.getWidth();
 			String height=vo.getHeight();
+			int category = vo.getCategory();
 
 			vo.setVga_no(vga_no);
 			vo.setVga_name(vga_name);
@@ -330,6 +337,7 @@ public class ContentsService {
 			vo.setFan(fan);
 			vo.setWidth(width);
 			vo.setHeight(height);
+			vo.setCategory(category);
 		}
 		return vgadetail;
 	}
@@ -355,6 +363,7 @@ public class ContentsService {
 			String ram_type=vo.getRam_type();
 			String tbw=vo.getTbw();
 			String warranty_time=vo.getWarranty_time();
+			int category = vo.getCategory();
 
 
 			vo.setSsd_no(ssd_no);
@@ -375,6 +384,7 @@ public class ContentsService {
 			vo.setRam_type(ram_type);
 			vo.setTbw(tbw);
 			vo.setWarranty_time(warranty_time);
+			vo.setCategory(category);
 		}
 		return ssddetail;
 	}
@@ -400,6 +410,7 @@ public class ContentsService {
 			String hdd_thickness=vo.getHdd_thickness();
 			String workload_rate=vo.getWorkload_rate();
 			String warranty=vo.getWarranty();
+			int category = vo.getCategory();
 
 			vo.setHdd_no(hdd_no);
 			vo.setHdd_name(hdd_name);
@@ -419,6 +430,7 @@ public class ContentsService {
 			vo.setHdd_thickness(hdd_thickness);
 			vo.setWorkload_rate(workload_rate);
 			vo.setWarranty(warranty);
+			vo.setCategory(category);
 		}
 		return hdddetail;
 	}
@@ -458,6 +470,7 @@ public class ContentsService {
 			String stanby_power=vo.getStanby_power();
 			String flat_cable=vo.getFlat_cable();
 			String warranty=vo.getWarranty();
+			int category = vo.getCategory();
 
 			vo.setPower_no(power_no);
 			vo.setPower_name(power_name);
@@ -491,6 +504,7 @@ public class ContentsService {
 			vo.setStanby_power(stanby_power);
 			vo.setFlat_cable(flat_cable);
 			vo.setWarranty(warranty);
+			vo.setCategory(category);
 		}
 		return powerdetail;
 	}

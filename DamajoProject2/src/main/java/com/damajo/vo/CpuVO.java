@@ -29,4 +29,5 @@ public class CpuVO {
 	private String core;
 	private String thread;
 	private String defclock;
+	private int category;
 }

@@ -26,4 +26,5 @@ public class RamVO {
 	private String kind;
 	private String memory_capacity;
 	private String clock;
+	private int category;
 }

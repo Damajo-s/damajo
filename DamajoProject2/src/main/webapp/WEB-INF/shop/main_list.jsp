@@ -101,7 +101,7 @@ $(function(){
 					<img src="${vo.poster }" alt="">
 				</div>
 				<div class="product-body">
-					<h3 class="product-name"><a href="main_detail.do?no=${vo.main_no }">${vo.main_name }</a></h3>
+					<h3 class="product-name"><a href="main_detail.do?no=${vo.main_no }&category=${vo.category}">${vo.main_name }</a></h3>
 					<h4 class="product-price">${vo.price }원</h4>
 					<!-- <del class="product-old-price">${vo.price }원</del> -->
 					<div class="product-rating">
