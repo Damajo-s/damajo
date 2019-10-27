@@ -35,6 +35,7 @@ $(function(){
  			$.ajax({
 				type:'post',
 				url:'../shop/detail_page.do',
+				 data : {page:1,product:product },
 				success:function(res){
 					$('#print').html(res);
 				}
@@ -253,7 +254,7 @@ $(function(){
 													<li><input type=button value="&lt;" ></li>
 												</c:if>
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
-													<li class="${curPage==i? "active":"" }">
+													<li class=${curPage==i? "active":"" }>
 														<input type=button class="page" value="${i }">
 													</li>
 												</c:forEach>

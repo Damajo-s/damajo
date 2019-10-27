@@ -2,10 +2,8 @@
  * 
  */
 package com.damajo.vo;
-
 import lombok.Getter;
 import lombok.Setter;
-
 /**
  * CREATE TABLE CART (
     cartNo NUMBER NOT NULL PRIMARY KEY,
@@ -23,12 +21,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CartVO {
-	private int cartNo; // Àå¹Ù±¸´Ï ¹øÈ£
-	private int userNo; // »ç¿ëÀÚ ¹øÈ£
-	private int productId; // »óÇ° ¹øÈ£
-	private String productName; // »óÇ° ÀÌ¸§
-	private int productPrice; // »óÇ° ´Ü°¡
-	private int cartStock; // ±¸¸Å ¼ö·®
-	private int money; // »óÇ° °¡°Ý
+	private int cartNo; // ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	private int userNo; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	private int productId; // ï¿½ï¿½Ç° ï¿½ï¿½È£
+	private String productName; // ï¿½ï¿½Ç° ï¿½Ì¸ï¿½
+	private int productPrice; // ï¿½ï¿½Ç° ï¿½Ü°ï¿½
+	private int cartStock; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private int money; // ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
 	
 }
