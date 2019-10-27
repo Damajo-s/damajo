@@ -256,6 +256,7 @@ $(function(){
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
 													<li class=${curPage==i? "active":"" }>
 														<input type=button class="page" value="${i }">
+														<input type=hidden id="pro" value="${product }">
 													</li>
 												</c:forEach>
 													<c:if test="${endPage<allPage }">
