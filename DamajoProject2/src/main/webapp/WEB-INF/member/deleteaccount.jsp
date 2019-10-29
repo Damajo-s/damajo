@@ -7,9 +7,15 @@
 <title>Insert title here</title>
 
 <link type="text/css" rel="stylesheet" href="../css/login.css">
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
+	charset="utf-8"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script>
 var id = '<%=session.getAttribute("id")%>';
+Kakao.init('c444dd0ac65fe591c10736f6c0dc3f97'); 
+var key = Kakao.Auth.getAccessToken();
 	$(function() {
 		$('#delete').click(function() {
 			var pwd = $('#password').val();
@@ -27,8 +33,18 @@ var id = '<%=session.getAttribute("id")%>';
 				},
 				url : '../member/deleteaccount_ok.do',
 				success : function(res) {
-					if (res == 'true')
-						location.href = "../member/logout.do";
+					console.log(key);
+					Kakao.API.request({
+						url:'/v1/user/unlink',
+						method: 'POST',
+						data:{
+							Authorization : key
+						}
+					});
+					if (res == 'true'){
+						
+					}
+						//location.href = "../member/logout.do";
 					else {
 						alert("잘못된 비밀번호 입니다.");
 						$('#password').val();

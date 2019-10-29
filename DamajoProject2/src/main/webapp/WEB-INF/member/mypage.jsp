@@ -170,7 +170,6 @@
 	<p></p>
 	<section class="admin1">
 	<h2>내가 작성한 후기</h2>
-
 	</section>
 
 	<p></p>

@@ -26,7 +26,8 @@ public class MemberRestController {
 		if (result == 3) { // 회원가입
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("type", vo.getType());
-			System.out.println("가입");
+			//System.out.println("가입");
+			ms.signup(vo);
 		}
 		return String.valueOf(result);
 	}
