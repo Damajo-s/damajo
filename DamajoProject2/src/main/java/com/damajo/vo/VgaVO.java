@@ -30,4 +30,5 @@ public class VgaVO {
 	private String fan;
 	private String width;
 	private String height;
+	private int category;
 }

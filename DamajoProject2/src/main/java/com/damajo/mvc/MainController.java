@@ -16,11 +16,15 @@ import com.damajo.dao.MainDAO;
 import com.damajo.dao.QABoardDAO;
 import com.damajo.dao.VideoBoardDAO;
 import com.damajo.service.CategoryService;
+import com.damajo.service.ContentsService;
 import com.damajo.vo.CpuVO;
+import com.damajo.vo.MainVO;
 import com.damajo.vo.CategoryVO;
 import com.damajo.vo.QABoardVO;
 import com.damajo.vo.RamVO;
+import com.damajo.vo.RecommendVO;
 import com.damajo.vo.SsdVO;
+import com.damajo.vo.VgaVO;
 import com.damajo.vo.VideoBoardVO;
 
 @Controller
@@ -32,7 +36,8 @@ public class MainController {
 	private MainDAO cdao;
 	@Autowired
 	private CategoryService cateService;
-	
+	@Autowired
+	private ContentsService contentsService;
 	@RequestMapping("main/main.do")
 	public String main_main(Model model) {
 
@@ -43,6 +48,10 @@ public class MainController {
 		List<SsdVO> srlist = cdao.SSDRecomList(map);
 		List<RamVO> rnlist = cdao.RAMNewList(map);
 		List<RamVO> rrlist = cdao.RAMRecomList(map);
+		List<MainVO> mnlist = cdao.MainNewList(map);
+		List<MainVO> mrlist = cdao.MainRecomList(map);
+		List<VgaVO> vnlist = cdao.VgaNewList(map);
+		List<VgaVO> vrlist = cdao.VgaRecomList(map);
 
 		model.addAttribute("crlist", crlist);
 		model.addAttribute("cnlist", cnlist);
@@ -50,6 +59,10 @@ public class MainController {
 		model.addAttribute("srlist", srlist);
 		model.addAttribute("rnlist", rnlist);
 		model.addAttribute("rrlist", rrlist);
+		model.addAttribute("mnlist", mnlist);
+		model.addAttribute("mrlist", mrlist);
+		model.addAttribute("vnlist", vnlist);
+		model.addAttribute("vrlist", vrlist);
 
 		return "main";
 	}
@@ -65,9 +78,10 @@ public class MainController {
 	public String shop_list(Model model) {
 		List<CategoryVO> cateList=cateService.category();
 		int[] severalTotalCount=cateService.severalTotalCount();
-		
+		List<RecommendVO> recommList=contentsService.recommendList();
 		model.addAttribute("cateList",cateList);
 		model.addAttribute("severalTotalCount",severalTotalCount);
+		model.addAttribute("recommList",recommList);
 		return "shop/shop_list";
 	}
 

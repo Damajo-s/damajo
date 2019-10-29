@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -74,12 +75,44 @@
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${vo.price } <del class="product-old-price">$990.00</del></h3>
-								<span class="product-available">In Stock</span>
+								<h3 class="product-price">${vo.price } 원<!-- <del class="product-old-price">$990.00</del> --></h3>
+								<!-- <span class="product-available">In Stock</span> -->
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-							<div class="product-options">
+							<table class="table">
+								<tr>
+									<td colspan=4 >
+											<table id="lowPriceInfo" class="table table-borderless" >
+										<tr>
+											<td>
+												<span class="feed_detail feed_title" style="color:#FF0000; ">
+												<br/>&nbsp;최저가 ${vo.price } 원
+												</span>
+											</td>
+											<td>
+												<span class="feed_detail simpleInfo">
+												 <%-- <br/><br/><a href="${slist[0].link }" >바로가기 ▶</a>  --%>
+												</span>
+											</td>
+										</tr>
+										<tr >
+											<th width=60% class="feed_detail simpleInfo" ><br/>&nbsp;&nbsp;판매처</th>
+											<th width=40% class="feed_detail simpleInfo" ><br/>판매가</th>
+										</tr>
+										<c:forEach var="svo" items="${compare }" varStatus="s" >
+										<tr>
+											<td width=60% class="feed_detail simpleInfo" >
+												<a href="${svo.link }" >&nbsp;&nbsp;${svo.mall_name }</a>
+											</td>
+											<td width=40% class="feed_detail simpleInfo" >
+												${svo.price } 원
+											</td>
+										</tr>
+										</c:forEach>
+									</table>
+								</td>
+							</tr>
+						</table>
+							<!-- <div class="product-options">
 								<label>
 									Size
 									<select class="input-select">
@@ -92,7 +125,7 @@
 										<option value="0">Red</option>
 									</select>
 								</label>
-							</div>
+							</div> -->
 
 							<div class="add-to-cart">
 								<div class="qty-label">

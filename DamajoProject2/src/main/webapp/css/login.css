@@ -20,6 +20,33 @@ body {
   color: #444;
   background-color: #fafafa;
 }
+#login-button{
+	width: 150px;
+	height: 50px;
+}
+.button-1 {
+	width: 140px;
+	height: 50px;
+	border: 2px solid #34495e;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+	margin: 0 0 40px 0;
+}
+
+.button-1 a {
+	font-family: arial;
+	font-size: 16px;
+	color: #34495e;
+	text-decoration: none;
+	line-height: 50px;
+	transition: all .5s ease;
+	z-index: 2;
+	position: relative;
+}
 
 a {
   color: #444;

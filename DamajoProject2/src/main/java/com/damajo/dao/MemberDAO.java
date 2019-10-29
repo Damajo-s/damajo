@@ -38,12 +38,18 @@ public class MemberDAO {
 		return mapper.damajoIdCheck(vo);
 	}
 
-	public String pwdSearch(String id, String hint) {
-		return mapper.pwdSearch(id, hint);
+	public String pwdSearch(MemberVO vo) {
+		return mapper.pwdSearch(vo);
 	}
 
-	public String leaveAccount(String id) {
-		return mapper.leaveAccount(id);
+	public void leaveAccount(MemberVO vo) {
+		 mapper.leaveAccount(vo);
 	}
 
+	public MemberVO memberDetailInfo(MemberVO vo) {
+		return mapper.memberDetailInfo(vo);
+	}
+	public void changePassword(MemberVO vo){
+		mapper.changePassword(vo);
+	}
 }

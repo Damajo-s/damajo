@@ -8,4 +8,5 @@ import lombok.Setter;
 public class CategoryVO {
 	private int category_no;
 	private String category_name;
+	private String company;
 }

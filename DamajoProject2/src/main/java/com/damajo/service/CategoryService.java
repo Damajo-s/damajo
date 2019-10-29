@@ -21,4 +21,5 @@ public class CategoryService {
 								dao.ssdTotalCount(), dao.hddTotalCount(), dao.powerTotalCount()};
 		return severalTotalCount;
 	}
+	
 }

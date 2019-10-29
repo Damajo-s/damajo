@@ -65,7 +65,7 @@ function windowLoaded() {
 		var id = document.getElementById('login-username').value;
 		var pwd = document.getElementById('login-password').value;
 		if (id == '' || pwd == '') {
-			alert("아이디와 패스워드를 입력해주세요")
+			alert("아이디와 패스워드를 입력해주세요");
 			return;
 		}
 		axios({
@@ -91,9 +91,16 @@ function windowLoaded() {
 	signupButton.addEventListener("click", function() {
 		var id = document.getElementById('signup-username').value;
 		var pwd = document.getElementById('signup-password').value;
+		var pwdCheck = document.getElementById('signup-passwordcheck').value;
+		var hintAnswer = document.getElementById('signup-hintanswer').value;
 		var hint = document.getElementById('signup-hint').value;
+		console.log(hintAnswer);
 		if (id == '' || pwd == '') {
 			alert("아이디와 패스워드를 입력해주세요");
+			return;
+		}
+		if(pwd != pwdCheck){
+			alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 			return;
 		}
 
@@ -104,6 +111,7 @@ function windowLoaded() {
 				id : id,
 				pwd : pwd,
 				hint : hint,
+				hint_answer : hintAnswer,
 				type : 1
 			}
 		

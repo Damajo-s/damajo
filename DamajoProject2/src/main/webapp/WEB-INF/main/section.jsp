@@ -189,7 +189,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${cpuN.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do?product=${cpuN.cpu_no }">${cpuN.cpu_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/cpu_detail.do?no=${cpuN.cpu_no }&category=${cpuN.category}">${cpuN.cpu_name }</a></h3>
 												<h4 class="product-price">${cpuN.price } <del class="product-old-price">${cpuN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -228,7 +228,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${ssdN.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${ssdN.ssd_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/ssd_detail.do?no=${ssdN.ssd_no }&category=${ssdN.category}">${ssdN.ssd_name }</a></h3>
 												<h4 class="product-price">${ssdN.price }<del class="product-old-price">${ssdN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -267,7 +267,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${ramN.company }  ${ramN.memory_capacity }</p>
-												<h3 class="product-name"><a href="../shop/detail.do?product=${ramN.ram_no }">${ramN.ram_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/ram_detail.do?no=${ramN.ram_no }&category=${ramN.category}">${ramN.ram_name }</a></h3>
 												<h4 class="product-price">${ramN.price} <del class="product-old-price">${ramN.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -296,19 +296,18 @@
 								<div id="tab4" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-4">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${mnlist }" var="mN">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${mN.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  메인보드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${mN.company }</p>
+												<h3 class="product-name"><a href="../shop/main_detail.do?no=${mN.main_no }&category=${mN.category}">${mN.main_name }</a></h3>
+												<h4 class="product-price">${mN.price } <del class="product-old-price">${mN.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -336,19 +335,18 @@
 								<div id="tab5" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-5">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${vnlist }" var="vn">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${vn.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  그래픽카드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${vn.company }</p>
+												<h3 class="product-name"><a href="../shop/vag_detail.do?no=${vn.vga_no }&category=${vn.category}">${vn.vga_name }</a></h3>
+												<h4 class="product-price">${vn.price } <del class="product-old-price">${vn.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -413,7 +411,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${cpuR.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${cpuR.cpu_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/cpu_detail.do?no=${cpuR.cpu_no }&category=${cpuR.category}">${cpuR.cpu_name }</a></h3>
 												<h4 class="product-price">${cpuR.price } <del class="product-old-price">${cpuR.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -452,7 +450,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${ssdR.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${ssdR.ssd_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/ssd_detail.do?no=${ssdR.ssd_no }&category=${ssdR.category}">${ssdR.ssd_name }</a></h3>
 												<h4 class="product-price">${ssdR.price } <del class="product-old-price">${ssdR.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -491,7 +489,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${ramR.company } ${ramR.memory_capacity }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${ramR.ram_name}</a></h3>
+												<h3 class="product-name"><a href="../shop/ram_detail.do?no=${ramR.ram_no }&category=${ramR.category}">${ramR.ram_name}</a></h3>
 												<h4 class="product-price">${ramR.price}<del class="product-old-price">${ramR.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -520,19 +518,18 @@
 								<div id="tab9" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-9">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${mrlist }" var="mR">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${mR.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  메인보드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${mR.company }</p>
+												<h3 class="product-name"><a href="../shop/main_detail.do?no=${mR.main_no }&category=${mR.category}">${mR.main_name }</a></h3>
+												<h4 class="product-price">${mR.price }<del class="product-old-price">${mR.price }</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -560,19 +557,18 @@
 								<div id="tab10" class="tab-pane" >
 									<div class="products-slick" data-nav="#slick-nav-10">
 										<!-- product -->
-										<c:forEach begin="1" end="6" varStatus="s">
+										<c:forEach begin="1" end="6" items="${vrlist }" var="vr">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="${vr.poster }" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">HOT</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">${s.index }  그래픽카드</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${vr.company }</p>
+												<h3 class="product-name"><a href="../shop/vga_detail.do?no=${vr.vga_no }&category=${vr.category}">${vr.vga_name}</a></h3>
+												<h4 class="product-price">${vr.price}<del class="product-old-price">${vr.price}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>

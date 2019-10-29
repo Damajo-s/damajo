@@ -24,5 +24,5 @@ public class SsdVO {
 	private String ram_type;
 	private String tbw;
 	private String warranty_time;
-	
+	private int category;
 }

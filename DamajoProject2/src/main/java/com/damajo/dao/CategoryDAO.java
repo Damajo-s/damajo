@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.CategoryMapper;
 import com.damajo.vo.CategoryVO;
+import com.damajo.vo.CpuVO;
 
 @Repository
 public class CategoryDAO {
@@ -44,4 +45,5 @@ public class CategoryDAO {
 	public int powerTotalCount() {
 		return mapper.powerTotalCount();
 	}
+	
 }

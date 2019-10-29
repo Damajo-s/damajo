@@ -12,7 +12,7 @@ public class HddVO {
 	private String price;
 	private String company;
 	private String regdate;
-	
+
 	private String product_type;
 	private String disk_size;
 	private String disk_capacity;
@@ -25,4 +25,5 @@ public class HddVO {
 	private String hdd_thickness;
 	private String workload_rate;
 	private String warranty;
+	private int category;
 }

@@ -43,4 +43,5 @@ public class PowerVO {
 	private String stanby_power;
 	private String flat_cable;
 	private String warranty;
+	private int category;
 }
