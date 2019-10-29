@@ -21,7 +21,8 @@ public class QnABoardController {
 	public String shop_insert(int product,String subject,String content, Model model, HttpSession session) {
 		// 아이디 비밀번호 session에서 처리?
 		QABoardVO vo = new QABoardVO();
-		String id = "sj6239@naver.com"; //(String) session.getAttribute("id");
+		//String id = "sj6239@naver.com"; 
+		String id=(String) session.getAttribute("id");
 		vo.setId(id);
 		vo.setPno(product);
 		vo.setSubject(subject);
@@ -31,9 +32,10 @@ public class QnABoardController {
 		System.out.println(subject);
 		System.out.println(content);
 		qdao.qaboardInsert(vo);
-		return "shop/detail";
+		model.addAttribute("product", product);
+		return "redirect:detail.do";
 	}
-
+	// 해당 상품게시물 총 수
 	// Q&A 리스트
 	@RequestMapping("shop/detail.do")
 	public String shop_detail(String page, int product,Model model){
@@ -43,6 +45,7 @@ public class QnABoardController {
 		//페이지
 		int curPage = Integer.parseInt(page);
 		int totalPage = qdao.qaboardTotal();
+		int qPnoCount=qdao.qaboardPnoCount(product);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -51,8 +54,9 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,product);
-		System.out.println("처음:"+curPage);
-		System.out.println("처음:"+product);
+		//System.out.println("처음:"+curPage);
+		//System.out.println("처음:"+product);
+		model.addAttribute("qPnoCount", qPnoCount);
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("BLOCK", BLOCK);
@@ -72,6 +76,7 @@ public class QnABoardController {
 			//페이지
 			int curPage = Integer.parseInt(page);
 			int totalPage = qdao.qaboardTotal();
+			int qPnoCount=qdao.qaboardPnoCount(product);
 			int BLOCK=5;
 			int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 			int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -80,8 +85,9 @@ public class QnABoardController {
 				endPage=allPage;
 			}
 			List<QABoardVO> list= qdao.qaboardList(curPage,product);
-			System.out.println("두번:"+curPage);
-			System.out.println("두번:"+product);
+			//System.out.println("두번:"+curPage);
+			//System.out.println("두번:"+product);
+			model.addAttribute("qPnoCount", qPnoCount);
 			model.addAttribute("curPage", curPage);
 			model.addAttribute("totalPage", totalPage);
 			model.addAttribute("BLOCK", BLOCK);

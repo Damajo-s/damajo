@@ -38,6 +38,14 @@
 	<select id="qaboardTotal" parameterMap="dbTotalMap" statementType="CALLABLE">
 		{CALL qaboardTotal (?)}
 	</select>
+	<!-- 해당 상품게시물 수 -->
+	<parameterMap type="hashmap" id="dbCountMap">
+		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qCpno" mode="OUT" jdbcType="INTEGER"/>
+	</parameterMap>
+	<select id="qaboardPnoCount" parameterMap="dbCountMap" statementType="CALLABLE">
+		{CALL qaboardPnoCount(?,?)}
+	</select>
 	<!-- 수정 기능 없어요 -->
 	<!-- 삭제 -->
 	

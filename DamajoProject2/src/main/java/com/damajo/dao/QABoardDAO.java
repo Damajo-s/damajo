@@ -41,13 +41,16 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		
 		getSqlSession().update("qaboardList",map);
 		List<QABoardVO> list= (List<QABoardVO>)map.get("result");
-		/*for(QABoardVO vo:list) {
-			SimpleDateFormat _date=new SimpleDateFormat("yyyy-MM-dd");
-			Date date=vo.getRegdate();
-			_date.format(date);
-			System.out.println(date);
-		}*/
 		return list;
+	}
+	// 해당 상품게시물 수
+	public int qaboardPnoCount(int product){
+		int qpno=product;
+		Map map=new HashMap();
+		map.put("qpno", qpno);
+		getSqlSession().update("qaboardPnoCount",map);
+		int qCpno =(int)map.get("qCpno");
+		return qCpno;
 	}
 	//총페이지
 	public int qaboardTotal(){

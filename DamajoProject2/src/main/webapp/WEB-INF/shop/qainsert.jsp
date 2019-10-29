@@ -7,18 +7,23 @@
 <title>Insert title here</title>
 <script type="text/javascript" href="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-/* $(function(){
+$(function(){
 	$('#insertBtn').click(function(){
+		var subject=$('.subject').val();
+		var content=$('.content').val();
+		alert(sucject);
+		alert(content);
 		$.ajax({
 			type:'post',
 			url:'../shop/qainsert_ok.do',
 			data:{subject:subject,content:content},
-			success:function(response){
-				
+			success:function(res){
+				alert(subject);
+				alert(content);
 			}
-		});
+		});// ajax
 	});
-}); */
+});
 </script>
 </head>
 <body>
@@ -32,13 +37,13 @@
 					<tr>
 						<td width=20>&nbsp;&nbsp;제목</td>
 						<td>
-							<input type=text width=10 name="subject" class="subject" id=subject>
+							<input type=text width=10 name=subject class="subject" id=subject>
 						</td>
 					</tr>
 					<tr>
 						<td width=20%>&nbsp;&nbsp;내용</td>
 						<td>
-							<textarea rows="10" cols="40" name=content id=content ></textarea>
+							<textarea rows="10" cols="40" name=content class=content ></textarea>
 						</td>
 					</tr>
 				</table>
@@ -50,8 +55,8 @@
 				<pre><font size=1>※ 상품 상세페이지에 노출되므로 문의 내용에 개인정보가 포함되지 않도록 유의해주세요.</font></p><br>
 			</div>
 			<div class="text-center">
-				<input type=button value="취소" class="btn btn-sm btn-danger"onclick="window.close();">
-				<input type=submit value="등록" class="btn btn-sm btn-danger" id=insertBtn >
+				<input type=button value="취소" class="btn btn-sm btn-danger" onclick="window.close();">
+				<input type=submit value="등록" class="btn btn-sm btn-danger" id=insertBtn onclick="window.close();"  >
 			</div>
 		</div>
 	</form>

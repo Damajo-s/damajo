@@ -203,9 +203,9 @@ $(function(){
 								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
-										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue">(0)</font></h3>
+										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
-											&nbsp;<a class="allCount">전체(0)</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
+											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
 											<input type="hidden" id="pro" value="${product }">
 										</div>
@@ -404,9 +404,9 @@ $(function(){
 										<div class="col-md-3">
 											<div id="review-form">
 												<form class="review-form">
-													<input class="input" type="text" placeholder="Your Name">
-													<input class="input" type="email" placeholder="Your Email">
-													<textarea class="input" placeholder="Your Review"></textarea>
+													<input class="input" type="text" placeholder="제목">
+													<input class="input" type="file" placeholder="첨부파일">
+													<textarea class="input" placeholder="상품 후기 입력해주세요."></textarea>
 													<div class="input-rating">
 														<span>Your Rating: </span>
 														<div class="stars">
