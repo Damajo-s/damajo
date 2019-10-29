@@ -17,9 +17,10 @@
 		<parameter property="subject" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="content" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="adminres" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="category" mode="IN" javaType="java.lang.Integer"/>
 	</parameterMap>
 	<select id="qaboardInsert" parameterMap="dbInsertMap" statementType="CALLABLE">
-		{CALL qaboardInsert(?,?,?,?,?)}
+		{CALL qaboardInsert(?,?,?,?,?,?)}
 	</select>
 	<!-- 리스트출력 -->
 	<parameterMap type="hashmap" id="dbListMap">

@@ -1,6 +1,7 @@
 package com.damajo.vo;
 
 import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 /*
@@ -24,4 +25,5 @@ public class QABoardVO {
 	private Date regdate;
 	private String today;
 	private String adminres;
+	private int category;
 }

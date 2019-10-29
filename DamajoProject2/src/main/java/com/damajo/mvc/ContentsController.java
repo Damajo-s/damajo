@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.damajo.service.CompareSevice;
 import com.damajo.service.ContentsService;
-import com.damajo.vo.CompareVO;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
@@ -235,86 +234,5 @@ public class ContentsController {
 		model.addAttribute("powerTotalPage", powerTotalPage);
 		model.addAttribute("BLOCK", BLOCK);
 		return "power_list";
-	}
-
-	@RequestMapping("shop/cpu_detail.do")
-	public String cpu_detail(int no, int category,Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<CpuVO> cpudetail=service.cpuContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("cpudetail", cpudetail);
-		model.addAttribute("compare", compare);
-		return "shop/cpu_detail";
-	}
-	@RequestMapping("shop/ram_detail.do")
-	public String ram_detail(int no,int category, Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<RamVO> ramdetail=service.ramContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("ramdetail", ramdetail);
-		model.addAttribute("compare", compare);
-		return "shop/ram_detail";
-	}
-	@RequestMapping("shop/main_detail.do")
-	public String main_detail(int no,int category, Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<MainVO> maindetail=service.mainContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("maindetail", maindetail);
-		model.addAttribute("compare", compare);
-		return "shop/main_detail";
-	}
-
-	@RequestMapping("shop/vga_detail.do")
-	public String vga_detail(int no,int category, Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<VgaVO> vgadetail=service.vgaContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("vgadetail", vgadetail);
-		model.addAttribute("compare", compare);
-		return "shop/vga_detail";
-	}
-
-	@RequestMapping("shop/ssd_detail.do")
-	public String ssd_detail(int no,int category, Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<SsdVO> ssddetail=service.ssdContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("ssddetail", ssddetail);
-		model.addAttribute("compare", compare);
-		return "shop/ssd_detail";
-	}
-
-	@RequestMapping("shop/hdd_detail.do")
-	public String hdd_detail(int no,int category, Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<HddVO> hdddetail=service.hddContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("hdddetail", hdddetail);
-		model.addAttribute("compare", compare);
-		return "shop/hdd_detail";
-	}
-	@RequestMapping("shop/power_detail.do")
-	public String power_detail(int no,int category, Model model) {
-		Map map=new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		List<PowerVO> powerdetail=service.powerContentsDetail(map);
-		List<CompareVO> compare=service2.compare(map);
-		model.addAttribute("powerdetail", powerdetail);
-		model.addAttribute("compare", compare);
-		return "shop/power_detail";
 	}
 }

@@ -7,6 +7,55 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	  $('#insertbtn').on("click", function(){
+		  var pno=$('#pro').val();
+	    window.open("../shop/qainsert.do?product="+pno,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
+	    //$("#myform").submit();	
+	  });
+	});
+//Q&A 
+var i=0;
+var j=0;
+$(function(){
+	//QnA 페이지 이동 
+			$('.page').click(function(){ 
+				var page=$(this).val(); 
+				var product=$('#pro').val();  
+				$.ajax({
+					type:'post',
+					url:'../shop/detail_page.do',  
+					data:{page:page,product:product},
+					success:function(res){ 
+						//alert(res);
+						//alert(page);
+						//alert(product);
+						$('#print').html(res); 
+					}
+				}); //ajax
+			}); //page
+
+});
+</script>
+<style type="text/css">
+.page, .nextPage, .prePage{
+	color: #2B2D42;
+	font-weight: 500;
+	-webkit-transition: 0.2s color;
+	transition: 0.2s color;
+	
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: transparent;
+	border: none;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+</style>
 </head>
 <body>
 		<!-- SECTION -->
@@ -214,21 +263,47 @@
 								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
-										<h3 class="text-left">Q&A <font color="blue">(0)</font></h3>
+										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
-											&nbsp;<a href="#">전체(0)</a>&nbsp;|&nbsp;<a href="#">답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
-											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info"></span>
+											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
+											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
+											<input type="hidden" id="pro" value="${product }">
 										</div>
 										<div class="col-md-12">
-											<table class="table">
+											<table class="table" width="100%" cellspacing="0">
+												<thead>
 												<tr>
-													<th>답변상태</th>
-													<th>제목</th>
-													<th>구매/비구매</th>
-													<th>작성자</th>
-													<th>작성일</th>
+													<th class="text-center" width="10%">답변상태</th>
+													<th class="text-center" width="20%">제목</th>
+													<th class="text-center" width="5%"></th>
+													<th class="text-center" width="20%">작성자</th>
+													<th class="text-center" width="10%">작성일</th>
 												</tr>
+												</thead>
 											</table>
+										</div>
+										<div class="col-md-12" id="print" >
+												
+										</div>
+										<div>
+											<ul class="reviews-pagination" >
+											<table class="table">
+												<c:if test="${curPage>BLOCK }">
+													<li><input type=button value="◁"></li>
+													<li><input type=button value="&lt;" ></li>
+												</c:if>
+												<c:forEach var="i" begin="${startPage }" end="${endPage }">
+													<li class=${curPage==i? "active":"" }>
+														<input type=button class="page" value="${i }">
+														<input type=hidden id="pro" value="${product }">
+													</li>
+												</c:forEach>
+													<c:if test="${endPage<allPage }">
+														<li><input type=button value="&gt;"></li>
+														<li><input type=button value="▷"></li>
+													</c:if>
+											</table>
+											</ul>
 										</div>
 									</div>
 								</div>

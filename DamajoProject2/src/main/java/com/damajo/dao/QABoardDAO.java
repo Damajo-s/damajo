@@ -1,7 +1,8 @@
 package com.damajo.dao;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -12,6 +13,7 @@ import com.damajo.vo.QABoardVO;
 
 @Repository
 public class QABoardDAO extends SqlSessionDaoSupport {
+	@Override
 	@Autowired
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		super.setSqlSessionFactory(sqlSessionFactory);
@@ -25,6 +27,7 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		map.put("subject", vo.getSubject());
 		map.put("content", vo.getContent());
 		map.put("adminres", vo.getAdminres());
+		map.put("category", vo.getCategory());
 		getSqlSession().update("qaboardInsert", map);
 	}
 
