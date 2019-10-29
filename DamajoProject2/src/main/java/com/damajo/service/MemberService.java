@@ -72,9 +72,10 @@ public class MemberService {
 		dao.changePassword(vo);
 	}
 
-	public String deleteAccount(MemberVO vo) {
+	public String deleteAccount(MemberVO vo,HttpSession session) {
 		MemberVO dbvo = dao.memberDetailInfo(vo);
 		if (vo.getPwd().equals(dbvo.getPwd())) {
+			session.invalidate();
 			dao.leaveAccount(vo);
 			return "true";
 		} else {

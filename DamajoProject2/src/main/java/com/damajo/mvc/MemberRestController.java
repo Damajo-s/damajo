@@ -70,7 +70,7 @@ public class MemberRestController {
 	}
 
 	@RequestMapping("member/deleteaccount_ok.do")
-	public String deleteaccount_ok(MemberVO vo) {
-		return ms.deleteAccount(vo);
+	public String deleteaccount_ok(MemberVO vo,HttpSession session) {
+		return ms.deleteAccount(vo,session);
 	}
 }

@@ -14,8 +14,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script>
 var id = '<%=session.getAttribute("id")%>';
-Kakao.init('c444dd0ac65fe591c10736f6c0dc3f97'); 
-var key = Kakao.Auth.getAccessToken();
+	Kakao.init('c444dd0ac65fe591c10736f6c0dc3f97');
+	var key = Kakao.Auth.getAccessToken();
 	$(function() {
 		$('#delete').click(function() {
 			var pwd = $('#password').val();
@@ -33,18 +33,16 @@ var key = Kakao.Auth.getAccessToken();
 				},
 				url : '../member/deleteaccount_ok.do',
 				success : function(res) {
-					console.log(key);
-					Kakao.API.request({
-						url:'/v1/user/unlink',
-						method: 'POST',
-						data:{
-							Authorization : key
-						}
-					});
-					if (res == 'true'){
-						
+					if (res == 'true') {
+						Kakao.API.request({
+							url : '/v1/user/unlink',
+							success : function(res) {
+								location.href = "../member/logout.do";							
+							}
+						});
+
 					}
-						//location.href = "../member/logout.do";
+
 					else {
 						alert("잘못된 비밀번호 입니다.");
 						$('#password').val();
