@@ -100,11 +100,17 @@ $(function(){
 	})
 	$('.nextPage').click(function(){
 		var nextPage=$(this).attr("data_page");
+		var category=$("#category").val();
+		var searchThis=$("#searchThis").val();
 		// alert(nextPage);
 		$.ajax({
 			type:'POST',
 			url:'../shop/find_list_page.do',
-			data:{page:nextPage},
+			data:{
+				page:nextPage,
+				category:category,
+				searchThis:searchThis
+			},
 			success:function(res){
 				// alert(res);
 				$('#print').html(res);
@@ -113,11 +119,17 @@ $(function(){
 	})
 	$('.prePage').click(function(){
 		var prePage=$(this).attr("data_page");
+		var category=$("#category").val();
+		var searchThis=$("#searchThis").val();
 		// alert(prePage);
 		$.ajax({
 			type:'POST',
 			url:'../shop/find_list.do',
-			data:{page:prePage},
+			data:{
+				page:prePage,
+				category:category,
+				searchThis=searchThis
+			},
 			success:function(res){
 				// alert(res);
 				$('#print').html(res);
