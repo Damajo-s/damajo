@@ -34,9 +34,9 @@ $(function(){
 					data:{page:page,no:no,category:category},
 					success:function(res){ 
 						//alert(res);
-						alert(page);
-						alert(no);
-						alert(category);
+						//alert(page);
+						//alert(no);
+						//alert(category);
 						$('#print').html(res); 
 					}
 				}); //ajax
