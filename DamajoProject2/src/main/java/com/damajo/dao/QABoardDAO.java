@@ -86,8 +86,12 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 	}
 
 	// 총페이지
-	public int qaboardTotal() {
+	public int qaboardTotal(int no,int category) {
+		int qpno=no;
+		int qcategory=category;
 		Map map = new HashMap();
+		map.put("qpno", qpno);
+		map.put("qcategory", qcategory);
 		getSqlSession().update("qaboardTotal", map);
 		int total = (Integer) map.get("qtotal");
 		return total;

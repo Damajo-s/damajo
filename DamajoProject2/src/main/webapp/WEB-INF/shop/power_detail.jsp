@@ -232,7 +232,7 @@ $(document).ready(function(){
 							<!-- product tab nav -->
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
-								<li><a data-toggle="tab" href="#tab2">Q&A</a></li>
+								<li><a data-toggle="tab" href="#tab2" id=qnaBtn>Q&A</a></li>
 								<li><a data-toggle="tab" href="#tab3">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
@@ -356,7 +356,7 @@ $(document).ready(function(){
 								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
-										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
+										<h3 class="text-left">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
 											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>

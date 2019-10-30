@@ -47,10 +47,10 @@ public class QnABoardController {
 	// QA새글
 	@RequestMapping("shop/qainsert_ok.do")
 	public String cpu_insert(String no,String category,String subject,String content, Model model, HttpSession session) {
-		System.out.println("상품"+no);
+/*		System.out.println("상품"+no);
 		System.out.println("카테고리"+category);
 		System.out.println(subject);
-		System.out.println(content);
+		System.out.println(content);*/
 		QABoardVO vo = new QABoardVO();
 		//String id = "sj6239@naver.com";
 		String id=(String) session.getAttribute("id");
@@ -94,8 +94,9 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category); 
+		System.out.println(qPnoCount);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -107,8 +108,10 @@ public class QnABoardController {
 		List<CpuVO> cpudetail=service.cpuContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		//System.out.println("처음:"+curPage);
-		System.out.println("1상품번호:"+no);
-		System.out.println("1카테고리번호:"+category);
+		/*
+		 * System.out.println("1상품번호:"+no);
+		 * System.out.println("1카테고리번호:"+category);
+		 */
 		model.addAttribute("qPnoCount", qPnoCount);
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);
@@ -135,7 +138,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 				int curPage = Integer.parseInt(page);
-				int totalPage = qdao.qaboardTotal();
+				int totalPage = qdao.qaboardTotal(no,category);
 				int qPnoCount=qdao.qaboardPnoCount(no,category); 
 				int BLOCK=5;
 				int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -173,7 +176,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -211,7 +214,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -249,7 +252,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -287,7 +290,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -325,7 +328,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -363,7 +366,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -401,7 +404,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -439,7 +442,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -477,7 +480,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -515,7 +518,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -553,7 +556,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -591,7 +594,7 @@ public class QnABoardController {
 		map.put("category", category);
 		//페이지
 		int curPage = Integer.parseInt(page);
-		int totalPage = qdao.qaboardTotal();
+		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;

@@ -38,10 +38,12 @@
 	</select>
 	<!-- 총페이지 -->
 	<parameterMap type="hashmap" id="dbTotalMap">
+		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qcategory" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="qtotal" mode="OUT" jdbcType="INTEGER"/>
 	</parameterMap>
 	<select id="qaboardTotal" parameterMap="dbTotalMap" statementType="CALLABLE">
-		{CALL qaboardTotal (?)}
+		{CALL qaboardTotal (?,?,?)}
 	</select>
 	<!-- 해당 상품게시물 수 -->
 	<parameterMap type="hashmap" id="dbCountMap">
