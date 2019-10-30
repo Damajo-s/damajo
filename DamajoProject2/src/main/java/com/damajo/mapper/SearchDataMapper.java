@@ -28,7 +28,7 @@ public interface SearchDataMapper {
 			+ "From (Select category,pno,pname,price,poster,rownum as num "
 			+ "From (Select category,pno,pname,price,poster "
 			+ "From product Where category=#{category} And pname Like '%'||'${searchThis}'||'%' Order By pno asc)) "
-			+ "Where num Between 1 And 18")
+			+ "Where num Between #{start} And #{end}")
 	public List<ProductVO> searchCategoryDataList(Map map);
 	@Select("Select Ceil(Count(*)/20) From product "
 			+ "Where category=#{category} And pname Like '%'||'${searchThis}'||'%'")

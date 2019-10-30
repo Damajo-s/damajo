@@ -69,6 +69,7 @@ public class ContentsController {
 		map.put("start", start);
 		map.put("end", end);
 		if(category.equals("0")) { // 전체 검색
+			map.remove("category");
 			List<ProductVO> searchList=service.searchAllDataList(map);
 			model.addAttribute("searchList", searchList);
 		} else { // 카테고리 검색
@@ -76,13 +77,17 @@ public class ContentsController {
 			List<ProductVO> searchList=service.searchCategoryDataList(map);
 			model.addAttribute("searchList", searchList);
 		}
+		System.out.println(map.get("category"));
+		System.out.println(map.get("searchThis"));
+		System.out.println(map.get("start"));
+		System.out.println(map.get("end"));
 		
 		model.addAttribute("searchThis", searchThis);
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("BLOCK", BLOCK);
-		return "shop/find_list";
+		return "find_list";
 	}
 	
 	@RequestMapping("shop/cpu_list.do")

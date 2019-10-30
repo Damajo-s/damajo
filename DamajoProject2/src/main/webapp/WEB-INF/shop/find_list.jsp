@@ -29,7 +29,7 @@
 	<div class="section" id="print">
 		<!-- container -->
 		<div class="container">
-			<h2 class="CalendarListTitle">"${searchThis }" 검색 결과</h2>
+			<h2 class="product-name">"${searchThis }" 검색 결과</h2>
 			<c:forEach var="vo" items="${searchList }">
 			<input type="hidden" id="category" value="${vo.category }">
 			<input type="hidden" id="searchThis" value="${searchThis }">
@@ -70,7 +70,6 @@
 	</div>
 	<!-- /store bottom filter -->
 <!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 function goTop(){
