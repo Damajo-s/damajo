@@ -32,7 +32,7 @@ public class QnABoardController {
 	private DetailService service;
 	@Autowired
 	private CompareSevice service2;
-	
+
 	// 상품 Q&A 작성하기 창 띄우기
 	@RequestMapping("shop/qainsert.do")
 	public String shop_qainsert(String no,String category,Model model, HttpSession session){
@@ -63,7 +63,7 @@ public class QnABoardController {
 		qdao.qaboardInsert(vo);
 		model.addAttribute("no", no);
 		model.addAttribute("category", category);
-		
+
 		if(category.equals("1")){
 			return "redirect:cpu_detail.do";
 		}else if(category.equals("2")){
@@ -95,7 +95,7 @@ public class QnABoardController {
 		//페이지
 		int curPage = Integer.parseInt(page);
 		int totalPage = qdao.qaboardTotal(no,category);
-		int qPnoCount=qdao.qaboardPnoCount(no,category); 
+		int qPnoCount=qdao.qaboardPnoCount(no,category);
 		System.out.println(qPnoCount);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -105,7 +105,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<CpuVO> cpudetail=service.cpuContentsDetail(map);
+		CpuVO cpudetail=service.cpuContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		//System.out.println("처음:"+curPage);
 		/*
@@ -139,7 +139,7 @@ public class QnABoardController {
 		//페이지
 				int curPage = Integer.parseInt(page);
 				int totalPage = qdao.qaboardTotal(no,category);
-				int qPnoCount=qdao.qaboardPnoCount(no,category); 
+				int qPnoCount=qdao.qaboardPnoCount(no,category);
 				int BLOCK=5;
 				int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 				int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -148,7 +148,7 @@ public class QnABoardController {
 					endPage=allPage;
 				}
 				List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-				List<CpuVO> cpudetail=service.cpuContentsDetail(map);
+				CpuVO cpudetail=service.cpuContentsDetail(map);
 				List<CompareVO> compare=service2.compare(map);
 				System.out.println("2상품번호:"+no);
 				System.out.println("2카테고리번호:"+category);
@@ -583,7 +583,7 @@ public class QnABoardController {
 		model.addAttribute("powerdetail", powerdetail);
 		model.addAttribute("compare", compare);
 		return "shop/power_detail";
-	}	
+	}
 	@RequestMapping("shop/power_detail_page.do")
 	public String power_detail_page(String page, int no,int category,Model model){
 		if (page == null) {

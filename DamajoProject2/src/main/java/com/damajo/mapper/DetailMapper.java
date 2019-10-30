@@ -17,7 +17,7 @@ public interface DetailMapper {
 
 	@Select("Select * From cpu_contents "
 			+ "WHERE cpu_no = #{no} and category = #{category}")
-	public List<CpuVO> CpuDetail(Map map);
+	public CpuVO CpuDetail(Map map);
 
 	@Select("Select * From ram_contents "
 			+ "WHERE ram_no = #{no}")

@@ -20,7 +20,7 @@ public class DetailDAO {
 	@Autowired
 	private DetailMapper mapper;
 
-	public List<CpuVO> CpuDetail(Map map) {
+	public CpuVO CpuDetail(Map map) {
 		return mapper.CpuDetail(map);
 	}
 	public List<RamVO> RamDetail(Map map) {

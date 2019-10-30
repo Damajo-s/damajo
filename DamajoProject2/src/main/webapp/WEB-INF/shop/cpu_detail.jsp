@@ -82,25 +82,12 @@ $(function(){
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${cpudetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="${vo.poster }" alt="">
+								<img src="${cpudetail.poster }" alt="">
 							</div>
-
-<!-- 							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -108,21 +95,6 @@ $(function(){
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-<!-- 							<div class="product-preview">
-								<img src="./img/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -130,7 +102,7 @@ $(function(){
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.cpu_name }</h2>
+							<h2 class="product-name">${cpudetail.cpu_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -142,7 +114,7 @@ $(function(){
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${vo.price } 원<!-- <del class="product-old-price">$990.00</del> --></h3>
+								<h3 class="product-price">${cpudetail.price } 원<!-- <del class="product-old-price">$990.00</del> --></h3>
 								<!-- <span class="product-available">In Stock</span> -->
 							</div>
 							<table class="table">
@@ -152,7 +124,7 @@ $(function(){
 										<tr>
 											<td>
 												<span class="feed_detail feed_title" style="color:#FF0000; ">
-												<br/>&nbsp;최저가 ${vo.price } 원
+												<br/>&nbsp;최저가 ${cpudetail.price } 원
 												</span>
 											</td>
 											<td>
@@ -179,20 +151,6 @@ $(function(){
 								</td>
 							</tr>
 						</table>
-							<!-- <div class="product-options">
-								<label>
-									Size
-									<select class="input-select">
-										<option value="0">X</option>
-									</select>
-								</label>
-								<label>
-									Color
-									<select class="input-select">
-										<option value="0">Red</option>
-									</select>
-								</label>
-							</div> -->
 
 							<div class="add-to-cart">
 								<div class="qty-label">
@@ -249,28 +207,28 @@ $(function(){
 											<table class="table">												
  										       <tr>
 										          <th class="text-center" width=20%>제조회사</th>
-										          <td class="text-left" width=30%>${vo.company }</td>
+										          <td class="text-left" width=30%>${cpudetail.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
- 										          <td class="text-left" width=30%>${vo.regdate }</td>
+ 										          <td class="text-left" width=30%>${cpudetail.regdate }</td>
    										   	   </tr>										       
   										       <tr>
  										         <th class="text-center" width=20%>CPU 종류</th>
-      										     <td class="text-left" width=30%>${vo.kind }</td>
+      										     <td class="text-left" width=30%>${cpudetail.kind }</td>
     										     <th class="text-center" width=20%>소켓 구분</th>
-									   		     <td class="text-left" width=30%>${vo.socket }</td>
+									   		     <td class="text-left" width=30%>${cpudetail.socket }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">성능</th>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>코어 수</th>
-										          <td class="text-left" width=30%>${vo.core }</td>
+										          <td class="text-left" width=30%>${cpudetail.core }</td>
  										          <th class="text-center" width=20%>쓰레드 형태</th>
- 										          <td class="text-left" width=30%>${vo.thread }</td>
+ 										          <td class="text-left" width=30%>${cpudetail.thread }</td>
    										   	   </tr>
   										       <tr>
  										         <th class="text-center" width=20%>클럭</th>
-      										     <td class="text-left" colspan="3">${vo.defclock }</td>
+      										     <td class="text-left" colspan="3">${cpudetail.defclock }</td>
  										       </tr>
  										       </table> 										       
 										</div>
@@ -512,7 +470,6 @@ $(function(){
 					</div>
 					<!-- /product tab -->
 				</div>
-				</c:forEach>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
