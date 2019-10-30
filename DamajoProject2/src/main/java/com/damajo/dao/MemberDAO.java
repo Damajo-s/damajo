@@ -1,5 +1,8 @@
 package com.damajo.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.MemberMapper;
 import com.damajo.vo.MemberVO;
+import com.damajo.vo.QABoardVO;
 
 @Repository
 public class MemberDAO {
@@ -54,7 +58,13 @@ public class MemberDAO {
 		mapper.changePassword(vo);
 	}
 
-	public void userList(MemberVO vo) {
-		mapper.userList(vo);
+	public List<MemberVO> userList(Map map) {
+		return mapper.userList(map);
+	}
+	public int qnaTotalPage(QABoardVO vo){
+		return mapper.qnaTotalPage(vo);
+	}
+	public int adminMemberPageCount(){
+		return mapper.adminMemberPageCount();
 	}
 }

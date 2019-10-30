@@ -1,11 +1,15 @@
 package com.damajo.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.damajo.vo.MemberVO;
+import com.damajo.vo.QABoardVO;
 
 public interface MemberMapper {
 	// 네이버 및 카카오로 로그인 시 가입되어 있는 ID가 있는지 체크
@@ -44,7 +48,11 @@ public interface MemberMapper {
 	public void leaveAccount(MemberVO vo);
 
 	// admin 계정 회원정보리스트
-	@Select("SELECT id, type FROM member")
-	public void userList(MemberVO vo);
-
+	@Select("SELECT no,id,type,num FROM (SELECT  no,id,type,rownum as num  FROM (SELECT no,id,type FROM member ORDER BY no desc )) WHERE num BETWEEN #{start} AND #{end}")
+	public List<MemberVO> userList(Map map);
+	
+	@Select("SELECT CEIL(COUNT(*)/5.0) FROM qaboard WHERE id=#{id}")
+	public int qnaTotalPage(QABoardVO vo);
+	@Select("SELECT CEIL(COUNT(*)/5.0) FROM member")
+	public int adminMemberPageCount();
 }

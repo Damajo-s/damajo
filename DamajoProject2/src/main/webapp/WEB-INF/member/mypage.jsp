@@ -177,7 +177,6 @@
 	<h2>내가 작성한 Q&A</h2>
 	<!-- tab2 : Q&A  -->
 	<div>
-
 		<div class="col-md-12">
 			<table class="table" width="80%" cellspacing="0">
 				<thead>

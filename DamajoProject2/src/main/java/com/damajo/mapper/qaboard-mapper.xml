@@ -33,7 +33,13 @@
 	<select id="qaboardList" parameterMap="dbListMap" statementType="CALLABLE">
 		{CALL qaboardList(?,?,?,?,?)}
 	</select>
-	<select id="myqaboardList" parameterMap="dbListMap" statementType="CALLABLE">
+	<parameterMap type="hashmap" id="myPageMap">
+		<parameter property="qstart" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qend" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="result" mode="OUT" jdbcType="CURSOR" resultMap="dbMap"/>
+	</parameterMap>
+	<select id="myqaboardList" parameterMap="myPageMap" statementType="CALLABLE">
 		{CALL myqaboardList(?,?,?,?)}
 	</select>
 	<!-- 총페이지 -->
@@ -61,7 +67,7 @@
 	<select id="myqaboardTotal" parameterMap="mydbTotalMap" statementType="CALLABLE">
 		{CALL myqaboardTotal (?,?)}
 	</select>
-	
+
 	
 	
 	

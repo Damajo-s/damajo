@@ -73,8 +73,53 @@ public class MemberController {
 	}
 
 	@RequestMapping("member/adminpage.do")
-	public String adminpage() {
+	public String adminpage(Model model, String page) {
+		if (page == null) {
+			page = "1";
+		}
+		// 페이지
+
+		int curPage = Integer.parseInt(page);
+		int totalPage = ms.adminMemberPageCount();
+		int BLOCK = 5;
+		int startPage = ((curPage - 1) / BLOCK * BLOCK) + 1;
+		int endPage = ((curPage - 1) / BLOCK * BLOCK) + BLOCK;
+		int allPage = totalPage;
+		if (endPage > allPage) {
+			endPage = allPage;
+		}
+		model.addAttribute("curPage", curPage);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("BLOCK", BLOCK);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("allPage", allPage);
+		List<MemberVO> list = ms.viewUserList(Integer.parseInt(page));
+		model.addAttribute("member", list);
 		return "member/adminpage";
+	}
+
+	@RequestMapping("member/admindetail_page.do")
+	public String adminDetailPage(Model model, String page, QABoardVO vo) {
+		// 페이지
+		int curPage = Integer.parseInt(page);
+		int totalPage = ms.qnaTotalPage(vo);
+		int BLOCK = 5;
+		int startPage = ((curPage - 1) / BLOCK * BLOCK) + 1;
+		int endPage = ((curPage - 1) / BLOCK * BLOCK) + BLOCK;
+		int allPage = totalPage;
+		if (endPage > allPage) {
+			endPage = allPage;
+		}
+		model.addAttribute("curPage", curPage);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("BLOCK", BLOCK);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("allPage", allPage);
+		List<QABoardVO> list = qnadao.myqaboardList(curPage, vo.getId());
+		model.addAttribute("list", list);
+		return "admindetail_page";
 	}
 
 	@RequestMapping("member/mypage.do")

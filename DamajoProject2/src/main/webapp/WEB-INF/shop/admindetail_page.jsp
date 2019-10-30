@@ -13,11 +13,44 @@
 	$(function() {
 		// QnA 내용 보기
 		$('.subject').click(function() {
+
 			$('.content').show();
 			$('.adminres').show();
 		});
+		//QnA 페이지 이동 
+		$('.pageAdmin').click(function() {
+			var page = $(this).val();
+			$.ajax({
+				type : 'post',
+				url : '../member/admindetail_page.do',
+				data : {
+					page : page,
+					id : id
+				},
+				success : function(res) {
+					$('#print').html(res);
+				}
+			}); //ajax
+		});
+
 	});
 </script>
+<style type="text/css">
+.pageAdmin, .nextPage, .prePage {
+	color: #2B2D42;
+	font-weight: 500;
+	-webkit-transition: 0.2s color;
+	transition: 0.2s color;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: transparent;
+	border: none;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+</style>
 </head>
 <body>
 	<div>
@@ -44,8 +77,24 @@
 						<td class="text-center" width="5%"></td>
 					</tr>
 				</tbody>
-				
 			</c:forEach>
+			<div>
+				<ul class="reviews-pagination">
+					<table>
+						<c:if test="${curPage>BLOCK }">
+							<li><input type=button value="◁"></li>
+							<li><input type=button value="&lt;"></li>
+						</c:if>
+						<c:forEach var="i" begin="${startPage }" end="${endPage }">
+							<li><input type=button class="pageAdmin" value="${i }"></li>
+						</c:forEach>
+						<c:if test="${endPage<allPage }">
+							<li><input type=button value="&gt;"></li>
+							<li><input type=button value="▷"></li>
+						</c:if>
+					</table>
+				</ul>
+			</div>
 		</table>
 	</div>
 </body>

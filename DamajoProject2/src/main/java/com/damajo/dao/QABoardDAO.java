@@ -64,7 +64,7 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 	// 내 qna 리스트
 	public List<QABoardVO> myqaboardList(int page, String id) {
 		// 페이지 지정
-		int rowSize = 5;
+		int rowSize =5;
 		int qstart = (page * rowSize) - (rowSize - 1); // 1
 		int qend = (page * rowSize); // 10
 		String qpno = id;

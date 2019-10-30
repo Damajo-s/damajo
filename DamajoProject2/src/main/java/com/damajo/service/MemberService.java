@@ -1,5 +1,9 @@
 package com.damajo.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.damajo.dao.MemberDAO;
 import com.damajo.vo.MemberVO;
+import com.damajo.vo.QABoardVO;
 
 @Service
 public class MemberService {
@@ -81,5 +86,20 @@ public class MemberService {
 		} else {
 			return "false";
 		}
+	}
+	public List<MemberVO> viewUserList(int page){
+		Map map = new HashMap<>();
+		int rowSize = 5;
+		int start = (page * rowSize) - (rowSize - 1); 
+		int end = (page * rowSize); 
+		map.put("start", start);
+		map.put("end", end);
+		return dao.userList(map);
+	}
+	public int qnaTotalPage(QABoardVO vo){
+		return dao.qnaTotalPage(vo);
+	}
+	public int adminMemberPageCount(){
+		return dao.adminMemberPageCount();
 	}
 }
