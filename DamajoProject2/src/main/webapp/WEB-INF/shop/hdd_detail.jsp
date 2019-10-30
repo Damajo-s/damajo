@@ -6,6 +6,64 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	  $('#insertbtn').on("click", function(){
+		  var pno=$('#pro').val();
+		  var category=$('#cateno').val();
+		  var id=$('#id').val();
+		  //alert(category);
+		  //alert(pno);
+		  if(id.trim()==null || id.trim()==""){
+			  alert("로그인 후 이용 가능합니다.");
+			  location.href="../member/login.do";
+		  }
+	    window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
+	    //$("#myform").submit();	
+	  });
+	});
+//Q&A 
+var i=0;
+var j=0;
+$(function(){
+	//QnA 페이지 이동 
+			$('.page').click(function(){ 
+				var page=$(this).val(); 
+				var no=$('.procls').val();  
+				var category=$('#cateno').val();
+				$.ajax({
+					type:'post',
+					url:'../shop/hdd_detail_page.do',  
+					data:{page:page,no:no,category:category},
+					success:function(res){ 
+						//alert(res);
+						//alert(page);
+						//alert(no);
+						//alert(category);
+						$('#print').html(res); 
+					}
+				}); //ajax
+			}); //page
+});
+</script>
+<style type="text/css">
+.page, .nextPage, .prePage{
+	color: #2B2D42;
+	font-weight: 500;
+	-webkit-transition: 0.2s color;
+	transition: 0.2s color;
+	
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: transparent;
+	border: none;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+</style>
 </head>
 <body>
 		<!-- SECTION -->
@@ -241,6 +299,8 @@
 											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
 											<input type="hidden" id="pro" value="${product }">
+											<input type="hidden" id="cateno" value="${category }">
+											<input type="hidden" id="id" value="${id }">
 										</div>
 										<div class="col-md-12">
 											<table class="table" width="100%" cellspacing="0">
@@ -256,7 +316,7 @@
 											</table>
 										</div>
 										<div class="col-md-12" id="print" >
-												
+											
 										</div>
 										<div>
 											<ul class="reviews-pagination" >
@@ -268,7 +328,8 @@
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
 													<li class=${curPage==i? "active":"" }>
 														<input type=button class="page" value="${i }">
-														<input type=hidden id="pro" value="${product }">
+														<input type=hidden class="procls" value="${product }">
+														<input type=hidden id="cateno" value="${category }">
 													</li>
 												</c:forEach>
 													<c:if test="${endPage<allPage }">

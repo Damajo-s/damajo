@@ -9,13 +9,19 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(function(){
 	  $('#insertbtn').on("click", function(){
 		  var pno=$('#pro').val();
 		  var category=$('#cateno').val();
+		  var id=$('#id').val();
+		 // alert(id);
 		  //alert(category);
 		  //alert(pno);
-	    window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
+		  if(id.trim()==null || id.trim()==""){
+			  alert("로그인 후 이용 가능합니다.");
+			  location.href="../member/login.do";
+		  }
+		  window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
 	    //$("#myform").submit();	
 	  });
 	});
@@ -23,6 +29,7 @@ $(document).ready(function(){
 var i=0;
 var j=0;
 $(function(){
+
 	//QnA 페이지 이동 
 			$('.page').click(function(){ 
 				var page=$(this).val(); 
@@ -273,6 +280,7 @@ $(function(){
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
 											<input type="hidden" id="pro" value="${product }">
 											<input type="hidden" id="cateno" value="${category }">
+											<input type="hidden" id="id" value="${id }">
 										</div>
 										<div class="col-md-12">
 											<table class="table" width="100%" cellspacing="0">
