@@ -128,7 +128,7 @@ $(function(){
 			data:{
 				page:prePage,
 				category:category,
-				searchThis=searchThis
+				searchThis:searchThis
 			},
 			success:function(res){
 				// alert(res);
