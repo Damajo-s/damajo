@@ -12,8 +12,9 @@ function windowLoaded() {
 		callbackHandle: false,
 		loginButton : {
 			color : "white",
-			type : 1,
-			width : 222
+			type : 3,
+			width : 222,
+			height: 50
 		}
 	});
 	
