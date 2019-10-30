@@ -16,7 +16,7 @@
     <context:component-scan base-package="com.damajo.*"/>
     <bean id="tilesConfigurer"
        class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
-       p:definitions="/WEB-INF/tiles.xml"
+       p:definitions="/WEB-INF/tiles/tiles.xml"
     />
     <bean id="tilesViewResolver"
        class="org.springframework.web.servlet.view.UrlBasedViewResolver"
