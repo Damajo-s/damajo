@@ -134,23 +134,6 @@ $(function(){
 						</c:forEach>
 					</div>
 					<!-- /aside Widget -->
-
-					<!-- aside Widget -->
-					<div class="aside">
-						<h3 class="aside-title">Brand</h3>
-						<c:forEach var="com" items="${list }">
-						<div class="checkbox-filter" id="brand" style="display:none">
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-1">
-								<label for="brand-1">
-									<span></span>
-									${com.company }
-								</label>
-							</div>
-						</div>
-						</c:forEach>
-					</div>
-					<!-- /aside Widget -->
 				</div>
 				<!-- /ASIDE -->
 

@@ -7,6 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+img {
+	width: 160px;
+	height: 160px;
+}
 .page, .nextPage, .prePage{
 	color: #2B2D42;
 	font-weight: 500;
@@ -36,12 +40,62 @@
 			<div class="row">
 				<ul class="CalendarList">
 					<li>
-						<a class="Media Top NoStyle" href="#">
+						<c:if test="${vo.category==1 }">
+						<a class="Media Top NoStyle" href="cpu_detail.do?no=${vo.pno }&category=${vo.category}">
 							<img alt="${vo.pname }" src="${vo.poster }"/>
 							<div>
 								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
 							</div>
 						</a>
+					</c:if>
+					<c:if test="${vo.category==2 }">
+						<a class="Media Top NoStyle" href="ram_detail.do?no=${vo.pno }&category=${vo.category}">
+							<img alt="${vo.pname }" src="${vo.poster }"/>
+							<div>
+								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
+							</div>
+						</a>
+					</c:if>
+					<c:if test="${vo.category==3 }">
+						<a class="Media Top NoStyle" href="main_detail.do?no=${vo.pno }&category=${vo.category}">
+							<img alt="${vo.pname }" src="${vo.poster }"/>
+							<div>
+								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
+							</div>
+						</a>
+					</c:if>
+					<c:if test="${vo.category==4 }">
+						<a class="Media Top NoStyle" href="vga_detail.do?no=${vo.pno }&category=${vo.category}">
+							<img alt="${vo.pname }" src="${vo.poster }"/>
+							<div>
+								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
+							</div>
+						</a>
+					</c:if>
+					<c:if test="${vo.category==5 }">
+						<a class="Media Top NoStyle" href="ssd_detail.do?no=${vo.pno }&category=${vo.category}">
+							<img alt="${vo.pname }" src="${vo.poster }"/>
+							<div>
+								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
+							</div>
+						</a>
+					</c:if>
+					<c:if test="${vo.category==6 }">
+						<a class="Media Top NoStyle" href="hdd_detail.do?no=${vo.pno }&category=${vo.category}">
+							<img alt="${vo.pname }" src="${vo.poster }"/>
+							<div>
+								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
+							</div>
+						</a>
+					</c:if>
+					<c:if test="${vo.category==7 }">
+						<a class="Media Top NoStyle" href="power_detail.do?no=${vo.pno }&category=${vo.category}">
+							<img alt="${vo.pname }" src="${vo.poster }"/>
+							<div>
+								<h4 class="PrimaryFont Blue">${vo.pname }</h4>
+							</div>
+						</a>
+					</c:if>
 					</li>
 				</ul>
 			</div>
@@ -52,17 +106,17 @@
 			<ul class="store-pagination">
 			<c:if test="${curpage>BLOCK }">
 				<li>
-					<input type="button" class="prePage" value="◁" data_page=${startPage-1 } >
+					<input type="button" class="prePage" value="◁" data_page=${startPage-1 } onclick="goTop()">
 				</li>
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }" varStatus="s">
 				<li id="list${i }" class=${curpage==i? "active":"" }>
-					<input type="button" class="page" value="${i }" >
+					<input type="button" class="page" value="${i }" onclick="goTop()">
 				</li>
 			</c:forEach>
 			<c:if test="${endPage<searchTotalPage }">
 				<li>
-					<input type="button" class="nextPage" value="▷" data_page=${endPage+1 } >
+					<input type="button" class="nextPage" value="▷" data_page=${endPage+1 } onclick="goTop()">
 				</li>
 			</c:if>
 			</ul>
@@ -139,12 +193,5 @@ $(function(){
 	})
 })
 </script>
-<!-- jQuery Plugins -->
-<!-- <script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/slick.min.js"></script>
-<script src="../js/nouislider.min.js"></script>
-<script src="../js/jquery.zoom.min.js"></script>
-<script src="../js/main.js"></script> -->
 </body>
 </html>
