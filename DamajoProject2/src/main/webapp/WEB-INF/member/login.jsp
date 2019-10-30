@@ -18,50 +18,54 @@
 	<div class="cd-tabs">
 		<nav>
 		<ul class="cd-tabs-navigation">
-			<li><a href="#" data-content="login" class="selected">login</a></li>
-			<li><a href="#" data-content="signup">signup</a></li>
+			<li><a href="#" data-content="login" class="selected">Login</a></li>
+			<li><a href="#" data-content="signup">SingUp</a></li>
 		</ul>
 		</nav>
 		<ul class="cd-tabs-content">
 			<li data-content="login" class="selected">
 				<div class="form-fild">
 					<input type="text" name="username" id="login-username"
-						placeholder="아이디를 입력해주세요">
+						placeholder="E-mail">
 				</div>
 				<div class="form-fild">
 					<input type="password" name="password" id="login-password"
-						placeholder="비밀번호를 입력해주세요">
+						placeholder="Password">
 				</div> <input type="hidden" name="type" value="1" id="logintype">
 				<span class="error"></span>
-				<div>
-					<p>
-					<div id="naverIdLogin" style="display: inline-block;"></div>
-					<a id="kakao-login-btn"></a> <input type="button" id="login-button"
-						class="button-1" value="Login">
-					<p>
-				<div class="button-1"><a href = "../member/findpassword.do">&nbsp;비밀번호 찾기</a></div>
+					<!-- <div id="naverIdLogin" style="display: inline-block;"></div>
+					<a id="kakao-login-btn"></a>  -->
+				<div id="loginAndFind" >
+					<input type="button" id="loginBtn" class="loginBtn" value="Login">
+				<div class="FindBtn"><a href = "../member/findpassword.do">ForGet Password</a></div>
+				</div>
+				<hr>
+				<div id="apiLogin">
+					<div id="naverIdLogin"></div>
+					<a id="kakao-login-btn"></a>
 				</div>
 			</li>
+			
 			<li data-content="signup">
 				<div class="form-fild">
 					<input type="text" name="susername" id="signup-username"
-						placeholder="아이디를 입력해주세요">
+						placeholder="E-mail">
 				</div>
 				<div class="form-fild">
 					<input type="password" name="spassword" id="signup-password"
-						placeholder="비밀번호를 입력해주세요">
+						placeholder="Password">
 				</div>
 				<div class="form-fild">
 					<input type="password" name="spassword2" id="signup-passwordcheck"
-						placeholder="비밀번호를 다시 입력해주세요">
+						placeholder="Retype Password">
 				</div>
 				<div class="form-fild">
 					<input type="text" name="password-hint" id="signup-hint"
-						placeholder="비밀번호 힌트를 입력해주세요">
+						placeholder="Hint Question (Find Password)">
 				</div>
 				<div class="form-fild">
 					<input type="text" name="password-hintanswer"
-						id="signup-hintanswer" placeholder="비밀번호 힌트에 대한 답을 입력해주세요">
+						id="signup-hintanswer" placeholder="Hint Answer (Find Password)">
 				</div> <input type="button" id="signup-button" class="button-1"
 				value="submit">
 			</li>
