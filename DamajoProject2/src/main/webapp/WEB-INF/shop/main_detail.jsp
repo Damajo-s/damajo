@@ -16,31 +16,38 @@ $(document).ready(function(){
 		  //alert(category);
 		  //alert(pno);
 	    window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
-	    //$("#myform").submit();	
 	  });
-	});
-//Q&A 
-var i=0;
-var j=0;
-$(function(){
+	  $('#qnaBtn').click(function(){
+		  	var page=$(this).val(); 
+			var no=$('.procls').val();  
+			var category=$('#cateno').val();
+		 $.ajax({
+				type:'post',
+				url:'../shop/main_detail_page.do',  
+				data:{page:1,no:no,category:category},
+				success:function(res){ 
+					$('#print').html(res); 
+				}
+			}); //ajax
+	  });	
 	//QnA 페이지 이동 
-			$('.page').click(function(){ 
-				var page=$(this).val(); 
-				var no=$('.procls').val();  
-				var category=$('#cateno').val();
-				$.ajax({
-					type:'post',
-					url:'../shop/main_detail_page.do',  
-					data:{page:page,no:no,category:category},
-					success:function(res){ 
-						//alert(res);
-						//alert(page);
-						//alert(no);
-						//alert(category);
-						$('#print').html(res); 
-					}
-				}); //ajax
-			}); //page
+		$('.page').click(function(){ 
+			var page=$(this).val(); 
+			var no=$('.procls').val();  
+			var category=$('#cateno').val();
+			$.ajax({
+				type:'post',
+				url:'../shop/main_detail_page.do',  
+				data:{page:page,no:no,category:category},
+				success:function(res){ 
+					//alert(res);
+					//alert(page);
+					//alert(no);
+					//alert(category);
+					$('#print').html(res); 
+				}
+			}); //ajax
+		}); //page
 });
 </script>
 <style type="text/css">

@@ -24,30 +24,37 @@ $(function(){
 		  window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
 	    //$("#myform").submit();	
 	  });
-	});
-//Q&A 
-var i=0;
-var j=0;
-$(function(){
-
+	  $('#qnaBtn').click(function(){
+		  	var page=$(this).val(); 
+			var no=$('.procls').val();  
+			var category=$('#cateno').val();
+		 $.ajax({
+				type:'post',
+				url:'../shop/cpu_detail_page.do',  
+				data:{page:1,no:no,category:category},
+				success:function(res){ 
+					$('#print').html(res); 
+				}
+			}); //ajax
+	  });	
 	//QnA 페이지 이동 
-			$('.page').click(function(){ 
-				var page=$(this).val(); 
-				var no=$('.procls').val();  
-				var category=$('#cateno').val();
-				$.ajax({
-					type:'post',
-					url:'../shop/cpu_detail_page.do',  
-					data:{page:page,no:no,category:category},
-					success:function(res){ 
-						//alert(res);
-						//alert(page);
-						//alert(no);
-						//alert(category);
-						$('#print').html(res); 
-					}
-				}); //ajax
-			}); //page
+		$('.page').click(function(){ 
+			var page=$(this).val(); 
+			var no=$('.procls').val();  
+			var category=$('#cateno').val();
+			$.ajax({
+				type:'post',
+				url:'../shop/cpu_detail_page.do',  
+				data:{page:page,no:no,category:category},
+				success:function(res){ 
+					//alert(res);
+					//alert(page);
+					//alert(no);
+					//alert(category);
+					$('#print').html(res); 
+				}
+			}); //ajax
+		}); //page
 });
 </script>
 <style type="text/css">
@@ -274,7 +281,7 @@ $(function(){
 								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
-										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
+										<h3 class="text-left">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
 											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
