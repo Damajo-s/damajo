@@ -12,7 +12,7 @@ public interface SearchDataMapper {
 	// 데이터 검색 (All=0)
 	@Select("Select category,pno,pname,price,poster,num "
 			+ "From (Select category,pno,pname,price,poster,rownum as num "
-			+ "From (Select category,pno,pname,price,potser "
+			+ "From (Select category,pno,pname,price,poster "
 			+ "From product Where pname Like '%'||'${searchThis}'||'%' Order By pno asc)) "
 			+ "Where num Between #{start} And #{end}")
 	public List<ProductVO> searchAllDataList(Map map);
