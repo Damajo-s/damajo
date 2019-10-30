@@ -66,12 +66,6 @@ public class MainController {
 
 		return "main";
 	}
-	// 상품 Q&A 작성하기 창 띄우기
-	@RequestMapping("shop/qainsert.do")
-	public String shop_qainsert(int product,Model model){
-		model.addAttribute("product", product);
-		return "qainsert";
-	}
 
 	// 상품 카테고리
 	@RequestMapping("shop/shop_list.do")
