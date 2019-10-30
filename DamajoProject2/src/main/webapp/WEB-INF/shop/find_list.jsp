@@ -86,7 +86,7 @@ $(function(){
 		// alert(category);
 		$.ajax({
 			type:'POST',
-			url:'../shop/find_list.do',
+			url:'../shop/find_list_page.do',
 			data:{
 				page:page,
 				category:category,
@@ -103,7 +103,7 @@ $(function(){
 		// alert(nextPage);
 		$.ajax({
 			type:'POST',
-			url:'../shop/find_list.do',
+			url:'../shop/find_list_page.do',
 			data:{page:nextPage},
 			success:function(res){
 				// alert(res);
