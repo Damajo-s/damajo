@@ -638,13 +638,13 @@
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">Top selling</h3>
+							<h3 class="title">the cheapest</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab2">CPU</a></li>
-									<li><a data-toggle="tab" href="#tab2">VGA</a></li>
-									<li><a data-toggle="tab" href="#tab2">메인보드</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab2">그래픽카드</a></li>
+									<li><a data-toggle="tab" href="#tab2">HDD</a></li>
 									<li><a data-toggle="tab" href="#tab2">RAM</a></li>
+									<li><a data-toggle="tab" href="#tab2">POWER</a></li>
 								</ul>
 							</div>
 						</div>
