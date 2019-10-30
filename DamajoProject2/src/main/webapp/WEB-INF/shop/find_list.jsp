@@ -47,28 +47,29 @@
 			</div>
 			</c:forEach>
 		</div>
+		<!-- store bottom filter -->
+		<div class="store-filter clearfix">
+			<ul class="store-pagination">
+			<c:if test="${curpage>BLOCK }">
+				<li>
+					<input type="button" class="prePage" value="◁" data_page=${startPage-1 } >
+				</li>
+			</c:if>
+			<c:forEach var="i" begin="${startPage }" end="${endPage }" varStatus="s">
+				<li id="list${i }" class=${curpage==i? "active":"" }>
+					<input type="button" class="page" value="${i }" >
+				</li>
+			</c:forEach>
+			<c:if test="${endPage<searchTotalPage }">
+				<li>
+					<input type="button" class="nextPage" value="▷" data_page=${endPage+1 } >
+				</li>
+			</c:if>
+			</ul>
+		</div>
+		<!-- /store bottom filter -->
 	</div>
-	<!-- store bottom filter -->
-	<div class="store-filter clearfix">
-		<ul class="store-pagination">
-		<c:if test="${curpage>BLOCK }">
-			<li>
-				<input type="button" class="prePage" value="◁" data_page=${startPage-1 } onclick="goTop()">
-			</li>
-		</c:if>
-		<c:forEach var="i" begin="${startPage }" end="${endPage }" varStatus="s">
-			<li id="list${i }" class=${curpage==i? "active":"" }>
-				<input type="button" class="page" value="${i }" onclick="goTop()">
-			</li>
-		</c:forEach>
-		<c:if test="${endPage<searchTotalPage }">
-			<li>
-				<input type="button" class="nextPage" value="▷" data_page=${endPage+1 } onclick="goTop()">
-			</li>
-		</c:if>
-		</ul>
-	</div>
-	<!-- /store bottom filter -->
+	
 <!-- partial -->
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -128,7 +129,7 @@ $(function(){
 			data:{
 				page:prePage,
 				category:category,
-				searchThis=searchThis
+				searchThis:searchThis
 			},
 			success:function(res){
 				// alert(res);
