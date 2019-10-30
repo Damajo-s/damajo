@@ -53,11 +53,9 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 	}
 	// 해당 상품게시물 수
 	public int qaboardPnoCount(int no,int category){
-		int qpno=no;
-		int qcategory=category;
 		Map map=new HashMap();
-		map.put("qpno", qpno);
-		map.put("qcategoty", qcategory);
+		map.put("qpno", no);
+		map.put("qcategory", category);
 		getSqlSession().update("qaboardPnoCount",map);
 		int qCpno =(int)map.get("qCpno");
 		return qCpno;
@@ -77,11 +75,6 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 
 		getSqlSession().update("myqaboardList", map);
 		List<QABoardVO> list = (List<QABoardVO>) map.get("result");
-		/*
-		 * for(QABoardVO vo:list) { SimpleDateFormat _date=new
-		 * SimpleDateFormat("yyyy-MM-dd"); Date date=vo.getRegdate();
-		 * _date.format(date); System.out.println(date); }
-		 */
 		return list;
 	}
 
