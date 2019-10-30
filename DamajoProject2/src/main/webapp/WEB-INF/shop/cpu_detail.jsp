@@ -12,7 +12,10 @@
 $(document).ready(function(){
 	  $('#insertbtn').on("click", function(){
 		  var pno=$('#pro').val();
-	    window.open("../shop/qainsert.do?product="+pno,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
+		  var category=$('#cateno').val();
+		  //alert(category);
+		  //alert(pno);
+	    window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
 	    //$("#myform").submit();	
 	  });
 	});
@@ -23,20 +26,21 @@ $(function(){
 	//QnA 페이지 이동 
 			$('.page').click(function(){ 
 				var page=$(this).val(); 
-				var product=$('#pro').val();  
+				var no=$('.procls').val();  
+				var category=$('#cateno').val();
 				$.ajax({
 					type:'post',
-					url:'../shop/detail_page.do',  
-					data:{page:page,product:product},
+					url:'../shop/cpu_detail_page.do',  
+					data:{page:page,no:no,category:category},
 					success:function(res){ 
 						//alert(res);
-						//alert(page);
-						//alert(product);
+						alert(page);
+						alert(no);
+						alert(category);
 						$('#print').html(res); 
 					}
 				}); //ajax
 			}); //page
-
 });
 </script>
 <style type="text/css">
@@ -217,7 +221,7 @@ $(function(){
 							<!-- product tab nav -->
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
-								<li><a data-toggle="tab" href="#tab2">Q&A</a></li>
+								<li><a data-toggle="tab" href="#tab2" id="qnaBtn">Q&A</a></li>
 								<li><a data-toggle="tab" href="#tab3">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
@@ -268,6 +272,7 @@ $(function(){
 											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
 											<input type="hidden" id="pro" value="${product }">
+											<input type="hidden" id="cateno" value="${category }">
 										</div>
 										<div class="col-md-12">
 											<table class="table" width="100%" cellspacing="0">
@@ -283,7 +288,7 @@ $(function(){
 											</table>
 										</div>
 										<div class="col-md-12" id="print" >
-												
+											
 										</div>
 										<div>
 											<ul class="reviews-pagination" >
@@ -295,7 +300,8 @@ $(function(){
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
 													<li class=${curPage==i? "active":"" }>
 														<input type=button class="page" value="${i }">
-														<input type=hidden id="pro" value="${product }">
+														<input type=hidden class="procls" value="${product }">
+														<input type=hidden id="cateno" value="${category }">
 													</li>
 												</c:forEach>
 													<c:if test="${endPage<allPage }">

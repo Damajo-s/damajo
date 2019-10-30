@@ -27,10 +27,11 @@
 		<parameter property="qstart" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="qend" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qcategory" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="result" mode="OUT" jdbcType="CURSOR" resultMap="dbMap"/>
 	</parameterMap>
 	<select id="qaboardList" parameterMap="dbListMap" statementType="CALLABLE">
-		{CALL qaboardList(?,?,?,?)}
+		{CALL qaboardList(?,?,?,?,?)}
 	</select>
 	<select id="myqaboardList" parameterMap="dbListMap" statementType="CALLABLE">
 		{CALL myqaboardList(?,?,?,?)}
@@ -45,10 +46,11 @@
 	<!-- 해당 상품게시물 수 -->
 	<parameterMap type="hashmap" id="dbCountMap">
 		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qcategory" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="qCpno" mode="OUT" jdbcType="INTEGER"/>
 	</parameterMap>
 	<select id="qaboardPnoCount" parameterMap="dbCountMap" statementType="CALLABLE">
-		{CALL qaboardPnoCount(?,?)}
+		{CALL qaboardPnoCount(?,?,?)}
 	</select>
 	<parameterMap type="hashmap" id="mydbTotalMap">
 		<parameter property="qid" mode="IN" jdbcType="VARCHAR"/>

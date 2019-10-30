@@ -32,36 +32,37 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 	}
 
 	// 리스트출력
-	public List<QABoardVO> qaboardList(int page, int product) {
+	public List<QABoardVO> qaboardList(int page, int no,int category) {
 		// 페이지 지정
 		int rowSize = 5;
 		int qstart = (page * rowSize) - (rowSize - 1); // 1
 		int qend = (page * rowSize); // 10
-		int qpno = product;
+		int qpno = no;
+		int qcategory=category;
 
 		Map map = new HashMap();
 		map.put("qstart", qstart);
 		map.put("qend", qend);
 		map.put("qpno", qpno);
+		map.put("qcategory", qcategory);
 
 		getSqlSession().update("qaboardList",map);
 		List<QABoardVO> list= (List<QABoardVO>)map.get("result");
-		/*
-		 * for(QABoardVO vo:list) { SimpleDateFormat _date=new
-		 * SimpleDateFormat("yyyy-MM-dd"); Date date=vo.getRegdate();
-		 * _date.format(date); System.out.println(date); }
-		 */
+
 		return list;
 	}
 	// 해당 상품게시물 수
-	public int qaboardPnoCount(int product){
-		int qpno=product;
+	public int qaboardPnoCount(int no,int category){
+		int qpno=no;
+		int qcategory=category;
 		Map map=new HashMap();
 		map.put("qpno", qpno);
+		map.put("qcategoty", qcategory);
 		getSqlSession().update("qaboardPnoCount",map);
 		int qCpno =(int)map.get("qCpno");
 		return qCpno;
 	}
+	
 	// 내 qna 리스트
 	public List<QABoardVO> myqaboardList(int page, String id) {
 		// 페이지 지정
@@ -91,6 +92,7 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		int total = (Integer) map.get("qtotal");
 		return total;
 	}
+	
 	public int myqaboardTotal(String id) {
 		Map map = new HashMap();
 		map.put("qid",id);
