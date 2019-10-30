@@ -204,21 +204,47 @@
 								<!-- tab2 : Q&A  -->
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
-										<h3 class="text-left">Q&A <font color="blue">(0)</font></h3>
+										<h3 class="text-left" id="qnaBtn">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
-											&nbsp;<a href="#">전체(0)</a>&nbsp;|&nbsp;<a href="#">답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
-											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info"></span>
+											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
+											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
+											<input type="hidden" id="pro" value="${product }">
 										</div>
 										<div class="col-md-12">
-											<table class="table">
+											<table class="table" width="100%" cellspacing="0">
+												<thead>
 												<tr>
-													<th>답변상태</th>
-													<th>제목</th>
-													<th>구매/비구매</th>
-													<th>작성자</th>
-													<th>작성일</th>
+													<th class="text-center" width="10%">답변상태</th>
+													<th class="text-center" width="20%">제목</th>
+													<th class="text-center" width="5%"></th>
+													<th class="text-center" width="20%">작성자</th>
+													<th class="text-center" width="10%">작성일</th>
 												</tr>
+												</thead>
 											</table>
+										</div>
+										<div class="col-md-12" id="print" >
+												
+										</div>
+										<div>
+											<ul class="reviews-pagination" >
+											<table class="table">
+												<c:if test="${curPage>BLOCK }">
+													<li><input type=button value="◁"></li>
+													<li><input type=button value="&lt;" ></li>
+												</c:if>
+												<c:forEach var="i" begin="${startPage }" end="${endPage }">
+													<li class=${curPage==i? "active":"" }>
+														<input type=button class="page" value="${i }">
+														<input type=hidden id="pro" value="${product }">
+													</li>
+												</c:forEach>
+													<c:if test="${endPage<allPage }">
+														<li><input type=button value="&gt;"></li>
+														<li><input type=button value="▷"></li>
+													</c:if>
+											</table>
+											</ul>
 										</div>
 									</div>
 								</div>

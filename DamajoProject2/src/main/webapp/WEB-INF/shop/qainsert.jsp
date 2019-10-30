@@ -5,30 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" href="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-$(function(){
-	$('#insertBtn').click(function(){
-		var subject=$('.subject').val();
-		var content=$('.content').val();
-		alert(sucject);
-		alert(content);
-		$.ajax({
-			type:'post',
-			url:'../shop/qainsert_ok.do',
-			data:{subject:subject,content:content},
-			success:function(res){
-				alert(subject);
-				alert(content);
-			}
-		});// ajax
-	});
-});
-</script>
 </head>
 <body>
 	<form name="qainsert" target="qainsert" method="post" action="../shop/qainsert_ok.do" >
-		<input type=hidden value="${product }" name=product>
+		<input type=hidden value="${no }" name=no>
+		<input type=hidden value="${category }" name=category>
 		<div class="container">
 			<h3>&nbsp;&nbsp;상품 Q&A 작성하기</h3>
 			<hr width="470">
@@ -56,7 +37,7 @@ $(function(){
 			</div>
 			<div class="text-center">
 				<input type=button value="취소" class="btn btn-sm btn-danger" onclick="window.close();">
-				<input type=submit value="등록" class="btn btn-sm btn-danger" id=insertBtn onclick="window.close();"  >
+				<input type=submit value="등록" class="btn btn-sm btn-danger" id="insertBtn" onclick="window.close();" >
 			</div>
 		</div>
 	</form>
