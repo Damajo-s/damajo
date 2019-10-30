@@ -1,5 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -35,43 +34,24 @@
 		<!-- /HEADER -->
 		
 		<!-- NAVIGATION -->
-		<nav id="navigation">
-			<!-- container -->
-			<div class="container">
-				<!-- responsive-nav -->
-				<div id="responsive-nav">
-					<!-- NAV -->
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="../main/main.do">Home</a></li>
-						<li><a href="../shop/shop_list.do">카테고리</a></li>
-						<li><a href="#">인기제품</a></li>
-						<li><a href="#">관심상품</a></li>
-						<li><a href="../tipboard/list.do">팁게시판</a></li>
-						<li><a href="#">실시간 채팅</a></li>
-					</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-			</div>
-			<!-- /container -->
-		</nav>
+		<tiles:insertAttribute name="navigation"/>
 		<!-- /NAVIGATION -->
-
-	<!-- SECTION_1  -->
-	<tiles:insertAttribute name="section"/>
-
-	<!-- SECTION_2 -->
-	<tiles:insertAttribute name="newsletter"/>
+		
+		<!-- SECTION_1  -->
+		<tiles:insertAttribute name="section"/>
 	
-
-	<!-- FOOTER -->
-	<tiles:insertAttribute name="footer"/>
+		<!-- SECTION_2 -->
+		<tiles:insertAttribute name="newsletter"/>
+		
+	
+		<!-- FOOTER -->
+		<tiles:insertAttribute name="footer"/>
 	</body>
-		<!-- jQuery Plugins -->
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/slick.min.js"></script>
-		<script src="../js/nouislider.min.js"></script>
-		<script src="../js/jquery.zoom.min.js"></script>
-		<script src="../js/main.js"></script>
+	<!-- jQuery Plugins -->
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/slick.min.js"></script>
+	<script src="../js/nouislider.min.js"></script>
+	<script src="../js/jquery.zoom.min.js"></script>
+	<script src="../js/main.js"></script>
 </html>
