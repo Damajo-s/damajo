@@ -302,7 +302,7 @@
 													<li class=${curPage==i? "active":"" }>
 														<input type=button class="page" value="${i }">
 														<input type=hidden id="pro" value="${product }">
-														<input type=hidden id="cate" value="${cateno }"
+														<input type=hidden id="cate" value="${cateno }">
 													</li>
 												</c:forEach>
 													<c:if test="${endPage<allPage }">
