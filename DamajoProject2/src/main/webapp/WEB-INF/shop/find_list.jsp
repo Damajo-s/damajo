@@ -97,6 +97,7 @@ img {
 						</a>
 					</c:if>
 					</li>
+					<hr>
 				</ul>
 			</div>
 			</c:forEach>
