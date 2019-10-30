@@ -40,7 +40,6 @@ var id = '<%=session.getAttribute("id")%>';
 								location.href = "../member/logout.do";							
 							}
 						});
-
 					}
 
 					else {

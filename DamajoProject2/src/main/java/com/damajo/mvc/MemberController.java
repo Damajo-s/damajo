@@ -97,7 +97,7 @@ public class MemberController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("allPage", allPage);
-		model.addAttribute("id",id);
+		model.addAttribute("id", id);
 		return "member/mypage";
 	}
 
@@ -127,7 +127,7 @@ public class MemberController {
 
 	@RequestMapping("member/deleteaccount")
 	public String deleteAccount() {
-		
+
 		return "member/deleteaccount";
 	}
 

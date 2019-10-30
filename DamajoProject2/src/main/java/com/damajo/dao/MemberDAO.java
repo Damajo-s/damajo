@@ -43,13 +43,18 @@ public class MemberDAO {
 	}
 
 	public void leaveAccount(MemberVO vo) {
-		 mapper.leaveAccount(vo);
+		mapper.leaveAccount(vo);
 	}
 
 	public MemberVO memberDetailInfo(MemberVO vo) {
 		return mapper.memberDetailInfo(vo);
 	}
-	public void changePassword(MemberVO vo){
+
+	public void changePassword(MemberVO vo) {
 		mapper.changePassword(vo);
+	}
+
+	public void userList(MemberVO vo) {
+		mapper.userList(vo);
 	}
 }
