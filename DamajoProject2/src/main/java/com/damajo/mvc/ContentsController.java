@@ -15,6 +15,7 @@ import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
 import com.damajo.vo.PowerVO;
+import com.damajo.vo.ProductVO;
 import com.damajo.vo.RamVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
@@ -25,7 +26,65 @@ public class ContentsController {
 	private ContentsService service;
 	@Autowired
 	private CompareSevice service2;
-
+	
+	@RequestMapping("shop/find_list.do")
+	public String searchDataList(String page, String category, String searchThis, Model model) {
+		ProductVO vo=new ProductVO();
+		vo.setSearchThis(searchThis); // 검색어 대입
+		if(page==null) {
+			page="1";
+		}
+		
+		final int BLOCK=10;
+		int curpage=Integer.parseInt(page);
+		int searchTotalCount=0;
+		int rowSize=20;
+		int start=(curpage*rowSize)-(rowSize-1);
+		int end=curpage*rowSize;
+		int startPage=((curpage-1)/BLOCK)*BLOCK+1;
+		int endPage=((curpage-1)/BLOCK)*BLOCK+BLOCK;
+		
+		// 페이지 총 개수
+		if(category.equals("0")) { // 전체 검색
+			int searchTotalPage=service.searchAllDataTotalPage(vo);
+			searchTotalCount=service.searchAllDataTotalCount(vo);
+			
+			model.addAttribute("searchTotalPage",searchTotalPage);
+			model.addAttribute("searchTotalCount",searchTotalCount);
+			if (endPage > searchTotalPage) {
+				endPage = searchTotalPage;
+			}
+		} else { // 카테고리 검색
+			vo.setCategory(Integer.parseInt(category)); // 카테고리 값 넣기
+			int searchTotalPage=service.searchCategoryDataTotalPage(vo);
+			searchTotalCount=service.searchCategoryDataTotalCount(vo);
+			model.addAttribute("searchTotalPage",searchTotalPage);
+			model.addAttribute("searchTotalCount",searchTotalCount);
+			if (endPage > searchTotalPage) {
+				endPage = searchTotalPage;
+			}
+		}
+		Map map=new HashMap();
+		map.put("searchThis", searchThis);
+		map.put("start", start);
+		map.put("end", end);
+		if(category.equals("0")) { // 전체 검색
+			List<ProductVO> searchList=service.searchAllDataList(map);
+			model.addAttribute("searchList", searchList);
+		} else { // 카테고리 검색
+			map.put("category", category);
+			List<ProductVO> searchList=service.searchCategoryDataList(map);
+			model.addAttribute("searchList", searchList);
+		}
+		
+		model.addAttribute("searchThis", searchThis);
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("BLOCK", BLOCK);
+		return "shop/find_list";
+	}
+	
 	@RequestMapping("shop/cpu_list.do")
 	public String cpuList(String page, Model model) {
 		if(page==null) {

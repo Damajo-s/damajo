@@ -22,7 +22,7 @@ import com.damajo.vo.MainVO;
 import com.damajo.vo.CategoryVO;
 import com.damajo.vo.QABoardVO;
 import com.damajo.vo.RamVO;
-import com.damajo.vo.RecommendVO;
+import com.damajo.vo.ProductVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
 import com.damajo.vo.VideoBoardVO;
@@ -78,7 +78,7 @@ public class MainController {
 	public String shop_list(Model model) {
 		List<CategoryVO> cateList=cateService.category();
 		int[] severalTotalCount=cateService.severalTotalCount();
-		List<RecommendVO> recommList=contentsService.recommendList();
+		List<ProductVO> recommList=contentsService.recommendList();
 		model.addAttribute("cateList",cateList);
 		model.addAttribute("severalTotalCount",severalTotalCount);
 		model.addAttribute("recommList",recommList);

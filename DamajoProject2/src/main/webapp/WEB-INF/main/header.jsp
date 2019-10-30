@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.search-btn').click(function(){
+		var searchThis=$('#input').val();
+		if(searchThis.trim()=="") {
+			$('#input').focus();
+			return;
+		}
+	})
+})
+</script>
+</head>
 <header>
 	<!-- TOP HEADER -->
 	<div id="top-header">
@@ -54,8 +70,8 @@
 				<div class="col-md-9">
 					<div class="header-search">
 						<!-- 폼태그==> 검색 옵션 줘야함 -->
-						<form>
-							<select class="input-select">
+						<form action="../shop/find_list.do" method="POST">
+							<select class="input-select" name="category">
 								<option value="0">All</option>
 								<option value="1">CPU</option>
 								<option value="2">RAM</option>
@@ -64,8 +80,9 @@
 								<option value="5">SSD</option>
 								<option value="6">HDD</option>
 								<option value="7">파워</option>
-							</select> <input class="input" placeholder="Search here">
-							<button class="search-btn">Search</button>
+							</select>
+							<input type="text" class="input" name="searchThis" placeholder="검색어를 입력해주세요.">
+							<input type="submit" class="search-btn" value="검색">
 						</form>
 					</div>
 				</div>
@@ -175,3 +192,4 @@
 	</div>
 	<!-- /MAIN HEADER -->
 </header>
+</html>

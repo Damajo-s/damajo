@@ -9,7 +9,7 @@ import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
 import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
-import com.damajo.vo.RecommendVO;
+import com.damajo.vo.ProductVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
 
@@ -18,7 +18,7 @@ public class ContentsDAO {
 	@Autowired
 	private ContentsMapper mapper;
 	
-	public List<RecommendVO> recommendList() {
+	public List<ProductVO> recommendList() {
 		return mapper.recommendList();
 	}
 	

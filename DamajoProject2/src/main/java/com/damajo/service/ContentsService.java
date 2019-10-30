@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.damajo.dao.ContentsDAO;
+import com.damajo.dao.SearchDataDAO;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
 import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
-import com.damajo.vo.RecommendVO;
+import com.damajo.vo.ProductVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
 
@@ -20,10 +21,32 @@ import com.damajo.vo.VgaVO;
 public class ContentsService {
 	@Autowired
 	private ContentsDAO dao;
-
-	public List<RecommendVO> recommendList() {
-		List<RecommendVO> recommList=dao.recommendList();
-		for(RecommendVO vo:recommList) {
+	@Autowired
+	private SearchDataDAO searchDao;
+	
+	public List<ProductVO> searchAllDataList(Map map) {
+		return searchDao.searchAllDataList(map);
+	}
+	public int searchAllDataTotalPage(ProductVO vo) {
+		return searchDao.searchAllDataTotalPage(vo);
+	}
+	public int searchAllDataTotalCount(ProductVO vo) {
+		return searchDao.searchAllDataTotalCount(vo);
+	}
+	
+	public List<ProductVO> searchCategoryDataList(Map map) {
+		return searchDao.searchCategoryDataList(map);
+	}
+	public int searchCategoryDataTotalPage(ProductVO vo) {
+		return searchDao.searchCategoryDataTotalPage(vo);
+	}
+	public int searchCategoryDataTotalCount(ProductVO vo) {
+		return searchDao.searchCategoryDataTotalCount(vo);
+	}
+	
+	public List<ProductVO> recommendList() {
+		List<ProductVO> recommList=dao.recommendList();
+		for(ProductVO vo:recommList) {
 			String pname=vo.getPname();
 			if(pname.length()>43) {
 				pname=pname.substring(0,42)+"...";

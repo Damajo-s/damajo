@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class RecommendVO {
+public class ProductVO {
 	private int no;
 	private int pno;
 	private String pname;
@@ -13,4 +13,5 @@ public class RecommendVO {
 	private String price;
 	private int category;
 	private int mdrecommend;
+	private String searchThis;
 }
