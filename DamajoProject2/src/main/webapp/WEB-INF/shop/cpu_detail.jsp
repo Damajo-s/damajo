@@ -24,10 +24,11 @@ $(function(){
 		  window.open("../shop/qainsert.do?no="+pno+"&category="+category,"상품 Q&A 작성하기", "width=500, height=450, scrollbars=no");
 	    //$("#myform").submit();	
 	  });
+	  // tab2 : Q&A 버튼
 	  $('#qnaBtn').click(function(){
 		  	var page=$(this).val(); 
-			var no=$('.procls').val();  
-			var category=$('#cateno').val();
+			var no=$('.qnapno').val();  
+			var category=$('#qnacateno').val();
 		 $.ajax({
 				type:'post',
 				url:'../shop/cpu_detail_page.do',  
@@ -40,8 +41,8 @@ $(function(){
 	//QnA 페이지 이동 
 		$('.page').click(function(){ 
 			var page=$(this).val(); 
-			var no=$('.procls').val();  
-			var category=$('#cateno').val();
+			var no=$('.qnapro').val();  
+			var category=$('#qnacateno').val();
 			$.ajax({
 				type:'post',
 				url:'../shop/cpu_detail_page.do',  
@@ -55,6 +56,32 @@ $(function(){
 				}
 			}); //ajax
 		}); //page
+		
+	// tab3 : 구매후기
+	  $('#reviewBtn').click(function(){
+		  	var page=$(this).val(); 
+			var no=$('.rpno').val();  
+			var category=$('#rcateno').val();
+			alert(no);
+			alert(category);
+		 $.ajax({
+				type:'post',
+				url:'../shop/cpu_detail_reviewpage2.do',
+				data:{page:1,no:no,category:category},
+				success:function(res){ 
+					$('#print').html(res);
+					alert("첫번째오니?");
+				}
+			}); //ajax
+	  });	
+	$('#rInsertBtn').click(function(){
+		  var id=$('#id').val();
+			 // alert(id);
+			  if(id.trim()==null || id.trim()==""){
+				  alert("로그인 후 이용 가능합니다.");
+				  location.href="../member/login.do";
+			  }
+	});
 });
 </script>
 <style type="text/css">
@@ -194,7 +221,7 @@ $(function(){
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
 								<li><a data-toggle="tab" href="#tab2" id="qnaBtn">Q&A</a></li>
-								<li><a data-toggle="tab" href="#tab3">구매후기</a></li>
+								<li><a data-toggle="tab" href="#tab3" id="reviewBtn">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
 
@@ -263,7 +290,7 @@ $(function(){
 										<div class="col-md-12" id="print" >
 											
 										</div>
-										<div>
+										<div >
 											<ul class="reviews-pagination" >
 											<table class="table">
 												<c:if test="${curPage>BLOCK }">
@@ -272,9 +299,9 @@ $(function(){
 												</c:if>
 												<c:forEach var="i" begin="${startPage }" end="${endPage }">
 													<li class=${curPage==i? "active":"" }>
-														<input type=button class="page" value="${i }">
-														<input type=hidden class="procls" value="${product }">
-														<input type=hidden id="cateno" value="${category }">
+														<input type=button class="qnapage" value="${i }">
+														<input type=hidden class="qnapro" value="${product }">
+														<input type=hidden id="qnacateno" value="${category }">
 													</li>
 												</c:forEach>
 													<c:if test="${endPage<allPage }">
@@ -375,88 +402,59 @@ $(function(){
 										</div>
 										<!-- /Rating -->
 
-										<!-- Reviews -->
+										<!-- Reviews 리스트 출력 -->
 										<div class="col-md-6">
 											<div id="reviews">
-												<ul class="reviews">
-													<li>
-														<div class="review-heading">
-															<h5 class="name">John</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-														</div>
-													</li>
-													<li>
-														<div class="review-heading">
-															<h5 class="name">John</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-														</div>
-													</li>
-													<li>
-														<div class="review-heading">
-															<h5 class="name">John</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-														</div>
-													</li>
+												<ul class="reviews" id="print">
+												
 												</ul>
-												<ul class="reviews-pagination">
-													<li class="active">1</li>
-													<li><a href="#">2</a></li>
-													<li><a href="#">3</a></li>
-													<li><a href="#">4</a></li>
-													<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-												</ul>
-											</div>
+												<!-- 리뷰페이지 -->
+										<div >
+											<ul class="reviews-pagination" >
+											<table class="table">
+												<c:if test="${curPage>BLOCK }">
+													<li><input type=button value="◁"></li>
+													<li><input type=button value="&lt;" ></li>
+												</c:if>
+												<c:forEach var="i" begin="${startPage }" end="${endPage }">
+													<li class=${curPage==i? "active":"" }>
+														<input type=button class="rpage" value="${i }">
+														<input type=hidden class="rpno" value="${product }">
+														<input type=hidden id="rcateno" value="${category }">
+													</li>
+												</c:forEach>
+													<c:if test="${endPage<allPage }">
+														<li><input type=button value="&gt;"></li>
+														<li><input type=button value="▷"></li>
+													</c:if>
+											</table>
+											</ul>
 										</div>
+									</div>
+								</div>
 										<!-- /Reviews -->
 
 										<!-- Review Form -->
 										<div class="col-md-3">
 											<div id="review-form">
-												<form class="review-form">
-													<input class="input" type="text" placeholder="Your Name">
-													<input class="input" type="email" placeholder="Your Email">
-													<textarea class="input" placeholder="Your Review"></textarea>
+												<form class="review-form" action="../shop/cpu_detail_reviewInsert.do" method="post">
+													<input type=hidden id="no" value="${product }" name=no>
+													<input type=hidden id="cateno" value="${category }" name=category>
+													<!-- <input class="input" type="text" placeholder="아이디" name="id" > -->
+													<input class="input" type="text" placeholder="제목" name=subject id="subject">
+													<textarea class="input" placeholder="리뷰 작성해주세요." name=content id="content"></textarea>
 													<div class="input-rating">
-														<span>Your Rating: </span>
-														<div class="stars">
+														<span>별점: </span>
+<!-- 														<div class="stars">
 															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
 															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
 															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
 															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
 															<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
-														</div>
+														</div> -->
 													</div>
-													<button class="primary-btn">Submit</button>
+													<button type="submit" class="primary-btn" id="rInsertBtn">등록</button>
+													<input type="hidden" id="id" value="${id }">
 												</form>
 											</div>
 										</div>

@@ -87,8 +87,6 @@ public class QnABoardController {
 		if (page == null) {
 			page = "1";
 		}
-		System.out.println("상품"+no);
-		System.out.println("카테고리"+category);
 		Map map=new HashMap();
 		map.put("no", no);
 		map.put("category", category);
@@ -96,7 +94,6 @@ public class QnABoardController {
 		int curPage = Integer.parseInt(page);
 		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
-		System.out.println(qPnoCount);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -107,11 +104,6 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		CpuVO cpudetail=service.cpuContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
-		//System.out.println("처음:"+curPage);
-		/*
-		 * System.out.println("1상품번호:"+no);
-		 * System.out.println("1카테고리번호:"+category);
-		 */
 		model.addAttribute("qPnoCount", qPnoCount);
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);

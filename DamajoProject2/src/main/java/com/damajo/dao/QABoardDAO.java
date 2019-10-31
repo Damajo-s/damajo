@@ -36,7 +36,7 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		// 페이지 지정
 		int rowSize = 5;
 		int qstart = (page * rowSize) - (rowSize - 1); // 1
-		int qend = (page * rowSize); // 10
+		int qend = (page * rowSize); //5
 		int qpno = no;
 		int qcategory=category;
 
