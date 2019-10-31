@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.MainMapper;
 import com.damajo.vo.CpuVO;
+import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
+import com.damajo.vo.PowerVO;
 import com.damajo.vo.RamVO;
 import com.damajo.vo.SsdVO;
 import com.damajo.vo.VgaVO;
@@ -58,8 +60,13 @@ public class MainDAO {
 		return mapper.VgaRecomList(map);
 	}
 	
+	public List<HddVO> HddList(Map map){
+		return mapper.HddList(map);
+	}
 	
-	
+	public List<PowerVO> PowerList(Map map){
+		return mapper.PowerList(map);
+	}
 	
 	
 	

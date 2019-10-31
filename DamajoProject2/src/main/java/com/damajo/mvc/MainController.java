@@ -18,7 +18,9 @@ import com.damajo.dao.VideoBoardDAO;
 import com.damajo.service.CategoryService;
 import com.damajo.service.ContentsService;
 import com.damajo.vo.CpuVO;
+import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
+import com.damajo.vo.PowerVO;
 import com.damajo.vo.CategoryVO;
 import com.damajo.vo.QABoardVO;
 import com.damajo.vo.RamVO;
@@ -52,6 +54,8 @@ public class MainController {
 		List<MainVO> mrlist = cdao.MainRecomList(map);
 		List<VgaVO> vnlist = cdao.VgaNewList(map);
 		List<VgaVO> vrlist = cdao.VgaRecomList(map);
+		List<HddVO> hlist = cdao.HddList(map);
+		List<PowerVO> plist = cdao.PowerList(map);
 
 		model.addAttribute("crlist", crlist);
 		model.addAttribute("cnlist", cnlist);
@@ -63,6 +67,8 @@ public class MainController {
 		model.addAttribute("mrlist", mrlist);
 		model.addAttribute("vnlist", vnlist);
 		model.addAttribute("vrlist", vrlist);
+		model.addAttribute("hlist", hlist);
+		model.addAttribute("plist", plist);
 
 		return "main";
 	}

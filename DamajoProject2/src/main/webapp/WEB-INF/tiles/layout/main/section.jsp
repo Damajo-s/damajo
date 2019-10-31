@@ -479,7 +479,7 @@
 								<div id="tab8" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-8">
 										<!-- product -->
-										<c:forEach begin="1" end="6" items="${rrlist }" var="ramR">
+										<c:forEach begin="27" end="32" items="${rrlist }" var="ramR">
 										<div class="product">
 											<div class="product-img">
 												<img src="${ramR.poster }" alt="">
@@ -641,8 +641,8 @@
 							<h3 class="title">cheaper price</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab11">그래픽카드</a></li>
-									<li><a data-toggle="tab" href="#tab12">HDD</a></li>
+									<li><a data-toggle="tab" href="#tab11">그래픽카드</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab12">HDD</a></li>
 									<li><a data-toggle="tab" href="#tab13">RAM</a></li>
 									<li><a data-toggle="tab" href="#tab14">POWER</a></li>
 								</ul>
@@ -656,7 +656,7 @@
 						<div class="row">
 							<div class="products-tabs">
 								<!-- tab -->
-								<div id="tab11" class="tab-pane active">
+								<div id="tab11" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
 										<c:forEach begin="63" end="66" items="${vrlist }" var="vr">
@@ -693,18 +693,18 @@
 								
 								
 								<!-- tab -->
-								<div id="tab12" class="tab-pane">
+								<div id="tab12" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<c:forEach begin="1" end="4" >
+										<c:forEach begin="30" end="33" items="${hlist }" var="h">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product06.png" alt="">
+												<img src="${h.poster }" alt="">
 											</div>
 											<div class="product-body">
-												<p class="product-category">HDD</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${h.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${h.hdd_name }</a></h3>
+												<h4 class="product-price">${h.price }</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -733,15 +733,15 @@
 								<div id="tab13" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<c:forEach begin="1" end="4" >
+										<c:forEach begin="1" end="4" items="${rrlist }" var="ramR" >
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product06.png" alt="">
+												<img src="${ramR.poster }" alt="">
 											</div>
 											<div class="product-body">
-												<p class="product-category">RAM</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${ramR.company } ${ramR.memory_capacity }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${ramR.ram_name}</a></h3>
+												<h4 class="product-price">${ramR.price}</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -770,15 +770,15 @@
 								<div id="tab14" class="tab-pane">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<c:forEach begin="1" end="4" >
+										<c:forEach begin="27" end="30" items="${plist }" var="p" >
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product06.png" alt="">
+												<img src="${p.poster }" alt="">
 											</div>
 											<div class="product-body">
-												<p class="product-category">POWER</p>
-												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">${p.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${p.power_name }</a></h3>
+												<h4 class="product-price">${p.price }</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
