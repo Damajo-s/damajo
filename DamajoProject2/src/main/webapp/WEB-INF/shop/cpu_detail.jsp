@@ -27,7 +27,7 @@ $(function(){
 	  // tab2 : Q&A 버튼
 	  $('#qnaBtn').click(function(){
 		  	var page=$(this).val(); 
-			var no=$('.qnapno').val();  
+			var no=$('.qnapro').val();  
 			var category=$('#qnacateno').val();
 		 $.ajax({
 				type:'post',
@@ -39,7 +39,7 @@ $(function(){
 			}); //ajax
 	  });	
 	//QnA 페이지 이동 
-		$('.page').click(function(){ 
+		$('.qnapage').click(function(){ 
 			var page=$(this).val(); 
 			var no=$('.qnapro').val();  
 			var category=$('#qnacateno').val();
@@ -48,40 +48,47 @@ $(function(){
 				url:'../shop/cpu_detail_page.do',  
 				data:{page:page,no:no,category:category},
 				success:function(res){ 
-					//alert(res);
-					//alert(page);
-					//alert(no);
-					//alert(category);
 					$('#print').html(res); 
 				}
 			}); //ajax
 		}); //page
-		
-	// tab3 : 구매후기
-	  $('#reviewBtn').click(function(){
-		  	var page=$(this).val(); 
-			var no=$('.rpno').val();  
-			var category=$('#rcateno').val();
-			alert(no);
-			alert(category);
-		 $.ajax({
-				type:'post',
-				url:'../shop/cpu_detail_reviewpage2.do',
-				data:{page:1,no:no,category:category},
-				success:function(res){ 
-					$('#print').html(res);
-					alert("첫번째오니?");
-				}
-			}); //ajax
-	  });	
-	$('#rInsertBtn').click(function(){
-		  var id=$('#id').val();
-			 // alert(id);
-			  if(id.trim()==null || id.trim()==""){
-				  alert("로그인 후 이용 가능합니다.");
-				  location.href="../member/login.do";
-			  }
-	});
+		  // tab3 : 리뷰 버튼
+		  $('#reviewBtn').click(function(){
+			  var id=$('#id').val();
+				 //alert(id);
+				  if(id.trim()==null || id.trim()==""){
+					  alert("로그인 후 이용 가능합니다.");
+					  location.href="../member/login.do";
+				  }
+			  	var page=$(this).val(); 
+				var no=$('.rpno').val();  
+				var category=$('#rcateno').val();
+			 $.ajax({
+					type:'post',
+					url:'../shop/cpu_detail_reviewpage2.do',  
+					data:{page:1,no:no,category:category},
+					success:function(res){ 
+						alert(res);
+						alert(no);
+						alert(category);
+						$('#review_print').html(res); 
+					}
+				}); //ajax
+		  });	
+  		  $('.rpage').click(function(){
+			  	var page=$(this).val(); 
+				var no=$('.rpno').val();  
+				var category=$('#rcateno').val();
+			 $.ajax({
+					type:'post',
+					url:'../shop/cpu_detail_reviewpage2.do',  
+					data:{page:page,no:no,category:category},
+					success:function(res){ 
+						alert("이번엔 여기?"+page)
+						$('#review_print').html(res); 
+					}
+				}); //ajax
+		  });  
 });
 </script>
 <style type="text/css">
@@ -318,120 +325,36 @@ $(function(){
 								<!-- tab3 : 구매후기  -->
 								<div id="tab3" class="tab-pane fade in">
 									<div class="row">
-										<!-- Rating -->
-										<div class="col-md-3">
-											<div id="rating">
-												<div class="rating-avg">
-													<span>4.5</span>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-												</div>
-												<ul class="rating">
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-														</div>
-														<div class="rating-progress">
-															<div style="width: 80%;"></div>
-														</div>
-														<span class="sum">3</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div style="width: 60%;"></div>
-														</div>
-														<span class="sum">2</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<!-- /Rating -->
-
 										<!-- Reviews 리스트 출력 -->
-										<div class="col-md-6">
-											<div id="reviews">
-												<ul class="reviews" id="print">
+										<div class="col-md-9">
+											<div id="reviews" >
+												<ul class="reviews"   id="review_print">
 												
 												</ul>
-												<!-- 리뷰페이지 -->
-										<div >
-											<ul class="reviews-pagination" >
-											<table class="table">
-												<c:if test="${curPage>BLOCK }">
-													<li><input type=button value="◁"></li>
-													<li><input type=button value="&lt;" ></li>
-												</c:if>
-												<c:forEach var="i" begin="${startPage }" end="${endPage }">
-													<li class=${curPage==i? "active":"" }>
-														<input type=button class="rpage" value="${i }">
-														<input type=hidden class="rpno" value="${product }">
-														<input type=hidden id="rcateno" value="${category }">
-													</li>
-												</c:forEach>
-													<c:if test="${endPage<allPage }">
-														<li><input type=button value="&gt;"></li>
-														<li><input type=button value="▷"></li>
-													</c:if>
-											</table>
-											</ul>
+											</div>	
+										<!-- 페이지  -->
+										<div class="col-md-6">
+												<ul class="reviews-pagination" >
+														<table class="table">
+															<c:if test="${curPage>BLOCK }">
+																<li><input type=button value="◁"></li>
+																<li><input type=button value="&lt;" ></li>
+															</c:if>
+															<c:forEach var="i" begin="${startPage }" end="${endPage }">
+																<li class=${curPage==i? "active":"" }>
+																	<input type=button class="rpage" value="${i }">
+																	<input type=hidden class="rpno" value="${product }">
+																	<input type=hidden id="rcateno" value="${category }">
+																</li>
+															</c:forEach>
+																<c:if test="${endPage<allPage }">
+																	<li><input type=button value="&gt;"></li>
+																	<li><input type=button value="▷"></li>
+																</c:if>
+														</table>
+													</ul>
+											</div>
 										</div>
-									</div>
-								</div>
 										<!-- /Reviews -->
 
 										<!-- Review Form -->

@@ -54,41 +54,6 @@ public class ReviewController {
 		}
 	}
 	//리스트출력
-	@RequestMapping("shop/cpu_detail_reviewpage1.do")
-	public String reviewList(String page,int no,int category,Model model){
-		if(page==null) {
-			page="1";
-		}
-		System.out.println("상품번호:"+no);
-		System.out.println("카테고리"+category);
-		Map map = new HashMap();
-		map.put("no", no);
-		map.put("category", category);
-		int curPage = Integer.parseInt(page);
-		int total =rs.reviewTotal();
-		System.out.println("total = " + total);
-		int BLOCK=5;
-		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
-		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
-		int allPage = total;
-		if(endPage > allPage){
-			endPage=allPage;
-		}
-		System.out.println("페이지:"+curPage);
-		System.out.println("스타트페지"+startPage);
-		System.out.println("endPage:"+endPage);
-		System.out.println("allPage:"+allPage);
-		System.out.println("스타트페지"+startPage);
-		List<ReviewVO> rlist= rs.reviewList(map);
-		model.addAttribute("product", no);
-		model.addAttribute("rlist", rlist);
-		model.addAttribute("curPage", curPage);
-		model.addAttribute("startPage", startPage);
-		model.addAttribute("endPage", endPage);
-		model.addAttribute("allPage", allPage);
-		return "shop/cpu_detail";
-	}
-	//리스트출력
 		@RequestMapping("shop/cpu_detail_reviewpage2.do")
 		public String reviewList_page(String page,int no,int category,Model model){
 			if(page==null) {
