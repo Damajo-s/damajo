@@ -148,8 +148,14 @@ $(function(){
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${cpudetail.price } 원<!-- <del class="product-old-price">$990.00</del> --></h3>
-								<!-- <span class="product-available">In Stock</span> -->
+							<c:choose>
+							<c:when test="${cpudetail.price == '일시품절' }">
+								<h3 class="product-price">${cpudetail.price }</h3>	
+							</c:when>
+							<c:when test="${cpudetail.price != '일시품절' }">
+								<h3 class="product-price">${cpudetail.price } 원</h3>	
+							</c:when>
+							</c:choose>							
 							</div>
 							<table class="table">
 								<tr>
@@ -157,9 +163,18 @@ $(function(){
 											<table id="lowPriceInfo" class="table table-borderless" >
 										<tr>
 											<td>
+										<c:forEach var="svo" items="${compare }" varStatus="s" >
 												<span class="feed_detail feed_title" style="color:#FF0000; ">
-												<br/>&nbsp;최저가 ${cpudetail.price } 원
+												<c:choose>
+													<c:when test="${cpudetail.price == '일시품절' }">
+													<br/>&nbsp;최저가 ${cpudetail.price }
+													</c:when>
+													<c:when test="${s.index == 0 }">
+													<br/>&nbsp;최저가 ${svo.price }원
+													</c:when>
+												</c:choose>
 												</span>
+										</c:forEach>
 											</td>
 											<td>
 												<span class="feed_detail simpleInfo">
@@ -181,41 +196,20 @@ $(function(){
 											</td>
 										</tr>
 										</c:forEach>
+										<c:forEach var="vo" items="${overseas }" varStatus="s" >
+										<tr>
+											<td width=60% class="feed_detail simpleInfo" >
+												<a href="${vo.link }" >&nbsp;&nbsp;${vo.mall_name }</a>
+											</td>
+											<td width=40% class="feed_detail simpleInfo" >
+												${vo.price }
+											</td>
+										</tr>
+										</c:forEach>
 									</table>
 								</td>
 							</tr>
 						</table>
-
-							<div class="add-to-cart">
-								<div class="qty-label">
-									Qty
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-
-							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Category:</li>
-								<li><a href="#">Headphones</a></li>
-								<li><a href="#">Accessories</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Share:</li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-							</ul>
 
 						</div>
 					</div>

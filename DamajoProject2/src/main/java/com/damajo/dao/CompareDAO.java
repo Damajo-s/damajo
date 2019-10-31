@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.damajo.mapper.CompareMapper;
 import com.damajo.vo.CompareVO;
+import com.damajo.vo.OverseasVO;
 
 @Repository
 public class CompareDAO {
@@ -16,5 +17,9 @@ public class CompareDAO {
 
 	public List<CompareVO> compare(Map map){
 		return mapper.Compare(map);
+	}
+
+	public List<OverseasVO> overseascompare(Map map){
+		return mapper.Overseas(map);
 	}
 }

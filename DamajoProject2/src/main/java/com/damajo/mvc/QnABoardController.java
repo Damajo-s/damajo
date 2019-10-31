@@ -18,6 +18,7 @@ import com.damajo.vo.CompareVO;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
+import com.damajo.vo.OverseasVO;
 import com.damajo.vo.PowerVO;
 import com.damajo.vo.QABoardVO;
 import com.damajo.vo.RamVO;
@@ -104,6 +105,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		CpuVO cpudetail=service.cpuContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		model.addAttribute("qPnoCount", qPnoCount);
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);
@@ -116,6 +118,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("cpudetail", cpudetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/cpu_detail";
 	}
 	@RequestMapping("shop/cpu_detail_page.do")
@@ -142,6 +145,7 @@ public class QnABoardController {
 				List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 				CpuVO cpudetail=service.cpuContentsDetail(map);
 				List<CompareVO> compare=service2.compare(map);
+				List<OverseasVO> overseas=service2.overseas(map);
 				System.out.println("2상품번호:"+no);
 				System.out.println("2카테고리번호:"+category);
 				model.addAttribute("qPnoCount", qPnoCount);
@@ -156,6 +160,7 @@ public class QnABoardController {
 				model.addAttribute("category", category);
 				model.addAttribute("cpudetail", cpudetail);
 				model.addAttribute("compare", compare);
+				model.addAttribute("overseas", overseas);
 				return "detail_page";
 		}
 	@RequestMapping("shop/ram_detail.do")
@@ -180,6 +185,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<RamVO> ramdetail=service.ramContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -194,6 +200,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("ramdetail", ramdetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/ram_detail";
 	}
 	@RequestMapping("shop/ram_detail_page.do")
@@ -218,6 +225,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<RamVO> ramdetail=service.ramContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -232,6 +240,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("ramdetail", ramdetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "detail_page";
 	}
 	@RequestMapping("shop/main_detail.do")
@@ -256,6 +265,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<MainVO> maindetail=service.mainContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -270,6 +280,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("maindetail", maindetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/main_detail";
 	}
 	@RequestMapping("shop/main_detail_page.do")
@@ -294,6 +305,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<MainVO> maindetail=service.mainContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -308,6 +320,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("maindetail", maindetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "detail_page";
 	}
 	@RequestMapping("shop/vga_detail.do")
@@ -332,6 +345,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<VgaVO> vgadetail=service.vgaContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -346,6 +360,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("vgadetail", vgadetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/vga_detail";
 	}
 	@RequestMapping("shop/vga_detail_page.do")
@@ -370,6 +385,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<VgaVO> vgadetail=service.vgaContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -384,6 +400,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("vgadetail", vgadetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "detail_page";
 	}
 	@RequestMapping("shop/ssd_detail.do")
@@ -408,6 +425,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<SsdVO> ssddetail=service.ssdContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -422,6 +440,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("ssddetail", ssddetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/ssd_detail";
 	}
 	@RequestMapping("shop/ssd_detail_page.do")
@@ -446,6 +465,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<SsdVO> ssddetail=service.ssdContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -460,6 +480,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("ssddetail", ssddetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "detail_page";
 	}
 	@RequestMapping("shop/hdd_detail.do")
@@ -484,6 +505,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<HddVO> hdddetail=service.hddContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -498,6 +520,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("hdddetail", hdddetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/hdd_detail";
 	}
 	@RequestMapping("shop/hdd_detail_page.do")
@@ -522,6 +545,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<HddVO> hdddetail=service.hddContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -536,6 +560,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("hdddetail", hdddetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "detail_page";
 	}
 	@RequestMapping("shop/power_detail.do")
@@ -560,6 +585,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<PowerVO> powerdetail=service.powerContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -574,6 +600,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("powerdetail", powerdetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "shop/power_detail";
 	}
 	@RequestMapping("shop/power_detail_page.do")
@@ -598,6 +625,7 @@ public class QnABoardController {
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
 		List<PowerVO> powerdetail=service.powerContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
+		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
 		//System.out.println("처음:"+product);
 		model.addAttribute("qPnoCount", qPnoCount);
@@ -612,6 +640,7 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		model.addAttribute("powerdetail", powerdetail);
 		model.addAttribute("compare", compare);
+		model.addAttribute("overseas", overseas);
 		return "detail_page";
 	}
 
