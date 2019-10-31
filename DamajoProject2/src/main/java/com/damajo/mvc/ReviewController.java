@@ -53,9 +53,9 @@ public class ReviewController {
 			return "redirect:power_detail.do";
 		}
 	}
-	//리스트출력
+		//리스트출력
 		@RequestMapping("shop/cpu_detail_reviewpage2.do")
-		public String reviewList_page(String page,int no,int category,Model model){
+		public String cpuReviewList(String page,int no,int category,Model model){
 			if(page==null) {
 				page="1";
 			}
@@ -96,6 +96,265 @@ public class ReviewController {
 			model.addAttribute("allPage", allPage);
 			return "review_page";
 		}
+		//리스트출력
+				@RequestMapping("shop/hdd_detail_reviewpage2.do")
+				public String hddReviewList(String page,int no,int category,Model model){
+					if(page==null) {
+						page="1";
+					}
+					int curpage=Integer.parseInt(page);
+					int rowSize=5;
+					int start=(curpage*rowSize)-(rowSize-1);
+					int end=curpage*rowSize;
+					Map map = new HashMap();
+					map.put("no", no);
+					map.put("category", category);
+					map.put("start", start);
+					map.put("end", end);
+
+					System.out.println("상품번호:"+no);
+					System.out.println("카테고리"+category);
+					int curPage = Integer.parseInt(page);
+					System.out.println(curPage);
+					int totalPage =rs.reviewTotal();
+					System.out.println("총페이지"+totalPage);
+					int BLOCK=5;
+					int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+					int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+					int allPage = totalPage;
+					if(endPage > allPage){
+						endPage=allPage;
+					}
+					System.out.println("페이지:"+curPage);
+					System.out.println("스타트페지"+startPage);
+					System.out.println("endPage:"+endPage);
+					System.out.println("allPage:"+allPage);
+					System.out.println("스타트페지"+startPage);
+					List<ReviewVO> rlist= rs.reviewList(map);
+					model.addAttribute("product", no);
+					model.addAttribute("rlist", rlist);
+					model.addAttribute("curPage", curPage);
+					model.addAttribute("startPage", startPage);
+					model.addAttribute("endPage", endPage);
+					model.addAttribute("allPage", allPage);
+					return "review_page";
+				}
+				//리스트출력
+				@RequestMapping("shop/main_detail_reviewpage2.do")
+				public String mainReviewList(String page,int no,int category,Model model){
+					if(page==null) {
+						page="1";
+					}
+					int curpage=Integer.parseInt(page);
+					int rowSize=5;
+					int start=(curpage*rowSize)-(rowSize-1);
+					int end=curpage*rowSize;
+					Map map = new HashMap();
+					map.put("no", no);
+					map.put("category", category);
+					map.put("start", start);
+					map.put("end", end);
+
+					System.out.println("상품번호:"+no);
+					System.out.println("카테고리"+category);
+					int curPage = Integer.parseInt(page);
+					System.out.println(curPage);
+					int totalPage =rs.reviewTotal();
+					System.out.println("총페이지"+totalPage);
+					int BLOCK=5;
+					int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+					int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+					int allPage = totalPage;
+					if(endPage > allPage){
+						endPage=allPage;
+					}
+					System.out.println("페이지:"+curPage);
+					System.out.println("스타트페지"+startPage);
+					System.out.println("endPage:"+endPage);
+					System.out.println("allPage:"+allPage);
+					System.out.println("스타트페지"+startPage);
+					List<ReviewVO> rlist= rs.reviewList(map);
+					model.addAttribute("product", no);
+					model.addAttribute("rlist", rlist);
+					model.addAttribute("curPage", curPage);
+					model.addAttribute("startPage", startPage);
+					model.addAttribute("endPage", endPage);
+					model.addAttribute("allPage", allPage);
+					return "review_page";
+				}
+				//리스트출력
+				@RequestMapping("shop/power_detail_reviewpage2.do")
+				public String powerReviewList(String page,int no,int category,Model model){
+					if(page==null) {
+						page="1";
+					}
+					int curpage=Integer.parseInt(page);
+					int rowSize=5;
+					int start=(curpage*rowSize)-(rowSize-1);
+					int end=curpage*rowSize;
+					Map map = new HashMap();
+					map.put("no", no);
+					map.put("category", category);
+					map.put("start", start);
+					map.put("end", end);
+
+					System.out.println("상품번호:"+no);
+					System.out.println("카테고리"+category);
+					int curPage = Integer.parseInt(page);
+					System.out.println(curPage);
+					int totalPage =rs.reviewTotal();
+					System.out.println("총페이지"+totalPage);
+					int BLOCK=5;
+					int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+					int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+					int allPage = totalPage;
+					if(endPage > allPage){
+						endPage=allPage;
+					}
+					System.out.println("페이지:"+curPage);
+					System.out.println("스타트페지"+startPage);
+					System.out.println("endPage:"+endPage);
+					System.out.println("allPage:"+allPage);
+					System.out.println("스타트페지"+startPage);
+					List<ReviewVO> rlist= rs.reviewList(map);
+					model.addAttribute("product", no);
+					model.addAttribute("rlist", rlist);
+					model.addAttribute("curPage", curPage);
+					model.addAttribute("startPage", startPage);
+					model.addAttribute("endPage", endPage);
+					model.addAttribute("allPage", allPage);
+					return "review_page";
+				}
+				//리스트출력
+				@RequestMapping("shop/ram_detail_reviewpage2.do")
+				public String ramReviewList(String page,int no,int category,Model model){
+					if(page==null) {
+						page="1";
+					}
+					int curpage=Integer.parseInt(page);
+					int rowSize=5;
+					int start=(curpage*rowSize)-(rowSize-1);
+					int end=curpage*rowSize;
+					Map map = new HashMap();
+					map.put("no", no);
+					map.put("category", category);
+					map.put("start", start);
+					map.put("end", end);
+
+					System.out.println("상품번호:"+no);
+					System.out.println("카테고리"+category);
+					int curPage = Integer.parseInt(page);
+					System.out.println(curPage);
+					int totalPage =rs.reviewTotal();
+					System.out.println("총페이지"+totalPage);
+					int BLOCK=5;
+					int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+					int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+					int allPage = totalPage;
+					if(endPage > allPage){
+						endPage=allPage;
+					}
+					System.out.println("페이지:"+curPage);
+					System.out.println("스타트페지"+startPage);
+					System.out.println("endPage:"+endPage);
+					System.out.println("allPage:"+allPage);
+					System.out.println("스타트페지"+startPage);
+					List<ReviewVO> rlist= rs.reviewList(map);
+					model.addAttribute("product", no);
+					model.addAttribute("rlist", rlist);
+					model.addAttribute("curPage", curPage);
+					model.addAttribute("startPage", startPage);
+					model.addAttribute("endPage", endPage);
+					model.addAttribute("allPage", allPage);
+					return "review_page";
+				}
+				//리스트출력
+				@RequestMapping("shop/ssd_detail_reviewpage2.do")
+				public String ssdReviewList(String page,int no,int category,Model model){
+					if(page==null) {
+						page="1";
+					}
+					int curpage=Integer.parseInt(page);
+					int rowSize=5;
+					int start=(curpage*rowSize)-(rowSize-1);
+					int end=curpage*rowSize;
+					Map map = new HashMap();
+					map.put("no", no);
+					map.put("category", category);
+					map.put("start", start);
+					map.put("end", end);
+
+					System.out.println("상품번호:"+no);
+					System.out.println("카테고리"+category);
+					int curPage = Integer.parseInt(page);
+					System.out.println(curPage);
+					int totalPage =rs.reviewTotal();
+					System.out.println("총페이지"+totalPage);
+					int BLOCK=5;
+					int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+					int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+					int allPage = totalPage;
+					if(endPage > allPage){
+						endPage=allPage;
+					}
+					System.out.println("페이지:"+curPage);
+					System.out.println("스타트페지"+startPage);
+					System.out.println("endPage:"+endPage);
+					System.out.println("allPage:"+allPage);
+					System.out.println("스타트페지"+startPage);
+					List<ReviewVO> rlist= rs.reviewList(map);
+					model.addAttribute("product", no);
+					model.addAttribute("rlist", rlist);
+					model.addAttribute("curPage", curPage);
+					model.addAttribute("startPage", startPage);
+					model.addAttribute("endPage", endPage);
+					model.addAttribute("allPage", allPage);
+					return "review_page";
+				}
+				//리스트출력
+				@RequestMapping("shop/vga_detail_reviewpage2.do")
+				public String vgaReviewList(String page,int no,int category,Model model){
+					if(page==null) {
+						page="1";
+					}
+					int curpage=Integer.parseInt(page);
+					int rowSize=5;
+					int start=(curpage*rowSize)-(rowSize-1);
+					int end=curpage*rowSize;
+					Map map = new HashMap();
+					map.put("no", no);
+					map.put("category", category);
+					map.put("start", start);
+					map.put("end", end);
+
+					System.out.println("상품번호:"+no);
+					System.out.println("카테고리"+category);
+					int curPage = Integer.parseInt(page);
+					System.out.println(curPage);
+					int totalPage =rs.reviewTotal();
+					System.out.println("총페이지"+totalPage);
+					int BLOCK=5;
+					int startPage=((curPage-1)/BLOCK*BLOCK)+1;
+					int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
+					int allPage = totalPage;
+					if(endPage > allPage){
+						endPage=allPage;
+					}
+					System.out.println("페이지:"+curPage);
+					System.out.println("스타트페지"+startPage);
+					System.out.println("endPage:"+endPage);
+					System.out.println("allPage:"+allPage);
+					System.out.println("스타트페지"+startPage);
+					List<ReviewVO> rlist= rs.reviewList(map);
+					model.addAttribute("product", no);
+					model.addAttribute("rlist", rlist);
+					model.addAttribute("curPage", curPage);
+					model.addAttribute("startPage", startPage);
+					model.addAttribute("endPage", endPage);
+					model.addAttribute("allPage", allPage);
+					return "review_page";
+				}
+				
 	}
 
 
