@@ -9,21 +9,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.damajo.dao.ReviewDAO;
 import com.damajo.service.ReviewService;
-import com.damajo.vo.QABoardVO;
 import com.damajo.vo.ReviewVO;
-	
+
 @Controller
 public class ReviewController {
 	@Autowired
 	private ReviewDAO rdao;
 	@Autowired
 	private ReviewService rs;
-	
+
 	//추가
 	@RequestMapping("shop/cpu_detail_reviewInsert.do")
 	public String reviewInsert(String no, String category, String subject,String content,Model model,HttpSession session){
@@ -38,7 +36,7 @@ public class ReviewController {
 		model.addAttribute("no", no);
 		model.addAttribute("category", category);
 		model.addAttribute("id", id);
-		
+
 		if(category.equals("1")){
 			return "redirect:cpu_detail.do";
 		}else if(category.equals("2")){
@@ -63,8 +61,12 @@ public class ReviewController {
 		}
 		System.out.println("상품번호:"+no);
 		System.out.println("카테고리"+category);
+		Map map = new HashMap();
+		map.put("no", no);
+		map.put("category", category);
 		int curPage = Integer.parseInt(page);
-		int total =rs.reviewTotal(no, category);
+		int total =rs.reviewTotal();
+		System.out.println("total = " + total);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -77,7 +79,7 @@ public class ReviewController {
 		System.out.println("endPage:"+endPage);
 		System.out.println("allPage:"+allPage);
 		System.out.println("스타트페지"+startPage);
-		List<ReviewVO> rlist= rs.reviewList(curPage,no,category);
+		List<ReviewVO> rlist= rs.reviewList(map);
 		model.addAttribute("product", no);
 		model.addAttribute("rlist", rlist);
 		model.addAttribute("curPage", curPage);
@@ -92,11 +94,21 @@ public class ReviewController {
 			if(page==null) {
 				page="1";
 			}
+			int curpage=Integer.parseInt(page);
+			int rowSize=5;
+			int start=(curpage*rowSize)-(rowSize-1);
+			int end=curpage*rowSize;
+			Map map = new HashMap();
+			map.put("no", no);
+			map.put("category", category);
+			map.put("start", start);
+			map.put("end", end);
+
 			System.out.println("상품번호:"+no);
 			System.out.println("카테고리"+category);
 			int curPage = Integer.parseInt(page);
 			System.out.println(curPage);
-			int totalPage =rs.reviewTotal(no, category);
+			int totalPage =rs.reviewTotal();
 			System.out.println("총페이지"+totalPage);
 			int BLOCK=5;
 			int startPage=((curPage-1)/BLOCK*BLOCK)+1;
@@ -110,7 +122,7 @@ public class ReviewController {
 			System.out.println("endPage:"+endPage);
 			System.out.println("allPage:"+allPage);
 			System.out.println("스타트페지"+startPage);
-			List<ReviewVO> rlist= rs.reviewList(curPage,no,category);
+			List<ReviewVO> rlist= rs.reviewList(map);
 			model.addAttribute("product", no);
 			model.addAttribute("rlist", rlist);
 			model.addAttribute("curPage", curPage);
@@ -120,7 +132,7 @@ public class ReviewController {
 			return "review_page";
 		}
 	}
-	
-	
-	
-	
+
+
+
+
