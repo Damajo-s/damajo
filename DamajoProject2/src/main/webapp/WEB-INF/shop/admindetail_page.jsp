@@ -32,7 +32,32 @@
 				}
 			}); //ajax
 		});
+var no;
+		$('.adminres').click(function() {
+			 no = $(this).attr('data-no');
+			$('#result').appendTo('#adminres-input' + no);
+			$('#result').show();
+		});
 
+		$('#resultsubmit').click(function() {
+			var text = $('#qnatext').val();
+			console.log(text);
+			if (text == '') {
+				alert("답변을 작성해주세요")
+			}else{
+				$.ajax({
+					type : 'post',
+					url : '../member/qnaresult_ok.do',
+					data : {
+						adminres : text,
+						no : no
+					},
+					success : function(res) {
+						location.href = "../member/adminpage.do";
+					}
+			});
+		}
+		});
 	});
 </script>
 <style type="text/css">
@@ -58,23 +83,17 @@
 			<c:forEach var="vo" items="${list }" varStatus="s">
 				<tbody>
 					<tr>
-						<td class="text-center" width="5%"></td>
+						<td class="text-center" width="10%"></td>
 						<td class="text-center" class="subject" width="20%"><a>${vo.subject }</a></td>
-						<td class="text-center" width="5%"></td>
-						<td class="text-center" width="10%">${vo.id }</td>
+						<td class="text-center" width="20%">${vo.id }</td>
 						<td class="text-center" width="10%">${vo.today }</td>
+						<td class="text-cetner" width="10%"><button
+								data-no="${vo.no }" class="adminres">답변하기</button></td>
 					</tr>
-					<tr class="content" style="display: none">
-						<td class="text-center" width="10%"></td>
-						<td class="text-center" width="20%">${vo.content }</td>
-						<td class="text-center" width="5%"></td>
-						<td class="text-center" width="20%"></td>
-						<td class="text-center" width="10%"></td>
-					</tr>
-					<tr class="adminres" style="display: none">
-						<td class="text-center" width="10%"></td>
-						<td class="text-center" width="20%"><font color=red>Re.&nbsp;</font>${vo.adminres }</td>
-						<td class="text-center" width="5%"></td>
+					<tr>
+						<td>
+							<div id="adminres-input${vo.no }"></div>
+						</td>
 					</tr>
 				</tbody>
 			</c:forEach>
@@ -86,7 +105,7 @@
 							<li><input type=button value="&lt;"></li>
 						</c:if>
 						<c:forEach var="i" begin="${startPage }" end="${endPage }">
-							<li><input type=button class="pageAdmin" value="${i }"></li>
+							<input type=button class="pageAdmin" value="${i }">
 						</c:forEach>
 						<c:if test="${endPage<allPage }">
 							<li><input type=button value="&gt;"></li>
@@ -96,6 +115,12 @@
 				</ul>
 			</div>
 		</table>
+	</div>
+	<div id="result" style="display: none; width: 200px">
+		답변 :
+		<textarea cols="100" rows="10" id="qnatext"></textarea>
+		<button id=resultsubmit>작성</button>
+
 	</div>
 </body>
 </html>

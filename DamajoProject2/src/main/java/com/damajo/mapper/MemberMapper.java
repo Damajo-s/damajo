@@ -55,4 +55,7 @@ public interface MemberMapper {
 	public int qnaTotalPage(QABoardVO vo);
 	@Select("SELECT CEIL(COUNT(*)/5.0) FROM member")
 	public int adminMemberPageCount();
+	
+	@Update("UPDATE qaboard SET adminres = #{adminres} WHERE no = #{no}")
+	public void adminresUpdate(QABoardVO vo);
 }

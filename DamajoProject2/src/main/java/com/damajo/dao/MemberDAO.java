@@ -67,4 +67,7 @@ public class MemberDAO {
 	public int adminMemberPageCount(){
 		return mapper.adminMemberPageCount();
 	}
+	public void adminresUpdate(QABoardVO vo){
+		mapper.adminresUpdate(vo);
+	}
 }

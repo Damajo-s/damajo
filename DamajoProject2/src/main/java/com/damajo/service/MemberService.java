@@ -87,6 +87,9 @@ public class MemberService {
 			return "false";
 		}
 	}
+	public void banAccount(MemberVO vo){
+		dao.leaveAccount(vo);
+	}
 	public List<MemberVO> viewUserList(int page){
 		Map map = new HashMap<>();
 		int rowSize = 5;
@@ -101,5 +104,8 @@ public class MemberService {
 	}
 	public int adminMemberPageCount(){
 		return dao.adminMemberPageCount();
+	}
+	public void adminresUpdate(QABoardVO vo){
+		dao.adminresUpdate(vo);
 	}
 }

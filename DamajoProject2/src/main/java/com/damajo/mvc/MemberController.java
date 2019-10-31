@@ -172,7 +172,6 @@ public class MemberController {
 
 	@RequestMapping("member/deleteaccount")
 	public String deleteAccount() {
-
 		return "member/deleteaccount";
 	}
 

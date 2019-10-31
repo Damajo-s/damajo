@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.damajo.service.MemberService;
 import com.damajo.vo.MemberVO;
+import com.damajo.vo.QABoardVO;
 
 @RestController
 public class MemberRestController {
@@ -34,10 +35,13 @@ public class MemberRestController {
 
 	@RequestMapping("member/damajo_login_ok.do")
 	public String damajo_login_ok(MemberVO vo, HttpSession session) {
+
+		vo = ms.memberDetailInfo(vo);
 		int result = ms.damajo_login(vo);
 		if (result == 1) { // 로그인
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("type", vo.getType());
+			System.out.println(vo.getType());
 		}
 		return String.valueOf(result);
 	}
@@ -72,5 +76,15 @@ public class MemberRestController {
 	@RequestMapping("member/deleteaccount_ok.do")
 	public String deleteaccount_ok(MemberVO vo,HttpSession session) {
 		return ms.deleteAccount(vo,session);
+	}	
+	@RequestMapping("member/banaccount_ok.do")
+	public String banaccount_ok(MemberVO vo) {
+		ms.banAccount(vo);
+		return "success";
+	}
+	@RequestMapping("member/qnaresult_ok.do")
+	public String qnaresult_ok(QABoardVO vo){
+		ms.adminresUpdate(vo);
+		return "success";
 	}
 }

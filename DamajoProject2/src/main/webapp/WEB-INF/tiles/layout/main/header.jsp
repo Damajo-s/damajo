@@ -7,15 +7,15 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(function(){
-	$('.search-btn').click(function(){
-		var searchThis=$('#input').val();
-		if(searchThis.trim()=="") {
-			$('#input').focus();
-			return;
-		}
+	$(function() {
+		$('.search-btn').click(function() {
+			var searchThis = $('#input').val();
+			if (searchThis.trim() == "") {
+				$('#input').focus();
+				return;
+			}
+		})
 	})
-})
 </script>
 </head>
 <header>
@@ -34,10 +34,16 @@ $(function(){
 					<li style="color: white;">${sessionScope.id }님환영합니다</li>
 					<!-- <li><a href="#"><i class="fa fa-dollar"></i>  원</a></li> -->
 					<!-- c:if 문 들어갈 자리 (관리자/ 일반 멤버) -->
-					<li><a href="../member/mypage.do"><i class="fa fa-user-o"></i>
-							회원정보</a></li>
-					<li><a href="../member/logout.do"><i class="fa fa-user-o"></i>
-							로그아웃</a></li>
+					<c:if test="${sessionScope.type == 4 }">
+						<li><a href="../member/adminpage.do"><i class="fa fa-user-o"></i>
+								회원관리</a></li>
+					</c:if>
+					<c:if test="${sessionScope.type != 4 }">
+						<li><a href="../member/mypage.do"><i class="fa fa-user-o"></i>
+								회원정보</a></li>
+						<li><a href="../member/logout.do"><i class="fa fa-user-o"></i>
+								로그아웃</a></li>
+					</c:if>
 				</ul>
 			</c:if>
 			<c:if test="${sessionScope.id == null }">
@@ -80,9 +86,9 @@ $(function(){
 								<option value="5">SSD</option>
 								<option value="6">HDD</option>
 								<option value="7">파워</option>
-							</select>
-							<input type="text" class="input" name="searchThis" placeholder="검색어를 입력해주세요.">
-							<input type="submit" class="search-btn" value="검색">
+							</select> <input type="text" class="input" name="searchThis"
+								placeholder="검색어를 입력해주세요."> <input type="submit"
+								class="search-btn" value="검색">
 						</form>
 					</div>
 				</div>

@@ -29,19 +29,16 @@
 		});
 
 		$('.btn-default2').click(function() {
-			var no = $(this).attr('data-no');
+			var type = $(this).attr('data-type');
 			var id = $(this).attr('data-id');
 			$.ajax({
 				type : 'post',
-				url : '../member/admindetail_page.do',
+				url : '../member/banaccount_ok.do',
 				data : {
-					page : 1,
 					id : id
 				},
 				success : function(res) {
-					$('#print').append(res);
-					$('#show').appendTo('#detail' + no);
-					$('#show').show();
+					location.href = "../member/adminpage.do";
 				}
 			});
 		});
@@ -87,7 +84,7 @@
 								<button class="btn btn-default1" data-no="${memberInfo.no }"
 									data-id="${memberInfo.id }">정보보기</button>
 								<button class="btn btn-default2" data-no="${memberInfo.no }"
-									data-id="${memberInfo.id }">계정탈퇴</a>
+									data-id="${memberInfo.id }" data-type="${memberInfo.type }">계정탈퇴</button>
 							</p>
 						<td>
 					</tr>
@@ -131,6 +128,7 @@
 							<th class="text-center" width="5%"></th>
 							<th class="text-center" width="20%">작성자</th>
 							<th class="text-center" width="10%">작성일</th>
+							<th class="text-center" width="10%">관리</th>
 						</tr>
 					</thead>
 				</table>
