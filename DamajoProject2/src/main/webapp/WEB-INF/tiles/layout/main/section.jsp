@@ -638,38 +638,71 @@
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">the cheapest</h3>
+							<h3 class="title">cheaper price</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab2">그래픽카드</a></li>
-									<li><a data-toggle="tab" href="#tab2">HDD</a></li>
-									<li><a data-toggle="tab" href="#tab2">RAM</a></li>
-									<li><a data-toggle="tab" href="#tab2">POWER</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab11">그래픽카드</a></li>
+									<li><a data-toggle="tab" href="#tab12">HDD</a></li>
+									<li><a data-toggle="tab" href="#tab13">RAM</a></li>
+									<li><a data-toggle="tab" href="#tab14">POWER</a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- /section title -->
 
-					<!-- Products tab & slick -->
+					<!-- Products tab & slick  광고 밑 탭 -->
 					<div class="col-md-12">
 						<div class="row">
 							<div class="products-tabs">
 								<!-- tab -->
-								<div id="tab2" class="tab-pane fade in active">
+								<div id="tab11" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										
+										<c:forEach begin="63" end="66" items="${vrlist }" var="vr">
+										<div class="product">
+											<div class="product-img">
+												<img src="${vr.poster }" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">${vr.company }</p>
+												<h3 class="product-name"><a href="../shop/detail.do">${vr.vga_name}</a></h3>
+												<h4 class="product-price">${vr.price}</h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+								
+								<!-- tab -->
+								<div id="tab12" class="tab-pane">
+									<div class="products-slick" data-nav="#slick-nav-2">
+										<!-- product -->
+										<c:forEach begin="1" end="4" >
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/product06.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
+												<p class="product-category">HDD</p>
 												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
@@ -689,11 +722,87 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
+										</c:forEach>
 										<!-- /product -->
 									</div>
-									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
+								
+								
+								<!-- tab -->
+								<div id="tab13" class="tab-pane">
+									<div class="products-slick" data-nav="#slick-nav-2">
+										<!-- product -->
+										<c:forEach begin="1" end="4" >
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product06.png" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">RAM</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+								
+								<!-- tab -->
+								<div id="tab14" class="tab-pane">
+									<div class="products-slick" data-nav="#slick-nav-2">
+										<!-- product -->
+										<c:forEach begin="1" end="4" >
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/product06.png" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">POWER</p>
+												<h3 class="product-name"><a href="../shop/detail.do">product name goes here</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											</div>
+										</div>
+										</c:forEach>
+										<!-- /product -->
+									</div>
+								</div>
+								<!-- /tab -->
+								
+								
 							</div>
 						</div>
 					</div>
@@ -707,10 +816,10 @@
 		<!-- /SECTION -->
 
 		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
+		<!-- <div class="section">
+			container
 			<div class="container">
-				<!-- row -->
+				row
 				<div class="row">
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
@@ -722,7 +831,7 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-3">
 							<div>
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product07.png" alt="">
@@ -733,9 +842,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product08.png" alt="">
@@ -746,9 +855,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product09.png" alt="">
@@ -759,11 +868,11 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- product widget -->
+								product widget
 							</div>
 
 							<div>
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product01.png" alt="">
@@ -774,9 +883,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product02.png" alt="">
@@ -787,9 +896,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product03.png" alt="">
@@ -800,7 +909,7 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- product widget -->
+								product widget
 							</div>
 						</div>
 					</div>
@@ -815,7 +924,7 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-4">
 							<div>
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product04.png" alt="">
@@ -826,9 +935,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product05.png" alt="">
@@ -839,9 +948,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product06.png" alt="">
@@ -852,11 +961,11 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- product widget -->
+								product widget
 							</div>
 
 							<div>
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product07.png" alt="">
@@ -867,9 +976,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product08.png" alt="">
@@ -880,9 +989,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product09.png" alt="">
@@ -893,7 +1002,7 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- product widget -->
+								product widget
 							</div>
 						</div>
 					</div>
@@ -910,7 +1019,7 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-5">
 							<div>
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product01.png" alt="">
@@ -921,9 +1030,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product02.png" alt="">
@@ -934,9 +1043,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product03.png" alt="">
@@ -947,11 +1056,11 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- product widget -->
+								product widget
 							</div>
 
 							<div>
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product04.png" alt="">
@@ -962,9 +1071,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product05.png" alt="">
@@ -975,9 +1084,9 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
+								/product widget
 
-								<!-- product widget -->
+								product widget
 								<div class="product-widget">
 									<div class="product-img">
 										<img src="./img/product06.png" alt="">
@@ -988,16 +1097,17 @@
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
 								</div>
-								<!-- product widget -->
+								product widget
 							</div>
 						</div>
 					</div>
 
 				</div>
-				<!-- /row -->
+				/row
 			</div>
-			<!-- /container -->
-		</div>
+			/container
+		</div> -->
 		<!-- /SECTION -->
+		
 </body>
 </html>
