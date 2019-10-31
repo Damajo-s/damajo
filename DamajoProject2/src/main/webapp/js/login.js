@@ -60,7 +60,7 @@ function windowLoaded() {
 	login.addEventListener('click', clicked, false);
 	signup.addEventListener('click', clicked, false);
 
-	var loginButton = document.getElementById('login-button');
+	var loginButton = document.getElementById('loginBtn');
 	loginButton.addEventListener("click", function() {
 		var id = document.getElementById('login-username').value;
 		var pwd = document.getElementById('login-password').value;
@@ -87,7 +87,7 @@ function windowLoaded() {
 		});
 	});
 	
-	var signupButton = document.getElementById('signup-button');
+	var signupButton = document.getElementById('signin');
 	signupButton.addEventListener("click", function() {
 		var id = document.getElementById('signup-username').value;
 		var pwd = document.getElementById('signup-password').value;
