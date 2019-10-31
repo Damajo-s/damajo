@@ -80,9 +80,27 @@ body {
 	float: left;
 	width: 250px;
 	height: 50px;
-	margin-right: 20px;
+	margin-right: 25px;
 }
-
+#SignIn {
+	display: block;
+	height: 50px;
+	padding: 10px 30px;
+	position: relative;
+}
+.signin {
+	width: 200px;
+	height: 40px;
+	border: 1.5px solid #db4a39;
+	float: right;
+	text-align: center;
+	font-size: 12px;
+	cursor: pointer;
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: white;
+}
 a {
 	color: #444;
 	text-decoration: none;

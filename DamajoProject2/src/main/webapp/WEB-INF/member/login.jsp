@@ -66,8 +66,13 @@
 				<div class="form-fild">
 					<input type="text" name="password-hintanswer"
 						id="signup-hintanswer" placeholder="Hint Answer (Find Password)">
-				</div> <input type="button" id="signup-button" class="button-1"
-				value="submit">
+				</div> 
+				
+				<div id="SignIn">
+					<input type="button" id="signin" class="signin"
+					value="SIGNIN">
+				</div>
+				
 			</li>
 		</ul>
 	</div>

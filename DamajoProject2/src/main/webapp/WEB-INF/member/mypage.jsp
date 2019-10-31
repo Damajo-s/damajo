@@ -36,179 +36,215 @@
 		}); //page
 	});
 </script>
-<style type="text/css">
-/**
- * Vertical align anything with 3 lines of CSS (excluding vendor prefixes)
- *
- * .element {
- *   position: relative;
- *   top: 50%;
- *   transform: translateY(-50%);
- * }
- * -----------------------------------------
- * Read more at: zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
- */
-.page, .nextPage, .prePage {
-	color: #2B2D42;
-	font-weight: 500;
-	-webkit-transition: 0.2s color;
-	transition: 0.2s color;
-	position: relative;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	background: transparent;
-	border: none;
-	-webkit-transition: 0.2s all;
-	transition: 0.2s all;
+<style>
+/*
+CSS for the main interaction
+*/
+.tabset>input[type="radio"] {
+	position: absolute;
+	left: -200vw;
 }
 
-.text p {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+.tabset .tab-panel {
+	display: none;
 }
 
-.image img {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+.tabset>input:first-child:checked ~ .tab-panels>.tab-panel:first-child,
+	.tabset>input:nth-child(3):checked ~ .tab-panels>.tab-panel:nth-child(2),
+	.tabset>input:nth-child(5):checked ~ .tab-panels>.tab-panel:nth-child(3),
+	.tabset>input:nth-child(7):checked ~ .tab-panels>.tab-panel:nth-child(4),
+	.tabset>input:nth-child(9):checked ~ .tab-panels>.tab-panel:nth-child(5),
+	.tabset>input:nth-child(11):checked ~ .tab-panels>.tab-panel:nth-child(6)
+	{
+	display: block;
 }
 
-.button-1 {
-	width: 140px;
-	height: 50px;
-	border: 2px solid #34495e;
-	float: left;
-	text-align: center;
+/*
+Styling
+*/
+body {
+	font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+	color: #333;
+	font-weight: 300;
+}
+
+.tabset>label {
+	position: relative;
+	display: inline-block;
+	padding: 15px 15px 25px;
+	border: 1px solid transparent;
+	border-bottom: 0;
 	cursor: pointer;
+	font-weight: 600;
+}
+
+.tabset>label::after {
+	content: "";
+	position: absolute;
+	left: 15px;
+	bottom: 10px;
+	width: 22px;
+	height: 4px;
+	background: #8d8d8d;
+}
+
+.tabset>label:hover, .tabset>input:focus+label {
+	color: #06c;
+}
+
+.tabset>label:hover::after, .tabset>input:focus+label::after, .tabset>input:checked+label::after
+	{
+	background: #06c;
+}
+
+.tabset>input:checked+label {
+	border-color: #ccc;
+	border-bottom: 1px solid #fff;
+	margin-bottom: -1px;
+}
+
+.tab-panel {
+	padding: 30px;
+	border-top: 1px solid #ccc;
+}
+
+.change {
+	display: inline-block;
+	width: 150x;
+	height: 50px;
+	border: 2px solid #426FC5;
+	text-align: center;
+	font-size: 12px;
 	position: relative;
 	box-sizing: border-box;
-	overflow: hidden;
-	margin: 0 0 40px 0;
 }
 
-.button-1 a {
-	font-family: arial;
-	font-size: 16px;
-	color: #34495e;
+.change a {
+	font-size: 12px;
+	text-align: center;
 	text-decoration: none;
-	line-height: 50px;
+	line-height: 40px;
 	transition: all .5s ease;
 	z-index: 2;
 	position: relative;
+	font-family: 'Open Sans', sans-serif;
 }
 
-.block-of-text p {
+.delete {
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	border: 2px solid #e94043;
+	text-align: center;
+	font-size: 12px;
 	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+	box-sizing: border-box;
+	width: 150px;
 }
 
-/* ====================================
-   Base styling, to make the demo more fancy
-   ==================================== */
-@import
-	url(https://fonts.googleapis.com/css?family=Roboto:400,300,700,100);
-
-.admin1 {
-	display: block;
-	max-width: 1000px;
-	border-style: solid;
-	border-color: black;
-	margin: 0 auto;
-	height: 400px;
-	border-radius: .2em;
+.delete a {
+	font-size: 12px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	transition: all .5s ease;
+	z-index: 2;
 	position: relative;
-	color: black;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d; img , p { padding : 1em;
-	margin: 0;
+	font-family: 'Open Sans', sans-serif;
 }
 
-}
-.admin2 {
-	display: block;
-	max-width: 1000px;
-	border-style: solid;
-	border-color: black;
-	margin: 0 auto;
-	height: 300px;
-	border-radius: .2em;
-	position: relative;
-	color: black;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d; img , p { padding : 1em;
-	margin: 0;
+/*
+Demo purposes only
+*/
+*, *:before, *:after {
+	box-sizing: border-box;
 }
 
+#total {
+	padding: 100px 200px;
 }
-.block-of-text {
-	height: 220px;
+
+/* #review{
+	width: 500px;
+}
+
+#qna{
+	width: 500px;
+	}
+	
+#myinfo{
+	width: 500px;
+	} */
+.tabset {
+	max-width: 65em;
 }
 </style>
 </head>
 <body>
-	<section class="admin2">
-	<h2>회원정보</h2>
-	<div class="button-1">
-		<a href="../member/changepassword.do?id=${id }">비밀번호 수정</a>
-	</div>
-	<p></p>
-	<div class="button-1">
-		<a href="../member/deleteaccount.do">회원 탈퇴</a>
-	</div>
-	</section>
-	<p></p>
-	<section class="admin1">
-	<h2>내가 작성한 후기</h2>
-	</section>
+	<section id="total">
+	<div class="tabset">
+		<!-- Tab 1 -->
+		<input type="radio" name="tabset" id="tab1" aria-controls="marzen"
+			checked> <label for="tab1">Review</label>
+		<!-- Tab 2 -->
+		<input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+		<label for="tab2">Q&A</label>
+		<!-- Tab 3 -->
+		<input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+		<label for="tab3">My Info</label>
 
-	<p></p>
-	<section class="admin1">
-	<h2>내가 작성한 Q&A</h2>
-	<!-- tab2 : Q&A  -->
-	<div>
-		<div class="col-md-12">
-			<table class="table" width="80%" cellspacing="0">
-				<thead>
-					<tr>
-						<th class="text-center" width="10%">답변상태</th>
-						<th class="text-center" width="20%">제목</th>
-						<th class="text-center" width="5%"></th>
-						<th class="text-center" width="20%">작성자</th>
-						<th class="text-center" width="10%">작성일</th>
-					</tr>
-				</thead>
-			</table>
-		</div>
-		<div class="col-md-12" id="print"></div>
-		<div>
-			<ul class="reviews-pagination">
-				<table>
-					<c:if test="${curPage>BLOCK }">
-						<li><input type=button value="◁"></li>
-						<li><input type=button value="&lt;"></li>
-					</c:if>
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
-						<li><input type=button class="page" value="${i }"></li>
-					</c:forEach>
-					<c:if test="${endPage<allPage }">
-						<li><input type=button value="&gt;"></li>
-						<li><input type=button value="▷"></li>
-					</c:if>
-				</table>
-			</ul>
+		<div class="tab-panels">
+			<section id="review" class="tab-panel">
+			<h5>내가 작성한 후기</h5>
+			<hr>
+
+			</section>
+			<section id="qna" class="tab-panel"> <!-- tab2 : Q&A  -->
+			<div>
+				<div class="col-md-12">
+					<table class="table" width="80%" cellspacing="0">
+						<thead>
+							<tr>
+								<th class="text-center" width="10%">답변상태</th>
+								<th class="text-center" width="20%">제목</th>
+								<th class="text-center" width="5%"></th>
+								<th class="text-center" width="20%">작성자</th>
+								<th class="text-center" width="10%">작성일</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="col-md-12" id="print"></div>
+				<div>
+					<ul class="reviews-pagination">
+						<table>
+							<c:if test="${curPage>BLOCK }">
+								<li><input type=button value="◁"></li>
+								<li><input type=button value="&lt;"></li>
+							</c:if>
+							<c:forEach var="i" begin="${startPage }" end="${endPage }">
+								<li><input type=button class="page" value="${i }"></li>
+							</c:forEach>
+							<c:if test="${endPage<allPage }">
+								<li><input type=button value="&gt;"></li>
+								<li><input type=button value="▷"></li>
+							</c:if>
+						</table>
+					</ul>
+				</div>
+			</div>
+			<!-- /tab2  --> </section>
+			<section id="myinfo" class="tab-panel">
+			<h5 style="text-align: center;">내 정보</h5>
+			<hr>
+			<div class="change">
+				<a href="../member/changepassword.do?id=${id }">비밀번호 수정</a>
+			</div>
+			<div class="delete">
+				<a href="../member/deleteaccount.do">회원 탈퇴</a>
+			</div>
+			</section>
 		</div>
 	</div>
-	<!-- /tab2  --> </section>
+	</section>
 </body>
-</html>
