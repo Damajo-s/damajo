@@ -20,32 +20,32 @@ $(function(){
 </script>
 </head>
 <body>
-						<div>
 								<table class="table" >
-									<c:forEach var="vo" items="${list }" varStatus="s">
+									<c:forEach var="vo" items="${list }" >
 												<tbody>
 													<tr>
 														<td class="text-center" width="5%"></td>
-														<td class="text-center" class="subject" width="20%"><a>${vo.subject }</a></td>
+														<td class="text-center" class="subject" width="20%"><a><strong>${vo.subject }</strong></a></td>
 														<td class="text-center" width="5%"></td>
-														<td class="text-center" width="10%">${vo.id }</td>
-														<td class="text-center" width="10%">${vo.today }</td>
+														<td class="text-center" width="10%"><strong>${vo.id }</strong></td>
+														<td class="text-center" width="10%"><strong>${vo.today }</strong></td>
 													</tr>
-													<tr class="content" style="display:none">
+													<tr class="content">
 														<td class="text-center" width="10%"></td>
 														<td class="text-center" width="20%">${vo.content }</td>
 														<td class="text-center" width="5%"></td>
 														<td class="text-center" width="20%"></td>
 														<td class="text-center" width="10%"></td>
 													</tr>
-													<tr class="adminres" style="display:none">
+													<div class="adminres">
 														<td class="text-center" width="10%"></td>
-														<td class="text-center" width="20%"><font color=red>Re.&nbsp;</font>${vo.adminres }</td>
+														<td class="text-center" width="15%"><font color=red>Re.&nbsp;&nbsp;</font>${vo.adminres }</td>
 														<td class="text-center" width="5%"></td>
-													</tr>
+														<td class="text-center" width="20%"></td>
+														<td class="text-center" width="10%"></td>
+													</div>
 												</tbody>
 												</c:forEach>
 											</table>
-								</div>
 </body>
 </html>

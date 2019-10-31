@@ -27,6 +27,7 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		map.put("subject", vo.getSubject());
 		map.put("content", vo.getContent());
 		map.put("adminres", vo.getAdminres());
+		map.put("admintype", vo.getAdmintype());
 		map.put("category", vo.getCategory());
 		getSqlSession().update("qaboardInsert", map);
 	}

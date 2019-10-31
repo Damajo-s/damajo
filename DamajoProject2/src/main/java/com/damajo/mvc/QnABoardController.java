@@ -60,6 +60,7 @@ public class QnABoardController {
 		vo.setSubject(subject);
 		vo.setContent(content);
 		vo.setAdminres("답변 대기중입니다.");
+		vo.setAdmintype("답변대기");
 		vo.setCategory(Integer.parseInt(category));
 		qdao.qaboardInsert(vo);
 		model.addAttribute("no", no);

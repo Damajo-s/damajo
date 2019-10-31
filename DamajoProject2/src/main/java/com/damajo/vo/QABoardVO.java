@@ -25,5 +25,6 @@ public class QABoardVO {
 	private Date regdate;
 	private String today;
 	private String adminres;
+	private String admintype;
 	private int category;
 }
