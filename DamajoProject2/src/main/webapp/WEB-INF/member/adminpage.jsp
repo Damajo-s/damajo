@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script>
-
-var id = '';
+	var id = '';
 	$(function() {
-		$('.infoBtn').click(function() {
+		$('.btn-default1').click(function() {
+			$("#print").html("");
 			var no = $(this).attr('data-no');
 			id = $(this).attr('data-id');
 			$.ajax({
@@ -21,13 +21,30 @@ var id = '';
 					id : id
 				},
 				success : function(res) {
-					$('#print').html(res);
+					$('#print').append(res);
 					$('#show').appendTo('#detail' + no);
 					$('#show').show();
 				}
 			});
 		});
 
+		$('.btn-default2').click(function() {
+			var no = $(this).attr('data-no');
+			var id = $(this).attr('data-id');
+			$.ajax({
+				type : 'post',
+				url : '../member/admindetail_page.do',
+				data : {
+					page : 1,
+					id : id
+				},
+				success : function(res) {
+					$('#print').append(res);
+					$('#show').appendTo('#detail' + no);
+					$('#show').show();
+				}
+			});
+		});
 
 	});
 </script>
@@ -67,33 +84,38 @@ var id = '';
 						<td>${memberInfo.type }</td>
 						<td>
 							<p>
-								<button class="infoBtn" data-no="${memberInfo.no }"
+								<button class="btn btn-default1" data-no="${memberInfo.no }"
 									data-id="${memberInfo.id }">정보보기</button>
-								<a href="#" class="btn btn-default">계정탈퇴</a>
+								<button class="btn btn-default2" data-no="${memberInfo.no }"
+									data-id="${memberInfo.id }">계정탈퇴</a>
 							</p>
 						<td>
 					</tr>
-					<tr><td><div id="detail${memberInfo.no }"></div><td></tr>
+					<tr>
+						<td><div id="detail${memberInfo.no }"></div>
+						<td>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<div>
-				<ul class="reviews-pagination">
-					<table>
-						<c:if test="${curPage>BLOCK }">
-							<li><input type=button value="◁"></li>
-							<li><input type=button value="&lt;"></li>
-						</c:if>
-						<c:forEach var="i" begin="${startPage }" end="${endPage }">
-							<li><a type=button class="page" href="../member/adminpage.do?page=${i}">${i }</a></li>
-						</c:forEach>
-						<c:if test="${endPage<allPage }">
-							<li><input type=button value="&gt;"></li>
-							<li><input type=button value="▷"></li>
-						</c:if>
-					</table>
-				</ul>
-			</div>
+			<ul class="reviews-pagination">
+				<table>
+					<c:if test="${curPage>BLOCK }">
+						<li><input type=button value="◁"></li>
+						<li><input type=button value="&lt;"></li>
+					</c:if>
+					<c:forEach var="i" begin="${startPage }" end="${endPage }">
+						<li><a type=button class="page"
+							href="../member/adminpage.do?page=${i}">${i }</a></li>
+					</c:forEach>
+					<c:if test="${endPage<allPage }">
+						<li><input type=button value="&gt;"></li>
+						<li><input type=button value="▷"></li>
+					</c:if>
+				</table>
+			</ul>
+		</div>
 	</div>
 	<div id="show" style="display: none;">
 		<section class="admin1">
