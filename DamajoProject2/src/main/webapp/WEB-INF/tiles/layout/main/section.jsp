@@ -666,7 +666,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${vr.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${vr.vga_name}</a></h3>
+												<h3 class="product-name"><a href="../shop/vga_detail.do?no=${vr.vga_no }&category=${vr.category}">${vr.vga_name}</a></h3>
 												<h4 class="product-price">${vr.price}</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -703,7 +703,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${h.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${h.hdd_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/hdd_detail.do?no=${h.hdd_no }&category=${h.category}">${h.hdd_name }</a></h3>
 												<h4 class="product-price">${h.price }</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -740,7 +740,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${ramR.company } ${ramR.memory_capacity }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${ramR.ram_name}</a></h3>
+												<h3 class="product-name"><a href="../shop/ram_detail.do?no=${ramR.ram_no }&category=${ramR.category}">${ramR.ram_name}</a></h3>
 												<h4 class="product-price">${ramR.price}</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -777,7 +777,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">${p.company }</p>
-												<h3 class="product-name"><a href="../shop/detail.do">${p.power_name }</a></h3>
+												<h3 class="product-name"><a href="../shop/power_detail.do?no=${p.power_no }&category=${p.category}">${p.power_name }</a></h3>
 												<h4 class="product-price">${p.price }</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
