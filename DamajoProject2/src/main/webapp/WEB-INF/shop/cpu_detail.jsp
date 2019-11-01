@@ -270,10 +270,12 @@ $(function(){
 										<h3 class="text-left">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
 											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(${adminwait })</a>
-											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
-											<input type="hidden" id="pro" value="${product }">
-											<input type="hidden" id="cateno" value="${category }">
-											<input type="hidden" id="id" value="${id }">
+											<c:if test="${sessionScope.type != 4 }">
+												<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
+												<input type="hidden" id="pro" value="${product }">
+												<input type="hidden" id="cateno" value="${category }">
+												<input type="hidden" id="id" value="${id }">
+											</c:if>
 										</div>
 										<div class="col-md-12">
 											<table class="table" width="100%" cellspacing="0">

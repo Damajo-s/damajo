@@ -100,7 +100,15 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 	
 	
 	// 관리자 답변 수정
-	
+	public void adminupdate(QABoardVO vo){
+		Map map = new HashMap();
+		map.put("qpno", vo.getPno());
+		map.put("qcategory", vo.getCategory());
+		map.put("qadmintype", vo.getAdmintype());
+		map.put("admincontent", vo.getAdminres());
+		System.out.println("ggggggg"+vo.getAdminres());
+		getSqlSession().update("adminupdate",map);
+	}
 	
 	public int myqaboardTotal(String id) {
 		Map map = new HashMap();

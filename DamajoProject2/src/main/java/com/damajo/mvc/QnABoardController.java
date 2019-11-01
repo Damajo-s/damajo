@@ -45,7 +45,32 @@ public class QnABoardController {
 		model.addAttribute("category", category);
 		return "qainsert";
 	}
-	// QA새글
+	// 관리자 답변 창 띄우기
+	@RequestMapping("shop/admin_page.do")
+	public String admin_page(String no,String category,Model model, HttpSession session){
+		//System.out.println(no);
+		//System.out.println(category);
+		String id=(String)session.getAttribute("id");
+		model.addAttribute("id", id);
+		model.addAttribute("no", no);
+		model.addAttribute("category", category);
+		return "admin_page";
+	}
+	@RequestMapping("shop/adminInsert.do")
+	public String adminInsert(int no, int category,String admincontent,Model model){
+		System.out.println("@@@no"+no);
+		System.out.println("@@category"+category);
+		System.out.println("@@admincontent"+admincontent);
+		QABoardVO vo = new QABoardVO();
+		String admintype="답변완료";
+		vo.setPno(no);
+		vo.setCategory(category);
+		vo.setAdmintype(admintype);
+		vo.setAdminres(admincontent);
+		qdao.adminupdate(vo);
+		return "redirect:cpu_detail.do";
+	}
+	// QA새글	
 	@RequestMapping("shop/qainsert_ok.do")
 	public String cpu_insert(String no,String category,String subject,String content, Model model, HttpSession session) {
 /*		System.out.println("상품"+no);
@@ -129,8 +154,8 @@ public class QnABoardController {
 		if (page == null) {
 			page = "1";
 		}
-		System.out.println("상품"+no);
-		System.out.println("카테고리"+category);
+/*		System.out.println("상품"+no);
+		System.out.println("카테고리"+category);*/
 		Map map=new HashMap();
 		map.put("no", no);
 		map.put("category", category);
@@ -150,8 +175,8 @@ public class QnABoardController {
 				CpuVO cpudetail=service.cpuContentsDetail(map);
 				List<CompareVO> compare=service2.compare(map);
 				List<OverseasVO> overseas=service2.overseas(map);
-				System.out.println("2상품번호:"+no);
-				System.out.println("2카테고리번호:"+category);
+/*				System.out.println("2상품번호:"+no);
+				System.out.println("2카테고리번호:"+category);*/
 				model.addAttribute("qPnoCount", qPnoCount);
 				model.addAttribute("adminwait", adminwait);
 				model.addAttribute("curPage", curPage);

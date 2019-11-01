@@ -70,6 +70,16 @@
 		{CALL myqaboardTotal (?,?)}
 	</select>
 	<!-- 관리자 답변 업데이트-->
+	<parameterMap type="hashmap" id="adminupdateMap">
+		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qcategory" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="qadmintype" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="admincontent" mode="IN" jdbcType="VARCHAR"/>
+	</parameterMap>
+	<select id="adminupdate" parameterMap="adminupdateMap" statementType="CALLABLE">
+		{CALL adminupdate(?,?,?,?)}
+	</select>
+	<!-- 답변대기 총 수 -->
 	<parameterMap type="hashmap" id="adminwaitTotalMap">
 		<parameter property="qpno" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="qcategory" mode="IN" jdbcType="INTEGER"/>

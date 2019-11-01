@@ -16,6 +16,15 @@ $(function(){
 				$('.content').show();
 				$('.adminres').show();
 			});
+	// 답변하기
+	$('#adminBtn').click(function(){
+		  var pno=$('#pro').val();
+		  var category=$('#cateno').val();
+		  alert(pno);
+		  
+		window.open("../shop/admin_page.do?no="+pno+"&category="+category,"관리자 답변하기 ", "width=500, height=230, scrollbars=no");
+	});
+	
 });
 </script>
 </head>
@@ -42,7 +51,12 @@ $(function(){
 														<td class="text-center" width="15%"><font color=red>Re.&nbsp;&nbsp;</font>${vo.adminres }</td>
 														<td class="text-center" width="5%"></td>
 														<td class="text-center" width="20%"></td>
-														<td class="text-center" width="10%"></td>
+														<td class="text-center" width="10%">
+															<input type=button value="답변하기 " id=adminBtn>
+																<input type="hidden" id="pro" value="${product }" name="no">
+																<input type="hidden" id="cateno" value="${category }" name="category">
+																<input type="hidden" id="id" value="${id }" name="id">
+														</td>
 													</div>
 												</tbody>
 												</c:forEach>
