@@ -615,7 +615,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="hot-deal">
-							<a href="../shop/shop_list.do">
+							<a href="../shop/find_list.do?category=0&searchThis=삼성">
 							<img alt="" src="http://image5.compuzone.co.kr/img/images/main2014/H/CenterLineFixBanner_53507.jpg">
 							</a>
 							<!-- 삼성 모음전 광고 이미지 -->

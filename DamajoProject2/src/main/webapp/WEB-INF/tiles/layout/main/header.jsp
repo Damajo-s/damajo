@@ -76,7 +76,7 @@
 				<div class="col-md-9">
 					<div class="header-search">
 						<!-- 폼태그==> 검색 옵션 줘야함 -->
-						<form action="../shop/find_list.do" method="POST">
+						<form action="../shop/find_list.do" method="GET">
 							<select class="input-select" name="category">
 								<option value="0">All</option>
 								<option value="1">CPU</option>
