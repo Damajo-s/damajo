@@ -68,9 +68,9 @@ $(function(){
 					url:'../shop/cpu_detail_reviewpage2.do',  
 					data:{page:1,no:no,category:category},
 					success:function(res){ 
-						alert(res);
+	/* 					alert(res);
 						alert(no);
-						alert(category);
+						alert(category); */
 						$('#review_print').html(res); 
 					}
 				}); //ajax
@@ -84,7 +84,7 @@ $(function(){
 					url:'../shop/cpu_detail_reviewpage2.do',  
 					data:{page:page,no:no,category:category},
 					success:function(res){ 
-						alert("이번엔 여기?"+page)
+						//alert("이번엔 여기?"+page)
 						$('#review_print').html(res); 
 					}
 				}); //ajax

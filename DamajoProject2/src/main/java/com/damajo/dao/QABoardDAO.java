@@ -27,8 +27,8 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		map.put("subject", vo.getSubject());
 		map.put("content", vo.getContent());
 		map.put("adminres", vo.getAdminres());
-		map.put("admintype", vo.getAdmintype());
 		map.put("category", vo.getCategory());
+		map.put("admintype", vo.getAdmintype());
 		getSqlSession().update("qaboardInsert", map);
 	}
 
@@ -38,14 +38,12 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		int rowSize = 5;
 		int qstart = (page * rowSize) - (rowSize - 1); // 1
 		int qend = (page * rowSize); //5
-		int qpno = no;
-		int qcategory=category;
 
 		Map map = new HashMap();
 		map.put("qstart", qstart);
 		map.put("qend", qend);
-		map.put("qpno", qpno);
-		map.put("qcategory", qcategory);
+		map.put("qpno", no);
+		map.put("qcategory", category);
 
 		getSqlSession().update("qaboardList",map);
 		List<QABoardVO> list= (List<QABoardVO>)map.get("result");

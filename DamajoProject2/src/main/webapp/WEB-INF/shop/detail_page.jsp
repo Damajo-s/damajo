@@ -24,7 +24,7 @@ $(function(){
 									<c:forEach var="vo" items="${list }" >
 												<tbody>
 													<tr>
-														<td class="text-center" width="5%"></td>
+														<td class="text-center" width="5%">${vo.admintype }</td>
 														<td class="text-center" class="subject" width="20%"><a><strong>${vo.subject }</strong></a></td>
 														<td class="text-center" width="5%"></td>
 														<td class="text-center" width="10%"><strong>${vo.id }</strong></td>

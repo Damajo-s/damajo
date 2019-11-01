@@ -9,6 +9,7 @@
 		<result property="content" column="content"/>
 		<result property="regdate" column="regdate"/>
 		<result property="adminres" column="adminres"/>
+		<result property="admintype" column="admintype"/>
 	</resultMap>
 	<!-- 추가 -->
 	<parameterMap type="hashmap" id="dbInsertMap">
@@ -69,7 +70,6 @@
 		{CALL myqaboardTotal (?,?)}
 	</select>
 	<!-- 관리자 답변 업데이트-->
-	
 	
 	
 	
