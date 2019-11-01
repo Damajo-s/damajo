@@ -269,7 +269,7 @@ $(function(){
 									<div class="row">
 										<h3 class="text-left">Q&A <font color="blue" size="3">(${qPnoCount })</font></h3>
 										<div class="text-left">
-											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(0)</a>
+											&nbsp;<a class="allCount">전체(${qPnoCount })</a>&nbsp;|&nbsp;<a class=>답변완료(0)</a>&nbsp;|&nbsp;<a href="#">답변대기(${adminwait })</a>
 											<span style="float:right"><input type=button value="상품 Q&A작성하기" class="btn btn-sm btn-info" id=insertbtn></span>
 											<input type="hidden" id="pro" value="${product }">
 											<input type="hidden" id="cateno" value="${category }">

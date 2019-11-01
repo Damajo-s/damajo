@@ -96,6 +96,7 @@ public class QnABoardController {
 		int curPage = Integer.parseInt(page);
 		int totalPage = qdao.qaboardTotal(no,category);
 		int qPnoCount=qdao.qaboardPnoCount(no,category);
+		int adminwait=qdao.adminwaitCount(no, category);
 		int BLOCK=5;
 		int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -108,6 +109,7 @@ public class QnABoardController {
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		model.addAttribute("qPnoCount", qPnoCount);
+		model.addAttribute("adminwait", adminwait);
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("BLOCK", BLOCK);
@@ -136,6 +138,7 @@ public class QnABoardController {
 				int curPage = Integer.parseInt(page);
 				int totalPage = qdao.qaboardTotal(no,category);
 				int qPnoCount=qdao.qaboardPnoCount(no,category);
+				int adminwait=qdao.adminwaitCount(no, category);
 				int BLOCK=5;
 				int startPage=((curPage-1)/BLOCK*BLOCK)+1;
 				int endPage=((curPage-1)/BLOCK*BLOCK)+BLOCK;
@@ -150,6 +153,7 @@ public class QnABoardController {
 				System.out.println("2상품번호:"+no);
 				System.out.println("2카테고리번호:"+category);
 				model.addAttribute("qPnoCount", qPnoCount);
+				model.addAttribute("adminwait", adminwait);
 				model.addAttribute("curPage", curPage);
 				model.addAttribute("totalPage", totalPage);
 				model.addAttribute("BLOCK", BLOCK);

@@ -76,7 +76,6 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		List<QABoardVO> list = (List<QABoardVO>) map.get("result");
 		return list;
 	}
-
 	// 총페이지
 	public int qaboardTotal(int no,int category) {
 		int qpno=no;
@@ -88,6 +87,20 @@ public class QABoardDAO extends SqlSessionDaoSupport {
 		int total = (Integer) map.get("qtotal");
 		return total;
 	}
+	// 답변대기 총 수 
+	public int adminwaitCount(int no,int category){
+		Map map = new HashMap();
+		map.put("qpno", no);
+		map.put("qcategory", category);
+		getSqlSession().update("adminwaitCount",map);
+		int adminwait = (Integer)map.get("adminwait");
+		return adminwait;
+	}
+	// 답변완료 총 수
+	
+	
+	// 관리자 답변 수정
+	
 	
 	public int myqaboardTotal(String id) {
 		Map map = new HashMap();
