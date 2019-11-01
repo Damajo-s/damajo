@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(function(){
 	  $('#insertbtn').on("click", function(){
 		  var pno=$('#pro').val();
 		  var category=$('#cateno').val();
@@ -109,25 +110,12 @@ $(document).ready(function(){
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${maindetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="${vo.poster }" alt="">
+								<img src="${maindetail.poster }" alt="">
 							</div>
-
-<!-- 							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -135,21 +123,6 @@ $(document).ready(function(){
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-<!-- 							<div class="product-preview">
-								<img src="./img/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -157,7 +130,7 @@ $(document).ready(function(){
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.main_name }</h2>
+							<h2 class="product-name">${maindetail.main_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -169,8 +142,14 @@ $(document).ready(function(){
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${vo.price } 원<!-- <del class="product-old-price">$990.00</del> --></h3>
-								<!-- <span class="product-available">In Stock</span> -->
+							<c:choose>
+							<c:when test="${maindetail.price == '일시품절' }">
+								<h3 class="product-price">${maindetail.price }</h3>	
+							</c:when>
+							<c:when test="${maindetail.price != '일시품절' }">
+								<h3 class="product-price">${maindetail.price } 원</h3>	
+							</c:when>
+							</c:choose>							
 							</div>
 							<table class="table">
 								<tr>
@@ -178,9 +157,18 @@ $(document).ready(function(){
 											<table id="lowPriceInfo" class="table table-borderless" >
 										<tr>
 											<td>
+										<c:forEach var="svo" items="${compare }" varStatus="s" >
 												<span class="feed_detail feed_title" style="color:#FF0000; ">
-												<br/>&nbsp;최저가 ${vo.price } 원
+												<c:choose>
+													<c:when test="${maindetail.price == '일시품절' }">
+													<br/>&nbsp;최저가 ${cpudetail.price }
+													</c:when>
+													<c:when test="${s.index == 0 }">
+													<br/>&nbsp;최저가 ${svo.price }원
+													</c:when>
+												</c:choose>
 												</span>
+										</c:forEach>
 											</td>
 											<td>
 												<span class="feed_detail simpleInfo">
@@ -202,55 +190,20 @@ $(document).ready(function(){
 											</td>
 										</tr>
 										</c:forEach>
+										<c:forEach var="vo" items="${overseas }" varStatus="s" >
+										<tr>
+											<td width=60% class="feed_detail simpleInfo" >
+												<a href="${vo.link }" >&nbsp;&nbsp;${vo.mall_name }</a>
+											</td>
+											<td width=40% class="feed_detail simpleInfo" >
+												${vo.price }
+											</td>
+										</tr>
+										</c:forEach>
 									</table>
 								</td>
 							</tr>
 						</table>
-							<div class="product-options">
-								<label>
-									Size
-									<select class="input-select">
-										<option value="0">X</option>
-									</select>
-								</label>
-								<label>
-									Color
-									<select class="input-select">
-										<option value="0">Red</option>
-									</select>
-								</label>
-							</div>
-
-							<div class="add-to-cart">
-								<div class="qty-label">
-									Qty
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-
-							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Category:</li>
-								<li><a href="#">Headphones</a></li>
-								<li><a href="#">Accessories</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Share:</li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-							</ul>
 
 						</div>
 					</div>
@@ -262,7 +215,7 @@ $(document).ready(function(){
 							<!-- product tab nav -->
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
-								<li><a data-toggle="tab" href="#tab2" id=qnaBtn>Q&A</a></li>
+								<li><a data-toggle="tab" href="#tab2" id="qnaBtn">Q&A</a></li>
 								<li><a data-toggle="tab" href="#tab3" id="reviewBtn">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
@@ -276,151 +229,151 @@ $(document).ready(function(){
 											<table class="table">												
  										       <tr>
 										          <th class="text-center" width=20%>제조회사</th>
-										          <td class="text-left" width=30%>${vo.company}</td>
+										          <td class="text-left" width=30%>${maindetail.company}</td>
  										          <th class="text-center" width=20%>등록년월</th>
- 										          <td class="text-left" width=30%>${vo.regdate }</td>
+ 										          <td class="text-left" width=30%>${maindetail.regdate }</td>
    										   	   </tr>
    										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">기본 사양</th>
  										       </tr>
   										       <tr>
  										         <th class="text-center" width=20%>제품 분류</th>
-      										     <td class="text-left" width=30%>${vo.product_type }</td>
+      										     <td class="text-left" width=30%>${maindetail.product_type }</td>
     										     <th class="text-center" width=20%>CPU 소켓</th>
-									   		     <td class="text-left" width=30%>${vo.cpu_socket }</td>
+									   		     <td class="text-left" width=30%>${maindetail.cpu_socket }</td>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>Main 칩셋</th>
-										         <td class="text-left" width=30%>${vo.main_chipset }</td>
+										         <td class="text-left" width=30%>${maindetail.main_chipset }</td>
  										         <th class="text-center" width=20%>세부 칩셋</th>
-      									 	     <td class="text-left"  width=30%>${vo.detail_chipset }</td>
+      									 	     <td class="text-left"  width=30%>${maindetail.detail_chipset }</td>
    										   	   </tr>
   										       <tr>
 										         <th class="text-center" width=20%>CPU 칩셋</th>
-										         <td class="text-left" width=30%>${vo.cpu_cnt }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.cpu_cnt }</td>  										       
  										         <th class="text-center" width=20%>폼팩터</th>
-      										     <td class="text-left"  width=30%>${vo.formFactor }</td>
+      										     <td class="text-left"  width=30%>${maindetail.formFactor }</td>
  										       </tr>
   										       <tr>
  										         <th class="text-center" width=20%>전원부</th>
-      										     <td class="text-left" colspan="3">${vo.power_supply }</td>
+      										     <td class="text-left" colspan="3">${maindetail.power_supply }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">메모리 사양</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>메모리 종류</th>
-										         <td class="text-left" width=30%>${vo.memory_kind }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.memory_kind }</td>  										       
  										         <th class="text-center" width=20%>메모리 속도</th>
-      										     <td class="text-left"  width=30%>${vo.memory_speed }</td>
+      										     <td class="text-left"  width=30%>${maindetail.memory_speed }</td>
  										       </tr> 										          										   	   
  										       <tr>
 										         <th class="text-center" width=20%>메모리 슬롯</th>
-										         <td class="text-left" width=30%>${vo.memory_slot }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.memory_slot }</td>  										       
  										         <th class="text-center" width=20%>메모리 채널</th>
-      										     <td class="text-left"  width=30%>${vo.memory_channel }</td>
+      										     <td class="text-left"  width=30%>${maindetail.memory_channel }</td>
  										       </tr>
  										       <tr>
  										         <th class="text-center" width=20%>메모리 용량</th>
-      										     <td class="text-left" colspan="3">${vo.memory_capacity }</td>
+      										     <td class="text-left" colspan="3">${maindetail.memory_capacity }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">그래픽</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>멀티 VGA</th>
-										         <td class="text-left" width=30%>${vo.multi_vga }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.multi_vga }</td>  										       
  										         <th class="text-center" width=20%>VGA 연결</th>
-      										     <td class="text-left"  width=30%>${vo.vga_connection }</td>
+      										     <td class="text-left"  width=30%>${maindetail.vga_connection }</td>
  										       </tr> 										        										          										   	   
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">그래픽 출력</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>D-SUB</th>
-										         <td class="text-left" width=30%>${vo.d_sub }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.d_sub }</td>  										       
  										         <th class="text-center" width=20%>DVI</th>
-      										     <td class="text-left"  width=30%>${vo.dvi }</td>
+      										     <td class="text-left"  width=30%>${maindetail.dvi }</td>
  										       </tr> 										        										          										   	   
  										       <tr>
 										         <th class="text-center" width=20%>HDMI</th>
-										         <td class="text-left" width=30%>${vo.hdmi }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.hdmi }</td>  										       
  										         <th class="text-center" width=20%>DP</th>
-      										     <td class="text-left"  width=30%>${vo.dp }</td>
+      										     <td class="text-left"  width=30%>${maindetail.dp }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">확장슬롯</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>PCIE_X16</th>
-										         <td class="text-left" width=30%>${vo.pcie_x16 }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.pcie_x16 }</td>  										       
  										         <th class="text-center" width=20%>PCIE_X8</th>
-      										     <td class="text-left"  width=30%>${vo.pcie_x8 }</td>
+      										     <td class="text-left"  width=30%>${maindetail.pcie_x8 }</td>
  										       </tr> 										        										        										          										   	   
  										       <tr>
 										         <th class="text-center" width=20%>PCIE_X4</th>
-										         <td class="text-left" width=30%>${vo.pcie_x4 }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.pcie_x4 }</td>  										       
  										         <th class="text-center" width=20%>PCIE_X1</th>
-      										     <td class="text-left"  width=30%>${vo.pcie_x1 }</td>
+      										     <td class="text-left"  width=30%>${maindetail.pcie_x1 }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">저장장치</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>M2</th>
-										         <td class="text-left" width=30%>${vo.m2 }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.m2 }</td>  										       
  										         <th class="text-center" width=20%>SATA3</th>
-      										     <td class="text-left"  width=30%>${vo.sata3 }</td>
+      										     <td class="text-left"  width=30%>${maindetail.sata3 }</td>
  										       </tr> 										        										        										        										          										   	   
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">사운드</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>내장오디오</th>
-										         <td class="text-left" width=30%>${vo.built_in_sound }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.built_in_sound }</td>  										       
  										         <th class="text-center" width=20%>ANALOG</th>
-      										     <td class="text-left"  width=30%>${vo.analog }</td>
+      										     <td class="text-left"  width=30%>${maindetail.analog }</td>
  										       </tr>
  										       <tr>
  										         <th class="text-center" width=20%>SPDIF 출력</th>
-      										     <td class="text-left" colspan="3">${vo.spdif }</td>
+      										     <td class="text-left" colspan="3">${maindetail.spdif }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">USB 타입</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>USB 3.1 Gen2</th>
-										         <td class="text-left" width=30%>${vo.usb_31_gen2 }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.usb_31_gen2 }</td>  										       
  										         <th class="text-center" width=20%>USB 3.1 Gen1</th>
-      										     <td class="text-left"  width=30%>${vo.usb_31_gen1 }</td>
+      										     <td class="text-left"  width=30%>${maindetail.usb_31_gen1 }</td>
  										       </tr> 										        										        										        										        										          										   	   
  										       <tr>
 										         <th class="text-center" width=20%>Type-C Gen2</th>
-										         <td class="text-left" width=30%>${vo.type_c_gen2 }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.type_c_gen2 }</td>  										       
  										         <th class="text-center" width=20%>Type-A Gen2</th>
-      										     <td class="text-left"  width=30%>${vo.type_a_gen2 }</td>
+      										     <td class="text-left"  width=30%>${maindetail.type_a_gen2 }</td>
  										       </tr>
  										       <tr>
  										         <th class="text-center" width=20%>Type-C Gen1</th>
-      										     <td class="text-left" colspan="3">${vo.type_c_gen1 }</td>
+      										     <td class="text-left" colspan="3">${maindetail.type_c_gen1 }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">네트워크</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>네트워크 칩셋</th>
-										         <td class="text-left" width=30%>${vo.network_chipset }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.network_chipset }</td>  										       
  										         <th class="text-center" width=20%>RJ-45 포트</th>
-      										     <td class="text-left"  width=30%>${vo.rj_45port }</td>
+      										     <td class="text-left"  width=30%>${maindetail.rj_45port }</td>
  										       </tr> 										        										        										        										        										        										        										          										   	   
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">LAN 구성</th>
  										       </tr>
  										       <tr>
 										         <th class="text-center" width=20%>기가비트 LAN</th>
-										         <td class="text-left" width=30%>${vo.gigabit_lan }</td>  										       
+										         <td class="text-left" width=30%>${maindetail.gigabit_lan }</td>  										       
  										         <th class="text-center" width=20%>무선 LAN</th>
-      										     <td class="text-left"  width=30%>${vo.wireless_lan }</td>
+      										     <td class="text-left"  width=30%>${maindetail.wireless_lan }</td>
  										       </tr> 					
  										       </table> 										       
 										</div>
@@ -549,7 +502,6 @@ $(document).ready(function(){
 					</div>
 					<!-- /product tab -->
 				</div>
-				</c:forEach>
 				<!-- /row -->
 			</div>
 			<!-- /container -->

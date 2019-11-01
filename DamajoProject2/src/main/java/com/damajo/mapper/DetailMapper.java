@@ -1,6 +1,5 @@
 package com.damajo.mapper;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Select;
@@ -21,26 +20,26 @@ public interface DetailMapper {
 
 	@Select("Select * From ram_contents "
 			+ "WHERE ram_no = #{no}")
-	public List<RamVO> RamDetail(Map map);
+	public RamVO RamDetail(Map map);
 
 	@Select("Select * From main_contents "
 			+ "WHERE main_no = #{no}")
-	public List<MainVO> MainDetail(Map map);
+	public MainVO MainDetail(Map map);
 
 	@Select("Select * From vga_contents "
 			+ "WHERE vga_no = #{no}")
-	public List<VgaVO> VgaDetail(Map map);
+	public VgaVO VgaDetail(Map map);
 
 	@Select("Select * From ssd_contents "
 			+ "WHERE ssd_no = #{no}")
-	public List<SsdVO> SsdDetail(Map map);
+	public SsdVO SsdDetail(Map map);
 
 	@Select("Select * From hdd_contents "
 			+ "WHERE hdd_no = #{no}")
-	public List<HddVO> HddDetail(Map map);
+	public HddVO HddDetail(Map map);
 
 	@Select("Select * From power_contents "
 			+ "WHERE power_no = #{no}")
-	public List<PowerVO> PowerDetail(Map map);
+	public PowerVO PowerDetail(Map map);
 
 }

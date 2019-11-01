@@ -1,6 +1,5 @@
 package com.damajo.dao;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,22 +22,22 @@ public class DetailDAO {
 	public CpuVO CpuDetail(Map map) {
 		return mapper.CpuDetail(map);
 	}
-	public List<RamVO> RamDetail(Map map) {
+	public RamVO RamDetail(Map map) {
 		return mapper.RamDetail(map);
 	}
-	public List<MainVO> MainDetail(Map map) {
+	public MainVO MainDetail(Map map) {
 		return mapper.MainDetail(map);
 	}
-	public List<VgaVO> VgaDetail(Map map) {
+	public VgaVO VgaDetail(Map map) {
 		return mapper.VgaDetail(map);
 	}
-	public List<SsdVO> SsdDetail(Map map) {
+	public SsdVO SsdDetail(Map map) {
 		return mapper.SsdDetail(map);
 	}
-	public List<HddVO> HddDetail(Map map) {
+	public HddVO HddDetail(Map map) {
 		return mapper.HddDetail(map);
 	}
-	public List<PowerVO> PowerDetail(Map map) {
+	public PowerVO PowerDetail(Map map) {
 		return mapper.PowerDetail(map);
 	}
 }

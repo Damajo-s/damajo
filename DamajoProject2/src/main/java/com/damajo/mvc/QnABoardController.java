@@ -184,7 +184,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<RamVO> ramdetail=service.ramContentsDetail(map);
+		RamVO ramdetail=service.ramContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -224,7 +224,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<RamVO> ramdetail=service.ramContentsDetail(map);
+		RamVO ramdetail=service.ramContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -264,7 +264,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<MainVO> maindetail=service.mainContentsDetail(map);
+		MainVO maindetail=service.mainContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -304,7 +304,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<MainVO> maindetail=service.mainContentsDetail(map);
+		MainVO maindetail=service.mainContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -344,7 +344,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<VgaVO> vgadetail=service.vgaContentsDetail(map);
+		VgaVO vgadetail=service.vgaContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -384,7 +384,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<VgaVO> vgadetail=service.vgaContentsDetail(map);
+		VgaVO vgadetail=service.vgaContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -424,7 +424,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<SsdVO> ssddetail=service.ssdContentsDetail(map);
+		SsdVO ssddetail=service.ssdContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -464,7 +464,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<SsdVO> ssddetail=service.ssdContentsDetail(map);
+		SsdVO ssddetail=service.ssdContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -504,7 +504,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<HddVO> hdddetail=service.hddContentsDetail(map);
+		HddVO hdddetail=service.hddContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -544,7 +544,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<HddVO> hdddetail=service.hddContentsDetail(map);
+		HddVO hdddetail=service.hddContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -584,7 +584,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<PowerVO> powerdetail=service.powerContentsDetail(map);
+		PowerVO powerdetail=service.powerContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);
@@ -624,7 +624,7 @@ public class QnABoardController {
 			endPage=allPage;
 		}
 		List<QABoardVO> list= qdao.qaboardList(curPage,no,category);
-		List<PowerVO> powerdetail=service.powerContentsDetail(map);
+		PowerVO powerdetail=service.powerContentsDetail(map);
 		List<CompareVO> compare=service2.compare(map);
 		List<OverseasVO> overseas=service2.overseas(map);
 		//System.out.println("처음:"+curPage);

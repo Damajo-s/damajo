@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -113,25 +114,12 @@ $(document).ready(function(){
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${vgadetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="${vo.poster }" alt="">
+								<img src="${vgadetail.poster }" alt="">
 							</div>
-
-<!-- 							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -139,21 +127,6 @@ $(document).ready(function(){
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-<!-- 							<div class="product-preview">
-								<img src="./img/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -161,7 +134,7 @@ $(document).ready(function(){
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.vga_name }</h2>
+							<h2 class="product-name">${vgadetail.vga_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -173,8 +146,14 @@ $(document).ready(function(){
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${vo.price } 원<!--  <del class="product-old-price">$990.00</del> --></h3>
-								<!-- <span class="product-available">In Stock</span> -->
+							<c:choose>
+							<c:when test="${vgadetail.price == '일시품절' }">
+								<h3 class="product-price">${vgadetail.price }</h3>	
+							</c:when>
+							<c:when test="${vgadetail.price != '일시품절' }">
+								<h3 class="product-price">${vgadetail.price } 원</h3>	
+							</c:when>
+							</c:choose>							
 							</div>
 														<table class="table">
 								<tr>
@@ -182,9 +161,18 @@ $(document).ready(function(){
 											<table id="lowPriceInfo" class="table table-borderless" >
 										<tr>
 											<td>
+										<c:forEach var="svo" items="${compare }" varStatus="s" >
 												<span class="feed_detail feed_title" style="color:#FF0000; ">
-												<br/>&nbsp;최저가 ${vo.price } 원
+												<c:choose>
+													<c:when test="${vgadetail.price == '일시품절' }">
+													<br/>&nbsp;최저가 ${vgadetail.price }
+													</c:when>
+													<c:when test="${s.index == 0 }">
+													<br/>&nbsp;최저가 ${svo.price }원
+													</c:when>
+												</c:choose>
 												</span>
+										</c:forEach>
 											</td>
 											<td>
 												<span class="feed_detail simpleInfo">
@@ -206,55 +194,20 @@ $(document).ready(function(){
 											</td>
 										</tr>
 										</c:forEach>
+										<c:forEach var="vo" items="${overseas }" varStatus="s" >
+										<tr>
+											<td width=60% class="feed_detail simpleInfo" >
+												<a href="${vo.link }" >&nbsp;&nbsp;${vo.mall_name }</a>
+											</td>
+											<td width=40% class="feed_detail simpleInfo" >
+												${vo.price }
+											</td>
+										</tr>
+										</c:forEach>
 									</table>
 								</td>
 							</tr>
 						</table>
-							<div class="product-options">
-								<label>
-									Size
-									<select class="input-select">
-										<option value="0">X</option>
-									</select>
-								</label>
-								<label>
-									Color
-									<select class="input-select">
-										<option value="0">Red</option>
-									</select>
-								</label>
-							</div>
-
-							<div class="add-to-cart">
-								<div class="qty-label">
-									Qty
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-
-							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Category:</li>
-								<li><a href="#">Headphones</a></li>
-								<li><a href="#">Accessories</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Share:</li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-							</ul>
 
 						</div>
 					</div>
@@ -266,7 +219,7 @@ $(document).ready(function(){
 							<!-- product tab nav -->
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
-								<li><a data-toggle="tab" href="#tab2" id=qnaBtn>Q&A</a></li>
+								<li><a data-toggle="tab" href="#tab2" id="qnaBtn">Q&A</a></li>
 								<li><a data-toggle="tab" href="#tab3" id="reviewBtn">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
@@ -280,84 +233,84 @@ $(document).ready(function(){
 											<table class="table">												
  										       <tr>
 										          <th class="text-center" width=20%>제조회사</th>
-										          <td class="text-left" width=30%>${vo.company }</td>
+										          <td class="text-left" width=30%>${vgadetail.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
- 										          <td class="text-left" width=30%>${vo.regdate }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.regdate }</td>
    										   	   </tr>
    										   	   <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">칩셋 사양</th>
  										       </tr>										       
   										       <tr>
  										         <th class="text-center" width=20%>칩셋 제조사</th>
-      										     <td class="text-left" width=30%>${vo.manufacturer }</td>
+      										     <td class="text-left" width=30%>${vgadetail.manufacturer }</td>
     										     <th class="text-center" width=20%>GPU 제조 공정</th>
-									   		     <td class="text-left" width=30%>${vo.manufacture_process }</td>
+									   		     <td class="text-left" width=30%>${vgadetail.manufacture_process }</td>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>칩셋</th>
-										          <td class="text-left" width=30%>${vo.chipset }</td>
+										          <td class="text-left" width=30%>${vgadetail.chipset }</td>
  										          <th class="text-center" width=20%>제품 시리즈</th>
- 										          <td class="text-left" width=30%>${vo.series }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.series }</td>
    										   	   </tr>
  										       <tr>
 										          <th class="text-center" width=20%>코어 클럭</th>
-										          <td class="text-left" width=30%>${vo.core_clock }</td>
+										          <td class="text-left" width=30%>${vgadetail.core_clock }</td>
  										          <th class="text-center" width=20%>프로세서</th>
- 										          <td class="text-left" width=30%>${vo.processor }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.processor }</td>
    										   	   </tr>
    										   	   <tr>
  										         <th class="text-center" width=20%>칩셋 인터페이스</th>
-      										     <td class="text-left" colspan="3">${vo.chip_interface }</td>
+      										     <td class="text-left" colspan="3">${vgadetail.chip_interface }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">메모리 사양</th>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>메모리 종류</th>
-										          <td class="text-left" width=30%>${vo.memory_kind }</td>
+										          <td class="text-left" width=30%>${vgadetail.memory_kind }</td>
  										          <th class="text-center" width=20%>메모리 용량</th>
- 										          <td class="text-left" width=30%>${vo.memory_capacity }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.memory_capacity }</td>
    										   	   </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">그래픽 출력</th>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>DVI 포트</th>
-										          <td class="text-left" width=30%>${vo.dvi_port }</td>
+										          <td class="text-left" width=30%>${vgadetail.dvi_port }</td>
  										          <th class="text-center" width=20%>HDMI 포트</th>
- 										          <td class="text-left" width=30%>${vo.hdmi_port }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.hdmi_port }</td>
    										   	   </tr> 										          										   	   
  										       <tr>
 										          <th class="text-center" width=20%>DP 포트</th>
-										          <td class="text-left" width=30%>${vo.dp_port }</td>
+										          <td class="text-left" width=30%>${vgadetail.dp_port }</td>
  										          <th class="text-center" width=20%>모니터 지원</th>
- 										          <td class="text-left" width=30%>${vo.sup_monitor }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.sup_monitor }</td>
    										   	   </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">전력 관련</th>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>최대 전력</th>
-										          <td class="text-left" width=30%>${vo.max_use_power }</td>
+										          <td class="text-left" width=30%>${vgadetail.max_use_power }</td>
  										          <th class="text-center" width=20%>권장 파워</th>
- 										          <td class="text-left" width=30%>${vo.need_power }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.need_power }</td>
    										   	   </tr> 										          										   	    										          										   	   
   										       <tr>
  										         <th class="text-center" width=20%>파워 포트</th>
-      										     <td class="text-left" colspan="3">${vo.power_port }</td>
+      										     <td class="text-left" colspan="3">${vgadetail.power_port }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">제품 외형</th>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>팬 갯수</th>
-										          <td class="text-left" width=30%>${vo.fan }</td>
+										          <td class="text-left" width=30%>${vgadetail.fan }</td>
  										          <th class="text-center" width=20%>길이</th>
- 										          <td class="text-left" width=30%>${vo.width }</td>
+ 										          <td class="text-left" width=30%>${vgadetail.width }</td>
    										   	   </tr>
   										       <tr>
  										         <th class="text-center" width=20%>높이</th>
-      										     <td class="text-left" colspan="3">${vo.height }</td>
+      										     <td class="text-left" colspan="3">${vgadetail.height }</td>
  										       </tr>   										   	     										        										       
  										       </table> 										       
 										</div>
@@ -486,7 +439,6 @@ $(document).ready(function(){
 					</div>
 					<!-- /product tab -->
 				</div>
-				</c:forEach>
 				<!-- /row -->
 			</div>
 			<!-- /container -->

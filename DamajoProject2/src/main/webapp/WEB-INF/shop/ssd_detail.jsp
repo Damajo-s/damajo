@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -113,25 +114,12 @@ $(document).ready(function(){
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-				<c:forEach var="vo" items="${ssddetail }">
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="${vo.poster }" alt="">
+								<img src="${ssddetail.poster }" alt="">
 							</div>
-
-<!-- 							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -139,21 +127,6 @@ $(document).ready(function(){
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-<!-- 							<div class="product-preview">
-								<img src="./img/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div> -->
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -161,7 +134,7 @@ $(document).ready(function(){
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${vo.ssd_name }</h2>
+							<h2 class="product-name">${ssddetail.ssd_name }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -173,18 +146,33 @@ $(document).ready(function(){
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${vo.price } 원<!-- <del class="product-old-price">$990.00</del> --></h3>
-								<!-- <span class="product-available">In Stock</span> -->
+							<c:choose>
+							<c:when test="${ssddetail.price == '일시품절' }">
+								<h3 class="product-price">${ssddetail.price }</h3>	
+							</c:when>
+							<c:when test="${ssddetail.price != '일시품절' }">
+								<h3 class="product-price">${ssddetail.price } 원</h3>	
+							</c:when>
+							</c:choose>							
 							</div>
-														<table class="table">
+							<table class="table">
 								<tr>
 									<td colspan=4 >
 											<table id="lowPriceInfo" class="table table-borderless" >
 										<tr>
 											<td>
+										<c:forEach var="svo" items="${compare }" varStatus="s" >
 												<span class="feed_detail feed_title" style="color:#FF0000; ">
-												<br/>&nbsp;최저가 ${vo.price } 원
+												<c:choose>
+													<c:when test="${ssddetail.price == '일시품절' }">
+													<br/>&nbsp;최저가 ${ssddetail.price }
+													</c:when>
+													<c:when test="${s.index == 0 }">
+													<br/>&nbsp;최저가 ${svo.price }원
+													</c:when>
+												</c:choose>
 												</span>
+										</c:forEach>
 											</td>
 											<td>
 												<span class="feed_detail simpleInfo">
@@ -206,55 +194,20 @@ $(document).ready(function(){
 											</td>
 										</tr>
 										</c:forEach>
+										<c:forEach var="vo" items="${overseas }" varStatus="s" >
+										<tr>
+											<td width=60% class="feed_detail simpleInfo" >
+												<a href="${vo.link }" >&nbsp;&nbsp;${vo.mall_name }</a>
+											</td>
+											<td width=40% class="feed_detail simpleInfo" >
+												${vo.price }
+											</td>
+										</tr>
+										</c:forEach>
 									</table>
 								</td>
 							</tr>
 						</table>
-							<div class="product-options">
-								<label>
-									Size
-									<select class="input-select">
-										<option value="0">X</option>
-									</select>
-								</label>
-								<label>
-									Color
-									<select class="input-select">
-										<option value="0">Red</option>
-									</select>
-								</label>
-							</div>
-
-							<div class="add-to-cart">
-								<div class="qty-label">
-									Qty
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-
-							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Category:</li>
-								<li><a href="#">Headphones</a></li>
-								<li><a href="#">Accessories</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Share:</li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-							</ul>
 
 						</div>
 					</div>
@@ -266,7 +219,7 @@ $(document).ready(function(){
 							<!-- product tab nav -->
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">상세정보</a></li>
-								<li><a data-toggle="tab" href="#tab2" id=qnaBtn>Q&A</a></li>
+								<li><a data-toggle="tab" href="#tab2" id="qnaBtn">Q&A</a></li>
 								<li><a data-toggle="tab" href="#tab3" id="reviewBtn">구매후기</a></li>
 							</ul>
 							<!-- /product tab nav -->
@@ -280,56 +233,56 @@ $(document).ready(function(){
 											<table class="table">												
  										       <tr>
 										          <th class="text-center" width=20%>제조회사</th>
-										          <td class="text-left" width=30%>${vo.company }</td>
+										          <td class="text-left" width=30%>${ssddetail.company }</td>
  										          <th class="text-center" width=20%>등록년월</th>
- 										          <td class="text-left" width=30%>${vo.regdate }</td>
+ 										          <td class="text-left" width=30%>${ssddetail.regdate }</td>
    										   	   </tr>
    										   	   <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">기본 사양</th>
  										       </tr>										       
   										       <tr>
  										         <th class="text-center" width=20%>제품 분류</th>
-      										     <td class="text-left" width=30%>${vo.product_type }</td>
+      										     <td class="text-left" width=30%>${ssddetail.product_type }</td>
     										     <th class="text-center" width=20%>디스크 타입</th>
-									   		     <td class="text-left" width=30%>${vo.disk_type }</td>
+									   		     <td class="text-left" width=30%>${ssddetail.disk_type }</td>
  										       </tr>
  										       <tr>
 										          <th class="text-center" width=20%>인터페이스</th>
-										          <td class="text-left" width=30%>${vo.ssd_interface }</td>
+										          <td class="text-left" width=30%>${ssddetail.ssd_interface }</td>
  										          <th class="text-center" width=20%>프로토콜</th>
- 										          <td class="text-left" width=30%>${vo.protocol }</td>
+ 										          <td class="text-left" width=30%>${ssddetail.protocol }</td>
    										   	   </tr>
    										   	   <tr>
  										         <th class="text-center" width=20%>디스크 용량</th>
-      										     <td class="text-left" colspan="3">${vo.disk_capacity }</td>
+      										     <td class="text-left" colspan="3">${ssddetail.disk_capacity }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">하드웨어 정보</th>
  										       </tr> 										       
  										       <tr>
 										          <th class="text-center" width=20%>메모리 타입</th>
-										          <td class="text-left" width=30%>${vo.memory_type }</td>
+										          <td class="text-left" width=30%>${ssddetail.memory_type }</td>
  										          <th class="text-center" width=20%>낸드 구조</th>
- 										          <td class="text-left" width=30%>${vo.nand_structure }</td>
+ 										          <td class="text-left" width=30%>${ssddetail.nand_structure }</td>
    										   	   </tr>
    										   	   <tr>
 										          <th class="text-center" width=20%>메모리 유무</th>
-										          <td class="text-left" width=30%>${vo.ram_mount }</td>
+										          <td class="text-left" width=30%>${ssddetail.ram_mount }</td>
  										          <th class="text-center" width=20%>메모리 타입</th>
- 										          <td class="text-left" width=30%>${vo.ram_type }</td>
+ 										          <td class="text-left" width=30%>${ssddetail.ram_type }</td>
    										   	   </tr>
    										   	   <tr>
  										         <th class="text-center" width=20%>컨트롤러</th>
-      										     <td class="text-left" colspan="3">${vo.controller }</td>
+      										     <td class="text-left" colspan="3">${ssddetail.controller }</td>
  										       </tr>
  										       <tr>
  										       	<th class="row" colspan="4" style="font-size: medium;">내구성</th>
  										       </tr>
    										   	   <tr>
 										          <th class="text-center" width=20%>TBW</th>
-										          <td class="text-left" width=30%>${vo.tbw }</td>
+										          <td class="text-left" width=30%>${ssddetail.tbw }</td>
  										          <th class="text-center" width=20%>사용보증 시간</th>
- 										          <td class="text-left" width=30%>${vo.warranty_time }</td>
+ 										          <td class="text-left" width=30%>${ssddetail.warranty_time }</td>
    										   	   </tr> 								        										       
  										       </table> 										       
 										</div>
@@ -458,7 +411,6 @@ $(document).ready(function(){
 					</div>
 					<!-- /product tab -->
 				</div>
-				</c:forEach>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
