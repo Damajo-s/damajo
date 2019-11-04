@@ -14,12 +14,20 @@
 				$('#input').focus();
 				return;
 			}
-		})
+		});
+		
+		$('.myWish').click(function() {
+			var id = $(this).data("id")
+			if(id.trim()==null || id.trim()==""){
+				  alert("로그인 후 이용 가능합니다.");
+				  location.href="../member/login.do";
+			  } else {
+				  location.href="../cart/cart_list.do";
+			  }
+		});
 	})
 	
-	$(function() {
-		
-	})
+	
 </script>
 </head>
 <header>
@@ -101,9 +109,9 @@
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
 							<!-- Wishlist -->
-							<div>
-								<a href="../cart/cart_list.do"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
-								</a>
+							<div class="myWish" data-id="${sessionScope.id }">
+								 <a><i class="fa fa-heart-o"></i> <span>관심상품</span></a>
+								
 							</div>
 							<!-- /Wishlist -->
 							<div class="dropdown" style="display: none">
@@ -127,7 +135,7 @@
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
 							<!-- Wishlist -->
-							<div>
+							<div class="myWish">
 								<a href="../cart/cart_list.do"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
 									<div class="qty">2</div> <!-- 배지 넣을 자리 즉, 카운트를 받아와야함-->
 								</a>
