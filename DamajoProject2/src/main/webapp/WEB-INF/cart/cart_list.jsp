@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,19 +7,22 @@
 </head>
 <body>
 	<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="breadcrumb-header">장바구니 목록</h3>
-					</div>
+	<div id="breadcrumb" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="breadcrumb-header">장바구니 목록</h3>
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
+			<!-- /row -->
 		</div>
-		<!-- /BREADCRUMB -->
+		<!-- /container -->
+	</div>
+	<!-- /BREADCRUMB -->
+	<div>
+	
+	</div>
 </body>
 </html>

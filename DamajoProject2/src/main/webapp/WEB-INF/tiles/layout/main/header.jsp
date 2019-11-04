@@ -16,6 +16,10 @@
 			}
 		})
 	})
+	
+	$(function() {
+		
+	})
 </script>
 </head>
 <header>
@@ -98,14 +102,13 @@
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div>
-								<a href="#"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
-									<div class="qty">2</div> <!-- 배지 넣을 자리 즉, 카운트를 받아와야함-->
+								<a href="../cart/cart_list.do"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
 								</a>
 							</div>
 							<!-- /Wishlist -->
-							<div class="dropdown">
-								<a href="../cart/cart_list.do"><i
-									class="fa fa-shopping-cart"></i><span>장바구니</span></a>
+							<div class="dropdown" style="display: none">
+								<a href="../cart/cart_list.do">
+								<i class="fa fa-shopping-cart"></i><span>장바구니</span></a>
 							</div>
 							<!-- Menu Toogle -->
 							<div class="menu-toggle">
@@ -125,21 +128,21 @@
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div>
-								<a href="#"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
+								<a href="../cart/cart_list.do"> <i class="fa fa-heart-o"></i> <span>관심상품</span>
 									<div class="qty">2</div> <!-- 배지 넣을 자리 즉, 카운트를 받아와야함-->
 								</a>
 							</div>
 							<!-- /Wishlist -->
 
 							<!-- Cart -->
-							<div class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown"
-									aria-expanded="true"> <i class="fa fa-shopping-cart"></i> <span>장바구니</span>
+							<div class="dropdown" style="display: none">
+								<a href="../cart/cart_list.do"> <i class="fa fa-shopping-cart"></i>
+									
+									<span>장바구니</span>
 									<div class="qty">3</div> <!-- 배지 넣을 자리 -->
 								</a>
-
 								<div class="cart-dropdown">
-									<div class="cart-list">
+									<!--<div class="cart-list">
 										<div class="product-widget">
 											<div class="product-img">
 												<img src="../img/product01.png" alt="">
@@ -157,7 +160,7 @@
 											</button>
 										</div>
 
-										<!-- <div class="product-widget">
+										<div class="product-widget">
 												<div class="product-img">
 													<img src="./img/product02.png" alt="">
 												</div>
@@ -166,7 +169,7 @@
 													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
-											</div> -->
+											</div>
 									</div>
 									<div class="cart-summary">
 										<small>3 Item(s) selected</small>
@@ -175,8 +178,9 @@
 									<div class="cart-btns">
 										<a href="#">View Cart</a> <a href="#">Checkout <i
 											class="fa fa-arrow-circle-right"></i></a>
-									</div>
+									</div> -->
 								</div>
+								 
 
 							</div>
 							<!-- /Cart -->

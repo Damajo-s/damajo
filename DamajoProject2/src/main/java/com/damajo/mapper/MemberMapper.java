@@ -40,7 +40,7 @@ public interface MemberMapper {
 
 	@Select("SELECT * FROM member WHERE id=#{id}")
 	public MemberVO memberDetailInfo(MemberVO vo);
-
+	
 	@Update("UPDATE member SET pwd = #{pwd} WHERE id = #{id}")
 	public void changePassword(MemberVO vo);
 
