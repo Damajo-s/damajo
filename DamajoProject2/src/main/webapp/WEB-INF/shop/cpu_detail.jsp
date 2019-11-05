@@ -134,6 +134,8 @@ $(function(){
 					<!-- /Product thumb imgs -->
 
 					<!-- Product details -->
+					
+					
 					<div class="col-md-5">
 						<div class="product-details">
 							<h2 class="product-name">${cpudetail.cpu_name }</h2>
@@ -213,6 +215,7 @@ $(function(){
 
 						</div>
 					</div>
+					
 					<!-- /Product details -->
 
 					<!-- Product tab -->

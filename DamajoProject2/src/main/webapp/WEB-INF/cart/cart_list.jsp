@@ -36,11 +36,11 @@
 			</div>
 
 			<div class="image">
-				<img src="item-1.png" alt="" />
+				<img src="../img/product01.png" style="height: 200px; width: 200px" alt="" />
 			</div>
 
 			<div class="description">
-				<span>Common Projects</span> <span>Bball High</span> <span>White</span>
+				<span>${category }</span> <span>Bball High</span> <span>White</span>
 			</div>
 
 			<div class="total-price">$549</div>

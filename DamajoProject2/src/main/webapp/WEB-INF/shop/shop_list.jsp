@@ -106,6 +106,11 @@ $(function(){
 			}
 		})
 	})
+	
+	$('.add-to-cart-btn').click(function(){
+		alert("관심상품 추가완료")
+		//location.href="shop/shop_list.jsp"
+	})
 })
 </script>
 </head>
@@ -144,52 +149,57 @@ $(function(){
 						<h2> 고객님께 추천드리는 제품 </h2>
 						<!-- product -->
 						<c:forEach var="recomm" items="${recommList }">
-						<div class="col-md-4 col-xs-6">
-							<div class="product">
-								<div class="product-img">
-									<img src="${recomm.poster }" alt="${recomm.pname }">
-								</div>
-								<div class="product-body">
-								<c:if test="${recomm.category==1 }">
-									<h3 class="product-name"><a href="cpu_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-								<c:if test="${recomm.category==2 }">
-									<h3 class="product-name"><a href="ram_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-								<c:if test="${recomm.category==3 }">
-									<h3 class="product-name"><a href="main_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-								<c:if test="${recomm.category==4 }">
-									<h3 class="product-name"><a href="vga_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-								<c:if test="${recomm.category==5 }">
-									<h3 class="product-name"><a href="ssd_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-								<c:if test="${recomm.category==6 }">
-									<h3 class="product-name"><a href="hdd_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-								<c:if test="${recomm.category==7 }">
-									<h3 class="product-name"><a href="power_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
-								</c:if>
-									<h4 class="product-price">${recomm.price }</h4>
-									<!-- <div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div> -->
-									<div class="product-btns">
-										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+						<form method="post" action="../cart/cartAdd.do">
+						<input type="hidden" name="pno" value="${recomm.pno }">
+						<input type="hidden" name="pcate" value="${recomm.category }">
+						<input type="hidden" name="img" value="${recomm.poster }">
+							<div class="col-md-4 col-xs-6">
+								<div class="product">
+									<div class="product-img">
+										<img src="${recomm.poster }" alt="${recomm.pname }">
+									</div>
+									<div class="product-body">
+									<c:if test="${recomm.category==1 }">
+										<h3 class="product-name"><a href="cpu_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+									<c:if test="${recomm.category==2 }">
+										<h3 class="product-name"><a href="ram_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+									<c:if test="${recomm.category==3 }">
+										<h3 class="product-name"><a href="main_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+									<c:if test="${recomm.category==4 }">
+										<h3 class="product-name"><a href="vga_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+									<c:if test="${recomm.category==5 }">
+										<h3 class="product-name"><a href="ssd_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+									<c:if test="${recomm.category==6 }">
+										<h3 class="product-name"><a href="hdd_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+									<c:if test="${recomm.category==7 }">
+										<h3 class="product-name"><a href="power_detail.do?no=${recomm.pno }&category=${recomm.category}">${recomm.pname }</a></h3>
+									</c:if>
+										<h4 class="product-price">${recomm.price }</h4>
+										<!-- <div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div> -->
+										<div class="product-btns">
+											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+										</div>
+									</div>
+									<div class="add-to-cart">
+										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-								<div class="add-to-cart">
-									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-								</div>
 							</div>
-						</div>
+						</form>
 						</c:forEach>
 						<!-- /product -->
 					</div>
