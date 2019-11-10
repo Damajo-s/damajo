@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.damajo.dao.ContentsDAO;
 import com.damajo.service.CompareSevice;
 import com.damajo.service.ContentsService;
 import com.damajo.vo.CpuVO;
@@ -26,6 +27,8 @@ public class ContentsController {
 	private ContentsService service;
 	@Autowired
 	private CompareSevice service2;
+	@Autowired
+	private ContentsDAO dao;
 	
 	@RequestMapping("shop/find_list.do")
 	public String searchDataList(String page, String category, String searchThis, Model model) {
@@ -157,27 +160,17 @@ public class ContentsController {
 		if(page==null) {
 			page="1";
 		}
-		final int BLOCK=10;
 		int curpage=Integer.parseInt(page);
+		final int BLOCK=10;
+		List<CpuVO> cpuList=service.cpuContentsList(curpage);
 		int cpuTotalPage=service.cpuTotalPage();
-		int rowSize=18;
-		int start=(curpage*rowSize)-(rowSize-1);
-		int end=curpage*rowSize;
-		int startPage=((curpage-1)/BLOCK)*BLOCK+1;
-		int endPage=((curpage-1)/BLOCK)*BLOCK+BLOCK;
-		if (endPage > cpuTotalPage) {
-			endPage = cpuTotalPage;
-		}
-		Map map=new HashMap();
-		map.put("start", start);
-		map.put("end", end);
-
-		List<CpuVO> cpuList=service.cpuContentsList(map);
+		int cpuStartPage=service.cpuStartPage(curpage);
+		int cpuEndPage=service.cpuEndPage(curpage);
 		model.addAttribute("cpuList", cpuList);
-		model.addAttribute("curpage", curpage);
-		model.addAttribute("startPage", startPage);
-		model.addAttribute("endPage", endPage);
 		model.addAttribute("cpuTotalPage", cpuTotalPage);
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("startPage", cpuStartPage);
+		model.addAttribute("endPage", cpuEndPage);
 		model.addAttribute("BLOCK", BLOCK);
 		return "cpu_list";
 	}

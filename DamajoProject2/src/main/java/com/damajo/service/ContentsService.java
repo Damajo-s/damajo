@@ -1,5 +1,6 @@
 package com.damajo.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.damajo.dao.ContentsDAO;
 import com.damajo.dao.SearchDataDAO;
+import com.damajo.mvc.ContentsController;
 import com.damajo.vo.CpuVO;
 import com.damajo.vo.HddVO;
 import com.damajo.vo.MainVO;
@@ -23,6 +25,8 @@ public class ContentsService {
 	private ContentsDAO dao;
 	@Autowired
 	private SearchDataDAO searchDao;
+	@Autowired
+	private ContentsController contents;
 	
 	public List<ProductVO> searchAllDataList(Map map) {
 		return searchDao.searchAllDataList(map);
@@ -55,7 +59,20 @@ public class ContentsService {
 		}
 		return recommList;
 	}
-	public List<CpuVO> cpuContentsList(Map map) {
+	public List<CpuVO> cpuContentsList(int page) {
+		final int BLOCK=10;
+		int cpuTotalPage=dao.cpuTotalPage();
+		int rowSize=18;
+		int start=(page*rowSize)-(rowSize-1);
+		int end=page*rowSize;
+		int startPage=((page-1)/BLOCK)*BLOCK+1;
+		int endPage=((page-1)/BLOCK)*BLOCK+BLOCK;
+		if (endPage > cpuTotalPage) {
+			endPage = cpuTotalPage;
+		}
+		Map map=new HashMap();
+		map.put("start", start);
+		map.put("end", end);
 		List<CpuVO> cpuList=dao.cpuContentsList(map);
 		for(CpuVO vo:cpuList) {
 			String cpu_name=vo.getCpu_name();
@@ -65,6 +82,20 @@ public class ContentsService {
 			}
 		}
 		return cpuList;
+	}
+	public int cpuStartPage(int page) {
+		final int BLOCK=10;
+		int startPage=((page-1)/BLOCK)*BLOCK+1;
+		return startPage;
+	}
+	public int cpuEndPage(int page) {
+		final int BLOCK=10;
+		int cpuTotalPage=dao.cpuTotalPage();
+		int endPage=((page-1)/BLOCK)*BLOCK+BLOCK;
+		if (endPage > cpuTotalPage) {
+			endPage = cpuTotalPage;
+		}
+		return endPage;
 	}
 	public int cpuTotalPage() {
 		return dao.cpuTotalPage();
